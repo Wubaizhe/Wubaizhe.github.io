@@ -3,8 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://wubaizhe.github.io/post/%E9%9A%8F%E7%AC%942017-07-19/</loc>
+    <loc>https://wubaizhe.github.io/2017/07/%E9%9A%8F%E7%AC%942017-07-19/</loc>
     <lastmod>2017-07-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wubaizhe.github.io/archives/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
