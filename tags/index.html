@@ -77,6 +77,34 @@
   
 </header>
 
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
       <nav id="sidebar" data-behavior="2">
   <div class="sidebar-container">
     
@@ -203,16 +231,44 @@
 
             <section>
               
+                <a class="tag tag--primary tag--small" href="#acm-list" data-tag="acm">
+                  acm
+                </a>
+              
                 <a class="tag tag--primary tag--small" href="#algorithm-list" data-tag="algorithm">
                   algorithm
                 </a>
               
-                <a class="tag tag--primary tag--small" href="#diary-list" data-tag="diary">
-                  diary
+                <a class="tag tag--primary tag--small" href="#c%2fc%2b%2b-list" data-tag="c/c&#43;&#43;">
+                  c/c&#43;&#43;
+                </a>
+              
+                <a class="tag tag--primary tag--small" href="#math-list" data-tag="math">
+                  math
                 </a>
               
             </section>
             <section class="boxes">
+              
+                <div id="acm-list" class="archive box" data-tag="acm">
+                  <h4 class="archive-title">
+                    <a class="link-unstyled" href="acm">
+                      acm (1)
+                    </a>
+                  </h4>
+                  <ul class="archive-posts">
+                    
+                      <li class="archive-post">
+                        <a class="archive-post-title" href="https://wubaizhe.github.io/2017/08/%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8%E5%8F%8A%E8%AF%81%E6%98%8E---%E7%BA%BF%E6%80%A7%E7%AD%9B/">
+                          积性函数的性质及证明 &#43; 线性筛
+                        </a>
+                        <span class="archive-post-date"> - 
+  八月 6, 2017
+</span>
+                      </li>
+                    
+                  </ul>
+                </div>
               
                 <div id="algorithm-list" class="archive box" data-tag="algorithm">
                   <h4 class="archive-title">
@@ -223,31 +279,51 @@
                   <ul class="archive-posts">
                     
                       <li class="archive-post">
-                        <a class="archive-post-title" href="https://wubaizhe.github.io/2017/07/%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8%E5%8F%8A%E8%AF%81%E6%98%8E---%E7%BA%BF%E6%80%A7%E7%AD%9B/">
+                        <a class="archive-post-title" href="https://wubaizhe.github.io/2017/08/%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8%E5%8F%8A%E8%AF%81%E6%98%8E---%E7%BA%BF%E6%80%A7%E7%AD%9B/">
                           积性函数的性质及证明 &#43; 线性筛
                         </a>
                         <span class="archive-post-date"> - 
-  七月 19, 2017
+  八月 6, 2017
 </span>
                       </li>
                     
                   </ul>
                 </div>
               
-                <div id="diary-list" class="archive box" data-tag="diary">
+                <div id="c/c&#43;&#43;-list" class="archive box" data-tag="c/c&#43;&#43;">
                   <h4 class="archive-title">
-                    <a class="link-unstyled" href="diary">
-                      diary (1)
+                    <a class="link-unstyled" href="c/c&#43;&#43;">
+                      c/c&#43;&#43; (1)
                     </a>
                   </h4>
                   <ul class="archive-posts">
                     
                       <li class="archive-post">
-                        <a class="archive-post-title" href="https://wubaizhe.github.io/2017/07/diary-2017-07-19/">
-                          Diary-2017-07-19
+                        <a class="archive-post-title" href="https://wubaizhe.github.io/2017/08/%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8%E5%8F%8A%E8%AF%81%E6%98%8E---%E7%BA%BF%E6%80%A7%E7%AD%9B/">
+                          积性函数的性质及证明 &#43; 线性筛
                         </a>
                         <span class="archive-post-date"> - 
-  七月 19, 2017
+  八月 6, 2017
+</span>
+                      </li>
+                    
+                  </ul>
+                </div>
+              
+                <div id="math-list" class="archive box" data-tag="math">
+                  <h4 class="archive-title">
+                    <a class="link-unstyled" href="math">
+                      math (1)
+                    </a>
+                  </h4>
+                  <ul class="archive-posts">
+                    
+                      <li class="archive-post">
+                        <a class="archive-post-title" href="https://wubaizhe.github.io/2017/08/%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8%E5%8F%8A%E8%AF%81%E6%98%8E---%E7%BA%BF%E6%80%A7%E7%AD%9B/">
+                          积性函数的性质及证明 &#43; 线性筛
+                        </a>
+                        <span class="archive-post-date"> - 
+  八月 6, 2017
 </span>
                       </li>
                     

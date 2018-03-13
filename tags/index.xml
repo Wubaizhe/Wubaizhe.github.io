@@ -6,26 +6,44 @@
     <description>Recent content in Tags on Wubaizhe&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 19 Jul 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 06 Aug 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://wubaizhe.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Acm</title>
+      <link>https://wubaizhe.github.io/tags/acm/</link>
+      <pubDate>Sun, 06 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://wubaizhe.github.io/tags/acm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Algorithm</title>
       <link>https://wubaizhe.github.io/tags/algorithm/</link>
-      <pubDate>Wed, 19 Jul 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 06 Aug 2017 00:00:00 +0000</pubDate>
       
       <guid>https://wubaizhe.github.io/tags/algorithm/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Diary</title>
-      <link>https://wubaizhe.github.io/tags/diary/</link>
-      <pubDate>Wed, 19 Jul 2017 00:00:00 +0000</pubDate>
+      <title>C/C&#43;&#43;</title>
+      <link>https://wubaizhe.github.io/tags/c/c&#43;&#43;/</link>
+      <pubDate>Sun, 06 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://wubaizhe.github.io/tags/diary/</guid>
+      <guid>https://wubaizhe.github.io/tags/c/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Math</title>
+      <link>https://wubaizhe.github.io/tags/math/</link>
+      <pubDate>Sun, 06 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://wubaizhe.github.io/tags/math/</guid>
       <description></description>
     </item>
     

@@ -77,6 +77,34 @@
   
 </header>
 
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
       <nav id="sidebar" data-behavior="2">
   <div class="sidebar-container">
     
@@ -210,16 +238,16 @@
     
     <div class="postShorten-header">
       <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://wubaizhe.github.io/2017/07/%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8%E5%8F%8A%E8%AF%81%E6%98%8E---%E7%BA%BF%E6%80%A7%E7%AD%9B/">
+        <a class="link-unstyled" href="https://wubaizhe.github.io/2017/08/%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8%E5%8F%8A%E8%AF%81%E6%98%8E---%E7%BA%BF%E6%80%A7%E7%AD%9B/">
           积性函数的性质及证明 &#43; 线性筛
         </a>
       </h1>
       
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2017-07-19T00:00:00Z">
+      <time itemprop="datePublished" datetime="2017-08-06T00:00:00Z">
         
-  七月 19, 2017
+  八月 6, 2017
 
       </time>
     
@@ -243,19 +271,21 @@
 (2)对于一个大于$1$的正整数N，设$N = \prod p_i^{a_i}$，$p_i$为互不相同的素数。那么对于一个积性函数$f$来说，有： $$f(N) = f(\prod p_i^{a_i}) = \prod f(p_i^{a_i})$$ 若$f$完全积性，则$$f(N) = \prod f(p_i)^{a_i}$$
 证明：由积性和完全积性的定义易得。
 欧拉函数$\varphi$ 定义：对于正整数$n$，$\varphi(n)$是小于n的正整数中与n互质的个数。
-定义式：若$n = \prod p_i^{a_i}$ $$\varphi(n) = n \prod(1 - \frac{1}{p_i})$$
+定义式：若&rsquo;$n = \prod p_i^{a_i}$&rsquo; $$\varphi(n) = n \prod(1 - \frac{1}{p_i})$$
 性质： (1)欧拉函数为积性函数，而不是完全积性函数。
-证明：设两个互质的正整数$n,m$ 则： $\varphi(n) = n \prod(1 - \frac{1}{p_i})$ $\varphi(m) =m \prod(1 - \frac{1}{p&rsquo;_i})$ $\varphi(n)\varphi(m) = n \prod(1 - \frac{1}{p_i})m \prod(1 - \frac{1}{p&rsquo;_i}) = nm\prod(1 - \frac{1}{p_i})(1 - \frac{1}{p&rsquo;_i})$ 因$n,m$互质，故 $p_i,p&rsquo;_i$ 各不相同，且均为$nm$的质因子。
+证明：设两个互质的正整数$n,m$ 则：
+$\varphi(n) = n \prod(1 - \frac{1}{p_i})$
+$\varphi(m) =m \prod(1 - \frac{1}{p&rsquo;_i})$
       <p>
-        <a href="https://wubaizhe.github.io/2017/07/%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8%E5%8F%8A%E8%AF%81%E6%98%8E---%E7%BA%BF%E6%80%A7%E7%AD%9B/" class="postShorten-excerpt_link link">阅读全文</a>
+        <a href="https://wubaizhe.github.io/2017/08/%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8%E5%8F%8A%E8%AF%81%E6%98%8E---%E7%BA%BF%E6%80%A7%E7%AD%9B/" class="postShorten-excerpt_link link">阅读全文</a>
         
       </p>
     </div>
   </div>
   
-    <a href="https://wubaizhe.github.io/2017/07/%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8%E5%8F%8A%E8%AF%81%E6%98%8E---%E7%BA%BF%E6%80%A7%E7%AD%9B/">
+    <a href="https://wubaizhe.github.io/2017/08/%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8%E5%8F%8A%E8%AF%81%E6%98%8E---%E7%BA%BF%E6%80%A7%E7%AD%9B/">
       <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="http://pic1.win4000.com/wallpaper/d/5960776a380d1.jpg"/>
+        <img alt="" itemprop="image" src="http://pic1.win4000.com/wallpaper/f/590159dae4731.jpg"/>
       </div>
     </a>
   
@@ -326,58 +356,12 @@
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="https://wubaizhe.github.io/2017/07/diary-2017-07-19/">
-                <h3 class="media-heading">Diary-2017-07-19</h3>
-              </a>
-              <span class="media-meta">
-                <span class="media-date text-small">
-                  Jul 7, 2017
-                </span>
-              </span>
-              <div class="media-content hide-xs font-merryweather">晚上在集训室苦刷着树链剖分
-无意间抬头，看到了窗外的夕阳。
-忽然想起高三那年，在教学楼的天台上，也经常会有这种美如画的体验。
-那时虽然每天都很累，每天都埋头刷着各种各样的练习题，但心中却充满了希望和憧憬，无限期待着大学生活的来临。
-跟现在的我，憧憬着竞赛金牌的感觉——
-何其相像。
-现在终于如愿过上了梦想中的大学生活，但我却一天天加深着对高中的怀念。
-怀念那时的青春洋溢。
-怀念那时的无所畏惧。
-或许是来自对大学的失望吧。无论对人还对事，都跟年少时的想象有着太大的落差。
-也有对自己的失望吧。正如王小波所说：“人的一切痛苦，本质上都是对自己无能的愤怒。”差劲的人，做什么都很难如他所愿。
-仔细想想失望的原因，忽然又觉得可怕。
-读书时要跟人拼学习。
-毕业后要跟人拼就业。
-工作后要跟人拼名利。
-哪怕老了，可能也会跟别人拼儿女。
-总感觉一双无形的大手将我们一直往前推。
-身边的人都蛊惑着你往前跑，去跟同代人去拼命赛跑。
-告诉你前路的种种美好，但有关前路那些鲜血与白骨，只字不提。
-也没人在意你的想法。
-没人关心你到底想要怎样的生活。
-甚至你自己也开始淡漠，自己内心真正想要去追求的生活。
-你的瞳孔深处，不再有理想，只有赤裸裸的欲望。
-我们顺应着时代，模仿着周围人的行为，做着所有人都认为正确的事情。
-别无选择。
-我们活在这里， 还是活在别人的眼睛里？
-或许这一生，就在这不断地奔跑中逐渐老去。 然后有一天忽然发觉生命中最美好的事情，但是一切都已经来不及了吧。
-真是一个有趣的故事呢。
-忽然很感激这一路的奔跑能有尽头。 正如一句话所言： “死亡赋予生命意义，让你明白生命短暂，去日无多。”
-以上。</div>
-            </div>
-            <div style="clear:both;"></div>
-            <hr>
-          </div>
-        
-          <div class="media">
-            
-            <div class="media-body">
-              <a class="link-unstyled" href="https://wubaizhe.github.io/2017/07/%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8%E5%8F%8A%E8%AF%81%E6%98%8E---%E7%BA%BF%E6%80%A7%E7%AD%9B/">
+              <a class="link-unstyled" href="https://wubaizhe.github.io/2017/08/%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8%E5%8F%8A%E8%AF%81%E6%98%8E---%E7%BA%BF%E6%80%A7%E7%AD%9B/">
                 <h3 class="media-heading">积性函数的性质及证明 &#43; 线性筛</h3>
               </a>
               <span class="media-meta">
                 <span class="media-date text-small">
-                  Jul 7, 2017
+                  Aug 8, 2017
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">引言 在数论问题中，积性函数有着广泛的应用。 如在莫比乌斯反演问题中，函数变换之后如何快速维护前缀和往往是最重要也是最难的一步。如果维护的函数具有积性，那就可以尝试利用线性筛在$O(n)$的时限内完成预处理，从而达到优化复杂度的神奇作用。 本文的大部分相关性质及公式来自： $《线性筛与积性函数》- 贾志鹏$ 博主将试着证明其中的性质公式，严谨性可能欠缺，其目的主要是帮助记忆和理解。 因水平有限 若有错误之处还望指出qwq~
@@ -387,9 +371,11 @@
 (2)对于一个大于$1$的正整数N，设$N = \prod p_i^{a_i}$，$p_i$为互不相同的素数。那么对于一个积性函数$f$来说，有： $$f(N) = f(\prod p_i^{a_i}) = \prod f(p_i^{a_i})$$ 若$f$完全积性，则$$f(N) = \prod f(p_i)^{a_i}$$
 证明：由积性和完全积性的定义易得。
 欧拉函数$\varphi$ 定义：对于正整数$n$，$\varphi(n)$是小于n的正整数中与n互质的个数。
-定义式：若$n = \prod p_i^{a_i}$ $$\varphi(n) = n \prod(1 - \frac{1}{p_i})$$
+定义式：若&rsquo;$n = \prod p_i^{a_i}$&rsquo; $$\varphi(n) = n \prod(1 - \frac{1}{p_i})$$
 性质： (1)欧拉函数为积性函数，而不是完全积性函数。
-证明：设两个互质的正整数$n,m$ 则： $\varphi(n) = n \prod(1 - \frac{1}{p_i})$ $\varphi(m) =m \prod(1 - \frac{1}{p&rsquo;_i})$ $\varphi(n)\varphi(m) = n \prod(1 - \frac{1}{p_i})m \prod(1 - \frac{1}{p&rsquo;_i}) = nm\prod(1 - \frac{1}{p_i})(1 - \frac{1}{p&rsquo;_i})$ 因$n,m$互质，故 $p_i,p&rsquo;_i$ 各不相同，且均为$nm$的质因子。</div>
+证明：设两个互质的正整数$n,m$ 则：
+$\varphi(n) = n \prod(1 - \frac{1}{p_i})$
+$\varphi(m) =m \prod(1 - \frac{1}{p&rsquo;_i})$</div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -402,7 +388,7 @@
          data-message-zero=""
          data-message-one=""
          data-message-other="">
-         2 posts found
+         1 posts found
       </p>
     </div>
   </div>
