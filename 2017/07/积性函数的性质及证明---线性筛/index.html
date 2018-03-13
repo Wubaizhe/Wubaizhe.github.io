@@ -1,0 +1,955 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+
+  
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.32 with theme Tranquilpeak 0.4.3-BETA">
+    <title>积性函数的性质及证明 &#43; 线性筛</title>
+    <meta name="author" content="Wubaizhe">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="https://wubaizhe.github.io/favicon.png">
+    
+
+    
+    <meta name="description" content="引言 在数论问题中，积性函数有着广泛的应用。 如在莫比乌斯反演问题中，函数变换之后如何快速维护前缀和往往是最重要也是最难的一步。如果维护的函数具有积性，那就可以尝试利用线性筛在$O(n)$的时限内完成预处理，从而达到优化复杂度的神奇作用。 本文的大部分相关性质及公式来自： $《线性筛与积性函数》- 贾志鹏$ 博主将试着证明其中的性质公式，严谨性可能欠缺，其目的主要是帮助记忆和理解。 因水平有限 若有错误之处还望指出qwq~
+积性函数的定义和性质 定义： 对于一个定义域为$N^{&#43;}$的函数$f$，对于任意两个互质的正整数$a,b$，均满足$f(ab)=f(a)f(b)$，则称函数$f$为积性函数 若对于任意整数$a,b$都有$f(ab) = f(a)f(b)$，则函数$f$被称为完全积性函数。
+性质： (1)对于任意积性函数$f$，均有$f(1) = 1$
+证明：因$1$与任何数都互质，假设存在一个正整数$a$满足$f(a)!=0$，故由定义：$$f(a) = f(1*a) = f(1)f(a)$$ 因$f(a)$不为$0$，故等号两端同时消去一个$f(a)$，得： $$f(1) = 1 $$ 证毕。
+(2)对于一个大于$1$的正整数N，设$N = \prod p_i^{a_i}$，$p_i$为互不相同的素数。那么对于一个积性函数$f$来说，有： $$f(N) = f(\prod p_i^{a_i}) = \prod f(p_i^{a_i})$$ 若$f$完全积性，则$$f(N) = \prod f(p_i)^{a_i}$$
+证明：由积性和完全积性的定义易得。
+欧拉函数$\varphi$ 定义：对于正整数$n$，$\varphi(n)$是小于n的正整数中与n互质的个数。
+定义式：若$n = \prod p_i^{a_i}$ $$\varphi(n) = n \prod(1 - \frac{1}{p_i})$$
+性质： (1)欧拉函数为积性函数，而不是完全积性函数。
+证明：设两个互质的正整数$n,m$ 则： $\varphi(n) = n \prod(1 - \frac{1}{p_i})$ $\varphi(m) =m \prod(1 - \frac{1}{p&rsquo;_i})$ $\varphi(n)\varphi(m) = n \prod(1 - \frac{1}{p_i})m \prod(1 - \frac{1}{p&rsquo;_i}) = nm\prod(1 - \frac{1}{p_i})(1 - \frac{1}{p&rsquo;_i})$ 因$n,m$互质，故 $p_i,p&rsquo;_i$ 各不相同，且均为$nm$的质因子。">
+    <meta property="og:description" content="引言 在数论问题中，积性函数有着广泛的应用。 如在莫比乌斯反演问题中，函数变换之后如何快速维护前缀和往往是最重要也是最难的一步。如果维护的函数具有积性，那就可以尝试利用线性筛在$O(n)$的时限内完成预处理，从而达到优化复杂度的神奇作用。 本文的大部分相关性质及公式来自： $《线性筛与积性函数》- 贾志鹏$ 博主将试着证明其中的性质公式，严谨性可能欠缺，其目的主要是帮助记忆和理解。 因水平有限 若有错误之处还望指出qwq~
+积性函数的定义和性质 定义： 对于一个定义域为$N^{&#43;}$的函数$f$，对于任意两个互质的正整数$a,b$，均满足$f(ab)=f(a)f(b)$，则称函数$f$为积性函数 若对于任意整数$a,b$都有$f(ab) = f(a)f(b)$，则函数$f$被称为完全积性函数。
+性质： (1)对于任意积性函数$f$，均有$f(1) = 1$
+证明：因$1$与任何数都互质，假设存在一个正整数$a$满足$f(a)!=0$，故由定义：$$f(a) = f(1*a) = f(1)f(a)$$ 因$f(a)$不为$0$，故等号两端同时消去一个$f(a)$，得： $$f(1) = 1 $$ 证毕。
+(2)对于一个大于$1$的正整数N，设$N = \prod p_i^{a_i}$，$p_i$为互不相同的素数。那么对于一个积性函数$f$来说，有： $$f(N) = f(\prod p_i^{a_i}) = \prod f(p_i^{a_i})$$ 若$f$完全积性，则$$f(N) = \prod f(p_i)^{a_i}$$
+证明：由积性和完全积性的定义易得。
+欧拉函数$\varphi$ 定义：对于正整数$n$，$\varphi(n)$是小于n的正整数中与n互质的个数。
+定义式：若$n = \prod p_i^{a_i}$ $$\varphi(n) = n \prod(1 - \frac{1}{p_i})$$
+性质： (1)欧拉函数为积性函数，而不是完全积性函数。
+证明：设两个互质的正整数$n,m$ 则： $\varphi(n) = n \prod(1 - \frac{1}{p_i})$ $\varphi(m) =m \prod(1 - \frac{1}{p&rsquo;_i})$ $\varphi(n)\varphi(m) = n \prod(1 - \frac{1}{p_i})m \prod(1 - \frac{1}{p&rsquo;_i}) = nm\prod(1 - \frac{1}{p_i})(1 - \frac{1}{p&rsquo;_i})$ 因$n,m$互质，故 $p_i,p&rsquo;_i$ 各不相同，且均为$nm$的质因子。">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="积性函数的性质及证明 &#43; 线性筛">
+    <meta property="og:url" content="/2017/07/%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8%E5%8F%8A%E8%AF%81%E6%98%8E---%E7%BA%BF%E6%80%A7%E7%AD%9B/">
+    <meta property="og:site_name" content="Wubaizhe&#39;s Blog">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Wubaizhe&#39;s Blog">
+    <meta name="twitter:description" content="引言 在数论问题中，积性函数有着广泛的应用。 如在莫比乌斯反演问题中，函数变换之后如何快速维护前缀和往往是最重要也是最难的一步。如果维护的函数具有积性，那就可以尝试利用线性筛在$O(n)$的时限内完成预处理，从而达到优化复杂度的神奇作用。 本文的大部分相关性质及公式来自： $《线性筛与积性函数》- 贾志鹏$ 博主将试着证明其中的性质公式，严谨性可能欠缺，其目的主要是帮助记忆和理解。 因水平有限 若有错误之处还望指出qwq~
+积性函数的定义和性质 定义： 对于一个定义域为$N^{&#43;}$的函数$f$，对于任意两个互质的正整数$a,b$，均满足$f(ab)=f(a)f(b)$，则称函数$f$为积性函数 若对于任意整数$a,b$都有$f(ab) = f(a)f(b)$，则函数$f$被称为完全积性函数。
+性质： (1)对于任意积性函数$f$，均有$f(1) = 1$
+证明：因$1$与任何数都互质，假设存在一个正整数$a$满足$f(a)!=0$，故由定义：$$f(a) = f(1*a) = f(1)f(a)$$ 因$f(a)$不为$0$，故等号两端同时消去一个$f(a)$，得： $$f(1) = 1 $$ 证毕。
+(2)对于一个大于$1$的正整数N，设$N = \prod p_i^{a_i}$，$p_i$为互不相同的素数。那么对于一个积性函数$f$来说，有： $$f(N) = f(\prod p_i^{a_i}) = \prod f(p_i^{a_i})$$ 若$f$完全积性，则$$f(N) = \prod f(p_i)^{a_i}$$
+证明：由积性和完全积性的定义易得。
+欧拉函数$\varphi$ 定义：对于正整数$n$，$\varphi(n)$是小于n的正整数中与n互质的个数。
+定义式：若$n = \prod p_i^{a_i}$ $$\varphi(n) = n \prod(1 - \frac{1}{p_i})$$
+性质： (1)欧拉函数为积性函数，而不是完全积性函数。
+证明：设两个互质的正整数$n,m$ 则： $\varphi(n) = n \prod(1 - \frac{1}{p_i})$ $\varphi(m) =m \prod(1 - \frac{1}{p&rsquo;_i})$ $\varphi(n)\varphi(m) = n \prod(1 - \frac{1}{p_i})m \prod(1 - \frac{1}{p&rsquo;_i}) = nm\prod(1 - \frac{1}{p_i})(1 - \frac{1}{p&rsquo;_i})$ 因$n,m$互质，故 $p_i,p&rsquo;_i$ 各不相同，且均为$nm$的质因子。">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="https://s1.ax1x.com/2018/03/12/9fsrlt.jpg">
+    
+
+    
+      <meta property="og:image" content="http://pic1.win4000.com/wallpaper/d/5960776a380d1.jpg">
+    
+    
+      <meta property="og:image" content="http://pic1.win4000.com/wallpaper/d/5960776a380d1.jpg">
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://wubaizhe.github.io/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://wubaizhe.github.io/">Wubaizhe&#39;s Blog</a>
+  </div>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://wubaizhe.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://s1.ax1x.com/2018/03/12/9fsrlt.jpg" alt="作者的图片" />
+        </a>
+        <h4 class="sidebar-profile-name">Wubaizhe</h4>
+        
+          <h5 class="sidebar-profile-bio">Never quit trying :)</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wubaizhe.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">首页</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wubaizhe.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">分类</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wubaizhe.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">标签</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wubaizhe.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">关于</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/Wubaizhe" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://blog.csdn.net/wubaizhe" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bold"></i>
+      
+      <span class="sidebar-button-desc">CSDN</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.zhihu.com/people/deng-xin-hao-95/activities" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-quora"></i>
+      
+      <span class="sidebar-button-desc">知乎</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://s1.ax1x.com/2018/03/12/9fsHmT.jpg" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-weixin"></i>
+      
+      <span class="sidebar-button-desc">微信</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('http://pic1.win4000.com/wallpaper/d/5960776a380d1.jpg')"
+       data-behavior="5">
+    
+      <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      积性函数的性质及证明 &#43; 线性筛
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2017-07-19T00:00:00Z">
+        
+  七月 19, 2017
+
+      </time>
+    
+    
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://wubaizhe.github.io/categories/algorithm">algorithm</a>
+    
+  
+
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="5"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              
+
+<h3 id="引言">引言</h3>
+
+<p>在数论问题中，积性函数有着广泛的应用。
+如在莫比乌斯反演问题中，函数变换之后如何快速维护前缀和往往是最重要也是最难的一步。如果维护的函数具有积性，那就可以尝试利用线性筛在$O(n)$的时限内完成预处理，从而达到优化复杂度的神奇作用。
+本文的大部分相关性质及公式来自：
+$《线性筛与积性函数》- 贾志鹏$
+博主将试着证明其中的性质公式，严谨性可能欠缺，其目的主要是帮助<strong>记忆和理解</strong>。
+因水平有限 若有错误之处还望指出qwq~</p>
+
+<hr />
+
+<h3 id="积性函数的定义和性质">积性函数的定义和性质</h3>
+
+<p>定义： 对于一个定义域为$N^{+}$的函数$f$，对于任意两个互质的正整数$a,b$，均满足$f(ab)=f(a)f(b)$，则称函数$f$为积性函数
+若对于任意整数$a,b$都有$f(ab) = f(a)f(b)$，则函数$f$被称为完全积性函数。</p>
+
+<p><strong>性质</strong>：
+<strong>(1)对于任意积性函数$f$，</strong>均有$f(1) = 1$</p>
+
+<p>证明：因$1$与任何数都互质，假设存在一个正整数$a$满足$f(a)!=0$，故由定义：$$f(a) = f(1*a) = f(1)f(a)$$
+因$f(a)$不为$0$，故等号两端同时消去一个$f(a)$，得：
+$$f(1) = 1 $$
+证毕。</p>
+
+<p><strong>(2)对于一个大于$1$的正整数N，</strong>设$N = \prod p_i^{a_i}$，$p_i$为互不相同的素数。那么对于一个积性函数$f$来说，有：
+$$f(N) = f(\prod p_i^{a_i}) = \prod f(p_i^{a_i})$$
+若$f$完全积性，则$$f(N) = \prod f(p_i)^{a_i}$$</p>
+
+<p>证明：由积性和完全积性的定义易得。</p>
+
+<hr />
+
+<h3 id="欧拉函数-varphi">欧拉函数$\varphi$</h3>
+
+<p>定义：对于正整数$n$，$\varphi(n)$是小于n的正整数中与n互质的个数。</p>
+
+<p>定义式：若$n = \prod p_i^{a_i}$
+$$\varphi(n) = n \prod(1 - \frac{1}{p_i})$$</p>
+
+<p><strong>性质</strong>：
+<strong>(1)欧拉函数为积性函数，</strong>而不是完全积性函数。</p>
+
+<p>证明：设两个互质的正整数$n,m$
+则：
+$\varphi(n) = n \prod(1 - \frac{1}{p_i})$
+$\varphi(m) =m \prod(1 - \frac{1}{p&rsquo;_i})$
+$\varphi(n)\varphi(m) = n \prod(1 - \frac{1}{p_i})m \prod(1 - \frac{1}{p&rsquo;_i}) = nm\prod(1 - \frac{1}{p_i})(1 - \frac{1}{p&rsquo;_i})$
+因$n,m$互质，故 $p_i,p&rsquo;_i$ 各不相同，且均为$nm$的质因子。</p>
+
+<p>故推出：
+$\varphi(nm) = \varphi(n)\varphi(m)$
+积性函数性质得证。
+而完全积性由上证明可见，$n,m$互质是一个严格且不可或缺的条件，可见，欧拉函数不是完全积性函数。</p>
+
+<p><strong>(2)假设存在一个素数$p$和一个正整数$k$，</strong>则：$\varphi(p^k) = p^k - p^{k-1}$
+证明：</p>
+
+<p>可以从反面来思考这件事，在小于$p^k$且与其<strong>不互质</strong>的数有以下形式：
+$p*1,p<em>2,&hellip;p</em>(p^{k-1} - 1)$(因为p是唯一的质因子)
+故由定义：$\varphi(p^k) = $总数 - 不互质的数 = $(p^k-1) - (p^{k-1} -1) = p^k - p^{k-1}$
+证毕。</p>
+
+<p>另外还可以从定义式出发去理解这个结论。
+$$\varphi(p^k) = p^k(1-\frac{1}{p}) = p^k - p^{k-1}$$</p>
+
+<p><strong>(3)欧拉定理：若有互质的两个正整数$a,n$，</strong>则有$a^{\varphi(n)} \equiv 1(mod \ n)$
+此定理常用来求解逆元。</p>
+
+<p>证明：（可参考<a href="https://baike.baidu.com/item/%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86/891345?fr=aladdin#2">百度百科</a>）</p>
+
+<p><strong>(4)假设存在一个正整数n</strong>，则：$\sum_{d|n} \varphi(d) = n$</p>
+
+<p>证明：
+先考虑特殊情况: $n = 1$时 $\varphi(1) = 1$ 显然成立
+对于一般情况，$n$一定可以质因数分解为：$n = p_1^{a_1}p_2^{a_2}&hellip;p_k^{a_k}$</p>
+
+<p>当n只含一个质因子时，即$n = p^a$
+有：
+$$\sum<em>{d|n}\varphi(d) = \sum</em>{i=0}^{a} \varphi(p^i) = 1 + \sum<em>{i=1}^{a}( p^i - p^{i-1}) = 1 + \sum</em>{i=1}^a(-p^{i-1} + p^i)$$</p>
+
+<p>显然，将求和式展开，会有一些项可以合并。
+比如$a = 3$时，原式等于：$$1 - p^0 + p^1- p^1 + p^2 - p^2 + p^3 = p^3 $$
+可见：
+$$\sum<em>{d|n}\varphi(d) = \sum</em>{i=0}^a \varphi(p^i) = p^a = n$$</p>
+
+<p>当$n$含多个质因子时，即$n = p_1^{a_1}p_2^{a_2}&hellip;p_k^{a<em>k}$
+利用积性函数的性质有
+$$\sum</em>{d|n}\varphi(d) = \sum_{i=0}^{a_1} \varphi(p<em>1^i)\sum</em>{i=0}^{a_2} \phi(p<em>2^i) &hellip;&hellip; \sum</em>{i=0}^{a_k} \varphi(p_k^i)$$</p>
+
+<p>同上易得：
+$$原式=p_1^{a_1}p_2^{a_2} &hellip;&hellip; p_k^{a_k}  = n$$
+证毕。</p>
+
+<p><strong>(5)当$n&gt;1$，</strong>小于$n$且与$n$互质的数之和为$$sum = \frac{n\varphi(n)}{2}$$</p>
+
+<p>证明：在数论求$gcd$中，有两个非常出名的公式，基于这两个公式，出现了两种快速求$gcd$的方法，更相减损法和辗转相除法。这两个公式是：(假设有两个正整数$a,b$且满足 $a&gt;b$)
+$gcd(a,b) = gcd(a,a-b)$ 和 $gcd(a,b) = gcd(b,a\%b)$</p>
+
+<p>由第一个公式，知：
+若$m$与$n$互质，则$n-m$也一定与$n$互质。
+这样就能将保证当$n&gt;2$时，$\varphi(n)$一定为偶数，且可两两配对，每一对的和都是$n$。
+故$$sum = n\frac{\varphi(n)}{2} $$
+当$n=2$时，代入验证知，此公式依然满足。</p>
+
+<p>证毕。</p>
+
+<p>例题：<a href="http://acm.hdu.edu.cn/showproblem.php?pid=3501">HDU 3501</a>
+题意：求小于n且与n不互质的数之和。
+思路：直接利用公式求反面，总数 - 反面数即为答案。
+代码：</p>
+
+<pre><code class="language-cpp">#include&lt;cstdio&gt;
+#include&lt;cstdlib&gt;
+#include&lt;cstring&gt;
+#include&lt;cmath&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+typedef long long ll;
+
+const int mod = 1000000007;
+const int A = 1e5 + 10;
+bool vis[A];
+int pri[A],tot;
+
+void init(){
+    tot = 0;
+    vis[0] = vis[1] = 1;
+    for(int i=2 ;i&lt;A ;i++){
+        if(vis[i] == 0) pri[++tot] = i;
+        for(int j=1 ;j&lt;=tot&amp;&amp;pri[j]*i&lt;A ;j++){
+            vis[pri[j]*i] = 1;
+            if(i%pri[j] == 0) break;
+        }
+    }
+}
+
+int main(){
+    init();
+    ll n;
+    while(~scanf(&quot;%I64d&quot;,&amp;n) &amp;&amp; n){
+        ll ans = (n*(n-1)/2)%mod;
+        ll res = n,m = n;
+        for(int i=1 ;i&lt;=tot&amp;&amp;pri[i]*pri[i]&lt;=n ;i++){
+            if(n%pri[i] == 0){
+                res = res/pri[i]*(pri[i]-1);
+                while(n%pri[i] == 0) n/=pri[i];
+            }
+        }
+        if(n!=1) res = res/n*(n-1);
+        ans = ans - res*m/2;
+        printf(&quot;%I64d\n&quot;,(ans%mod+mod)%mod);
+    }
+    return 0;
+}
+</code></pre>
+
+<hr />
+
+<h3 id="莫比乌斯函数-mu">莫比乌斯函数$\mu$</h3>
+
+<p>定义式：</p>
+
+<p>$$ \mu(n) = \begin{cases}
+        1 &amp; (n=1)<br />
+        (-1)^k&amp;(n=p_1p_2&hellip;p_k)<br />
+        0&amp;(else)<br />
+    \end{cases}$$</p>
+
+<p><strong>性质：</strong>
+<strong>(1)对于任意正整数n，有：</strong>
+$$\sum_{d|n} \mu(d) = [n == 1]$$</p>
+
+<p>该性质在莫比乌斯反演中有着极大应用。</p>
+
+<p>证明：
+当$n = 1$时 等式显然成立。
+当$n&gt;1$时，令$n = p_1^{a_1}p_2^{a_2}p_3^{a_3} &hellip; p_k^{a<em>k}$
+考虑莫比乌斯函数取值的特殊性，若函数值不为$0$，则d只含每个质因子的$0$次或$1$次项。
+故$$\sum</em>{d|n}\mu(d) = C_k^0 - C_k^1 + C_k^2 &hellip;+(-1)^kC<em>k^k = \sum</em>{i=0}^k(-1)^iC_k^i$$</p>
+
+<p>由二项式定理，原式等于：
+$$\sum_{i=0}^k(-1)^iC<em>k^i = \sum</em>{i=0}^kC_k^i(-1)^i(1)^{k-i} = (-1 + 1)^k = 0$$</p>
+
+<p>综上所述：
+当$n=1$原式为$1$
+当$n&gt;1$原式为$0$
+证毕。</p>
+
+<p><strong>(2)对于任意正整数$n$，</strong>有：
+$$\sum_{d|n}\frac{\mu(d)}{d} = \frac{\varphi(n)}{n}$$</p>
+
+<p>证明：
+令$f(n)$满足：$f(n) = \sum_{d|n}\varphi(d)$</p>
+
+<p>由欧拉函数的性质$(4)$：$f(n) = n$
+又由莫比乌斯反演:$$\varphi(n) = \sum<em>{d|n}\mu(d)f(\frac{n}{d})$$
+推出：
+$$\varphi(n) = \sum</em>{d|n}n\frac{\mu(d)}{d} = n \sum_{d|n} \frac{\mu(d)}{d}$$</p>
+
+<p>等式两边同除以n，得：
+$$\frac{\varphi(n)}{n} = \sum_{d|n}\frac{\mu(d)}{d} $$
+证毕。</p>
+
+<hr />
+
+<h3 id="线性筛求积性函数">线性筛求积性函数</h3>
+
+<h4 id="欧拉函数-varphi-1">欧拉函数$\varphi$</h4>
+
+<p>考虑将所有数分成三类：
+(1)质数 $\varphi(i) = i - 1$</p>
+
+<p>(2)最小质因子指数为1：$\varphi(i*p) = \varphi(i) \varphi(p)$</p>
+
+<p>(3)最小质因子指数大于1：$\varphi(i<em>p) = p</em>\varphi(i)$（可从欧拉函数的定义式出发）</p>
+
+<p>代码：</p>
+
+<pre><code class="language-cpp">void init(){
+    tot = 0;phi[1] = 1;
+    for(int i=2 ;i&lt;A ;i++){
+        if(!vis[i]){pri[++tot] = i;phi[i] = i-1;}
+        for(int j=1 ;j&lt;=tot&amp;&amp;i*pri[j]&lt;A ;j++){
+            vis[i*pri[j]] = 1;
+            if(i%pri[j] == 0){
+                phi[i*pri[j]] = pri[j] * phi[i];break;
+            }
+            phi[i*pri[j]] = phi[pri[j]] * phi[i];
+        }
+    }
+}
+</code></pre>
+
+<h4 id="莫比乌斯函数-mu-1">莫比乌斯函数$\mu$</h4>
+
+<p>因为线性筛每次都是用最小质因子去筛每一个数。
+故也可分为三类：
+(1)$i$为质数：$\mu[i] = -1$</p>
+
+<p>(2)$i$已经包含最小质因子$p$：$\mu[i*p] = 0$</p>
+
+<p>(3)$i$不包含最小质因子$p$   ：$\mu[i*p] = -\mu[i]$</p>
+
+<p>代码：</p>
+
+<pre><code class="language-cpp">void init(){
+    tot = 0;mu[1] = 1;
+    for(int i=2 ;i&lt;A ;i++){
+        if(!vis[i]){pri[++tot] = i;mu[i] = -1;}
+        for(int j=1 ;j&lt;=tot&amp;&amp;i*pri[j]&lt;A ;j++){
+            vis[i*pri[j]] = 1;
+            if(i%pri[j] == 0){mu[i*pri[j]] = 0;break;}
+            mu[i*pri[j]] = -mu[i];
+        }
+    }
+}
+</code></pre>
+
+<p>以下为其他常见积性函数的线性筛：</p>
+
+<h4 id="约数个数函数-d">约数个数函数$d$</h4>
+
+<p>仍然分三类讨论，此时我们还需要维护每一个数$i$最小质因子的指数$cnt[i]$
+(1)$i$为质数：$d[i] = 2 $ $cnt[i] = 1$</p>
+
+<p>(2)$i$已经包含最小质因子$p$：
+$d[i<em>p] = d[i]/(cnt[i]+1)</em>(cnt[i]+2) $（由约数个数公式易得）
+$cnt[i*p] = cnt[i] + 1$</p>
+
+<p>(3)$i$不包含最小质因子$p$   ：
+$d[i<em>p] = d[i]</em>(cnt[p] + 1) = d[i]*2 $
+$ cnt[i*p] = 1$</p>
+
+<p>代码：</p>
+
+<pre><code class="language-cpp">void init(){
+    tot = 0;d[1] = 1;
+    for(int i=2 ;i&lt;A ;i++){
+        if(!vis[i]){pri[++tot] = i;d[i] = 2;cnt[i] = 1;}
+        for(int j=1 ;j&lt;=tot&amp;&amp;i*pri[j]&lt;A ;j++){
+            vis[i*pri[j]] = 1;
+            if(i%pri[j] == 0){
+                d[i*pri[j]] = d[i]/(cnt[i]+1)*(cnt[i]+2);
+                cnt[i*pri[j]] = cnt[i] + 1;
+                break;
+            }
+            d[i*pri[j]] = d[i]&lt;&lt;1;
+            cnt[i*pri[j]] = 1;
+        }
+    }
+}
+</code></pre>
+
+<h4 id="约数和函数-sigma">约数和函数$\sigma$</h4>
+
+<p>假设一个正整数$n$分解质因子之后为：
+$n = p_1^{a_1}p_2^{a_2}p_3^{a_3} &hellip; p_k^{a<em>k}$
+则
+$$\sigma(n) = \sum</em>{i=0}^{a_1}p<em>1^i \sum</em>{i=0}^{a_2}p<em>2^i&hellip;.. \sum</em>{i=0}^{a_k}p_k^i$$</p>
+
+<p>假设最小质因子为$p<em>1$故线性筛中每一个被筛到的数比起原来的数，差别只在于：$\sum</em>{i=0}^{a_1} p_1^i$</p>
+
+<p>故我们可以维护两个量：
+$sum[i]:i$的最小质因子$p<em>1$贡献的和：$\sum</em>{i=0}^{a_1} p_1^i$
+$Mx[i]:$ $p_1^{a_1}$$a_1$ 为最小质因子的最高次数。</p>
+
+<p>然后又可以把所有数分成三类：
+(1)$i$为质数：$\sigma[i] = i+1 $ $sum[i] = i+1$ $Mx[i] = i$</p>
+
+<p>(2)$i$已经包含最小质因子$p$：$\sigma[i<em>p] = \sigma[i]/sum[i]</em>(sum[i]+Mx[i]*p) $
+$sum[i*p] = sum[i] + Mx[i]*p$
+$Mx[i*p] = Mx[i]*p$</p>
+
+<p>(3)$i$不包含最小质因子$p$   ：$\sigma[i<em>p] = \sigma[i]</em>\sigma[p]= \sigma[i]*(p+1) $
+$ sum[i*p] = p+1$
+$Mx[i*p] = p$</p>
+
+<p>代码：</p>
+
+<pre><code class="language-cpp">void init(){
+    tot = 0;Sigma[1] = 1;
+    for(int i=2 ;i&lt;A ;i++){
+        if(!vis[i]){
+            pri[++tot] = i;
+            Sigma[i] = 1 + i;
+            sum[i] = 1 + i;
+            Mx[i] = i;
+        }
+        for(int j=1 ;j&lt;=tot&amp;&amp;i*pri[j]&lt;A ;j++){
+            vis[i*pri[j]] = 1;
+            if(i%pri[j] == 0){
+                Sigma[i*pri[j]] = Sigma[i]/sum[i]*(sum[i] + Mx[i]*pri[j]);
+                sum[i*pri[j]] = sum[i] + Mx[i]*pri[j];
+                Mx[i*pri[j]] = Mx[i]*pri[j];
+                break;
+            }
+            Sigma[i*pri[j]] = Sigma[i]*(pri[j] + 1);
+            sum[i*pri[j]] = pri[j] + 1;
+            Mx[i*pri[j]] = pri[j];
+        }
+    }
+}
+</code></pre>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://wubaizhe.github.io/tags/algorithm/">algorithm</a>
+
+                  </div>
+                
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://wubaizhe.github.io/2017/07/diary-2017-07-19/" data-tooltip="Diary-2017-07-19">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2018 Wubaizhe. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://wubaizhe.github.io/2017/07/diary-2017-07-19/" data-tooltip="Diary-2017-07-19">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://s1.ax1x.com/2018/03/12/9fsrlt.jpg" alt="作者的图片" />
+    
+    <h4 id="about-card-name">Wubaizhe</h4>
+    
+      <div id="about-card-bio">Never quit trying :)</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        HDU本科在读
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        杭州
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="搜索" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center"></div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://wubaizhe.github.io/2017/07/diary-2017-07-19/">
+                <h3 class="media-heading">Diary-2017-07-19</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jul 7, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">晚上在集训室苦刷着树链剖分
+无意间抬头，看到了窗外的夕阳。
+忽然想起高三那年，在教学楼的天台上，也经常会有这种美如画的体验。
+那时虽然每天都很累，每天都埋头刷着各种各样的练习题，但心中却充满了希望和憧憬，无限期待着大学生活的来临。
+跟现在的我，憧憬着竞赛金牌的感觉——
+何其相像。
+现在终于如愿过上了梦想中的大学生活，但我却一天天加深着对高中的怀念。
+怀念那时的青春洋溢。
+怀念那时的无所畏惧。
+或许是来自对大学的失望吧。无论对人还对事，都跟年少时的想象有着太大的落差。
+也有对自己的失望吧。正如王小波所说：“人的一切痛苦，本质上都是对自己无能的愤怒。”差劲的人，做什么都很难如他所愿。
+仔细想想失望的原因，忽然又觉得可怕。
+读书时要跟人拼学习。
+毕业后要跟人拼就业。
+工作后要跟人拼名利。
+哪怕老了，可能也会跟别人拼儿女。
+总感觉一双无形的大手将我们一直往前推。
+身边的人都蛊惑着你往前跑，去跟同代人去拼命赛跑。
+告诉你前路的种种美好，但有关前路那些鲜血与白骨，只字不提。
+也没人在意你的想法。
+没人关心你到底想要怎样的生活。
+甚至你自己也开始淡漠，自己内心真正想要去追求的生活。
+你的瞳孔深处，不再有理想，只有赤裸裸的欲望。
+我们顺应着时代，模仿着周围人的行为，做着所有人都认为正确的事情。
+别无选择。
+我们活在这里， 还是活在别人的眼睛里？
+或许这一生，就在这不断地奔跑中逐渐老去。 然后有一天忽然发觉生命中最美好的事情，但是一切都已经来不及了吧。
+真是一个有趣的故事呢。
+忽然很感激这一路的奔跑能有尽头。 正如一句话所言： “死亡赋予生命意义，让你明白生命短暂，去日无多。”
+以上。</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://wubaizhe.github.io/2017/07/%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8%E5%8F%8A%E8%AF%81%E6%98%8E---%E7%BA%BF%E6%80%A7%E7%AD%9B/">
+                <h3 class="media-heading">积性函数的性质及证明 &#43; 线性筛</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jul 7, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">引言 在数论问题中，积性函数有着广泛的应用。 如在莫比乌斯反演问题中，函数变换之后如何快速维护前缀和往往是最重要也是最难的一步。如果维护的函数具有积性，那就可以尝试利用线性筛在$O(n)$的时限内完成预处理，从而达到优化复杂度的神奇作用。 本文的大部分相关性质及公式来自： $《线性筛与积性函数》- 贾志鹏$ 博主将试着证明其中的性质公式，严谨性可能欠缺，其目的主要是帮助记忆和理解。 因水平有限 若有错误之处还望指出qwq~
+积性函数的定义和性质 定义： 对于一个定义域为$N^{+}$的函数$f$，对于任意两个互质的正整数$a,b$，均满足$f(ab)=f(a)f(b)$，则称函数$f$为积性函数 若对于任意整数$a,b$都有$f(ab) = f(a)f(b)$，则函数$f$被称为完全积性函数。
+性质： (1)对于任意积性函数$f$，均有$f(1) = 1$
+证明：因$1$与任何数都互质，假设存在一个正整数$a$满足$f(a)!=0$，故由定义：$$f(a) = f(1*a) = f(1)f(a)$$ 因$f(a)$不为$0$，故等号两端同时消去一个$f(a)$，得： $$f(1) = 1 $$ 证毕。
+(2)对于一个大于$1$的正整数N，设$N = \prod p_i^{a_i}$，$p_i$为互不相同的素数。那么对于一个积性函数$f$来说，有： $$f(N) = f(\prod p_i^{a_i}) = \prod f(p_i^{a_i})$$ 若$f$完全积性，则$$f(N) = \prod f(p_i)^{a_i}$$
+证明：由积性和完全积性的定义易得。
+欧拉函数$\varphi$ 定义：对于正整数$n$，$\varphi(n)$是小于n的正整数中与n互质的个数。
+定义式：若$n = \prod p_i^{a_i}$ $$\varphi(n) = n \prod(1 - \frac{1}{p_i})$$
+性质： (1)欧拉函数为积性函数，而不是完全积性函数。
+证明：设两个互质的正整数$n,m$ 则： $\varphi(n) = n \prod(1 - \frac{1}{p_i})$ $\varphi(m) =m \prod(1 - \frac{1}{p&rsquo;_i})$ $\varphi(n)\varphi(m) = n \prod(1 - \frac{1}{p_i})m \prod(1 - \frac{1}{p&rsquo;_i}) = nm\prod(1 - \frac{1}{p_i})(1 - \frac{1}{p&rsquo;_i})$ 因$n,m$互质，故 $p_i,p&rsquo;_i$ 各不相同，且均为$nm$的质因子。</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero=""
+         data-message-one=""
+         data-message-other="">
+         2 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://s1.ax1x.com/2018/03/13/9hEpFI.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://wubaizhe.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/wubaizhe.github.io\/2017\/07\/%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8%E5%8F%8A%E8%AF%81%E6%98%8E---%E7%BA%BF%E6%80%A7%E7%AD%9B\/';
+          
+            this.page.identifier = '\/2017\/07\/%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8%E5%8F%8A%E8%AF%81%E6%98%8E---%E7%BA%BF%E6%80%A7%E7%AD%9B\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'Beautiful';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+    
+  </body>
+</html>
+

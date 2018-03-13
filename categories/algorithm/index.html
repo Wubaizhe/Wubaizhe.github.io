@@ -16,21 +16,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.32 with theme Tranquilpeak 0.4.3-BETA">
-    <title>Archives</title>
+    <title>Algorithm</title>
     <meta name="author" content="Wubaizhe">
     <meta name="keywords" content="">
 
     <link rel="icon" href="https://wubaizhe.github.io/favicon.png">
     
-      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://wubaizhe.github.io/archives/index.xml">
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://wubaizhe.github.io/categories/algorithm/index.xml">
     
 
     
     <meta name="description" content="Never quit trying :)">
     <meta property="og:description" content="Never quit trying :)">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Archives">
-    <meta property="og:url" content="/archives/">
+    <meta property="og:title" content="Algorithm">
+    <meta property="og:url" content="/categories/algorithm/">
     <meta property="og:site_name" content="Wubaizhe&#39;s Blog">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Wubaizhe&#39;s Blog">
@@ -185,38 +185,93 @@
   </div>
 </nav>
 
+      
+        
+
+      
       <div id="main" data-behavior="2"
         class="
                hasCoverMetaIn
                ">
-        <div id="archives" class="main-content-wrap">
-          <form id="filter-form" action="#">
-            <input name="date" type="text" class="form-control input--xlarge" placeholder="搜索日期 (YYYY/MM/DD)" autofocus="autofocus">
-          </form>
-          <h5 class="archive-result text-color-base text-xlarge" data-message-zero="" data-message-one="" data-message-other=""></h5>
-<section class="boxes">
+        
+          <section class="postShorten-group main-content-wrap">
+            
+            
+              
   
     
-    <div class="archive archive-year box" data-date="2017">
-      <h4 class="archive-title" style="text-decoration: none;">2017</h4>
-      
-        <ul class="archive-posts archive-month" data-date="201707">
-          <h5 class="archive-title" style="text-decoration: none;">七月</h5>
-          
-            <li class="archive-post archive-day" data-date="20170719">
-              <a class="archive-post-title" href="https://wubaizhe.github.io/2017/07/diary-2017-07-19/">Diary-2017-07-19</a>
-            </li>
-          
-            <li class="archive-post archive-day" data-date="20170719">
-              <a class="archive-post-title" href="https://wubaizhe.github.io/2017/07/%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8%E5%8F%8A%E8%AF%81%E6%98%8E---%E7%BA%BF%E6%80%A7%E7%AD%9B/">积性函数的性质及证明 &#43; 线性筛</a>
-            </li>
-          
-        </ul>
-      
-    </div>
   
-</section>
-        </div>
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://wubaizhe.github.io/2017/07/%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8%E5%8F%8A%E8%AF%81%E6%98%8E---%E7%BA%BF%E6%80%A7%E7%AD%9B/">
+          积性函数的性质及证明 &#43; 线性筛
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2017-07-19T00:00:00Z">
+        
+  七月 19, 2017
+
+      </time>
+    
+    
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://wubaizhe.github.io/categories/algorithm">algorithm</a>
+    
+  
+
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      引言 在数论问题中，积性函数有着广泛的应用。 如在莫比乌斯反演问题中，函数变换之后如何快速维护前缀和往往是最重要也是最难的一步。如果维护的函数具有积性，那就可以尝试利用线性筛在$O(n)$的时限内完成预处理，从而达到优化复杂度的神奇作用。 本文的大部分相关性质及公式来自： $《线性筛与积性函数》- 贾志鹏$ 博主将试着证明其中的性质公式，严谨性可能欠缺，其目的主要是帮助记忆和理解。 因水平有限 若有错误之处还望指出qwq~
+积性函数的定义和性质 定义： 对于一个定义域为$N^{+}$的函数$f$，对于任意两个互质的正整数$a,b$，均满足$f(ab)=f(a)f(b)$，则称函数$f$为积性函数 若对于任意整数$a,b$都有$f(ab) = f(a)f(b)$，则函数$f$被称为完全积性函数。
+性质： (1)对于任意积性函数$f$，均有$f(1) = 1$
+证明：因$1$与任何数都互质，假设存在一个正整数$a$满足$f(a)!=0$，故由定义：$$f(a) = f(1*a) = f(1)f(a)$$ 因$f(a)$不为$0$，故等号两端同时消去一个$f(a)$，得： $$f(1) = 1 $$ 证毕。
+(2)对于一个大于$1$的正整数N，设$N = \prod p_i^{a_i}$，$p_i$为互不相同的素数。那么对于一个积性函数$f$来说，有： $$f(N) = f(\prod p_i^{a_i}) = \prod f(p_i^{a_i})$$ 若$f$完全积性，则$$f(N) = \prod f(p_i)^{a_i}$$
+证明：由积性和完全积性的定义易得。
+欧拉函数$\varphi$ 定义：对于正整数$n$，$\varphi(n)$是小于n的正整数中与n互质的个数。
+定义式：若$n = \prod p_i^{a_i}$ $$\varphi(n) = n \prod(1 - \frac{1}{p_i})$$
+性质： (1)欧拉函数为积性函数，而不是完全积性函数。
+证明：设两个互质的正整数$n,m$ 则： $\varphi(n) = n \prod(1 - \frac{1}{p_i})$ $\varphi(m) =m \prod(1 - \frac{1}{p&rsquo;_i})$ $\varphi(n)\varphi(m) = n \prod(1 - \frac{1}{p_i})m \prod(1 - \frac{1}{p&rsquo;_i}) = nm\prod(1 - \frac{1}{p_i})(1 - \frac{1}{p&rsquo;_i})$ 因$n,m$互质，故 $p_i,p&rsquo;_i$ 各不相同，且均为$nm$的质因子。
+      <p>
+        <a href="https://wubaizhe.github.io/2017/07/%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8%E5%8F%8A%E8%AF%81%E6%98%8E---%E7%BA%BF%E6%80%A7%E7%AD%9B/" class="postShorten-excerpt_link link">阅读全文</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://wubaizhe.github.io/2017/07/%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8%E5%8F%8A%E8%AF%81%E6%98%8E---%E7%BA%BF%E6%80%A7%E7%AD%9B/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="http://pic1.win4000.com/wallpaper/d/5960776a380d1.jpg"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+            
+
+          </section>
+        
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2018 Wubaizhe. All Rights Reserved
+  </span>
+</footer>
+
       </div>
     </div>
     
