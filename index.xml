@@ -6,20 +6,27 @@
     <description>Recent content on Wubaizhe&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 06 Aug 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 14 Mar 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://wubaizhe.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>积性函数的性质及证明</title>
-      <link>https://wubaizhe.github.io/2017/08/%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8%E5%8F%8A%E8%AF%81%E6%98%8E/</link>
+      <title>records of University</title>
+      <link>https://wubaizhe.github.io/2018/03/records-of-university/</link>
+      <pubDate>Wed, 14 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://wubaizhe.github.io/2018/03/records-of-university/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>The properties of the product function and its proof</title>
+      <link>https://wubaizhe.github.io/2017/08/the-properties-of-the-product-function-and-its-proof/</link>
       <pubDate>Sun, 06 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://wubaizhe.github.io/2017/08/%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8%E5%8F%8A%E8%AF%81%E6%98%8E/</guid>
-      <description>&lt;h1 id=&#34;积性函数的性质及证明&#34;&gt;积性函数的性质及证明&lt;/h1&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <guid>https://wubaizhe.github.io/2017/08/the-properties-of-the-product-function-and-its-proof/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>
