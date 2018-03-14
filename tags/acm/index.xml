@@ -2,33 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Acm on Wubaizhe&#39;s Blog</title>
-    <link>https://wubaizhe.github.io/tags/acm/</link>
+    <link>dengxinhao.com/tags/acm/</link>
     <description>Recent content in Acm on Wubaizhe&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sun, 06 Aug 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://wubaizhe.github.io/tags/acm/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="dengxinhao.com/tags/acm/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>积性函数的性质及证明 &#43; 线性筛</title>
-      <link>https://wubaizhe.github.io/2017/08/%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8%E5%8F%8A%E8%AF%81%E6%98%8E---%E7%BA%BF%E6%80%A7%E7%AD%9B/</link>
+      <title>积性函数的性质及证明</title>
+      <link>dengxinhao.com/2017/08/%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8%E5%8F%8A%E8%AF%81%E6%98%8E/</link>
       <pubDate>Sun, 06 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://wubaizhe.github.io/2017/08/%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8%E5%8F%8A%E8%AF%81%E6%98%8E---%E7%BA%BF%E6%80%A7%E7%AD%9B/</guid>
-      <description>引言 在数论问题中，积性函数有着广泛的应用。 如在莫比乌斯反演问题中，函数变换之后如何快速维护前缀和往往是最重要也是最难的一步。如果维护的函数具有积性，那就可以尝试利用线性筛在$O(n)$的时限内完成预处理，从而达到优化复杂度的神奇作用。 本文的大部分相关性质及公式来自： $《线性筛与积性函数》- 贾志鹏$ 博主将试着证明其中的性质公式，严谨性可能欠缺，其目的主要是帮助记忆和理解。 因水平有限 若有错误之处还望指出qwq~
-积性函数的定义和性质 定义： 对于一个定义域为$N^{+}$的函数$f$，对于任意两个互质的正整数$a,b$，均满足$f(ab)=f(a)f(b)$，则称函数$f$为积性函数 若对于任意整数$a,b$都有$f(ab) = f(a)f(b)$，则函数$f$被称为完全积性函数。
-性质： (1)对于任意积性函数$f$，均有$f(1) = 1$
-证明：因$1$与任何数都互质，假设存在一个正整数$a$满足$f(a)!=0$，故由定义：$$f(a) = f(1*a) = f(1)f(a)$$ 因$f(a)$不为$0$，故等号两端同时消去一个$f(a)$，得： $$f(1) = 1 $$ 证毕。
-(2)对于一个大于$1$的正整数N，设$N = \prod p_i^{a_i}$，$p_i$为互不相同的素数。那么对于一个积性函数$f$来说，有： $$f(N) = f(\prod p_i^{a_i}) = \prod f(p_i^{a_i})$$ 若$f$完全积性，则$$f(N) = \prod f(p_i)^{a_i}$$
-证明：由积性和完全积性的定义易得。
-欧拉函数$\varphi$ 定义：对于正整数$n$，$\varphi(n)$是小于n的正整数中与n互质的个数。
-定义式：若&amp;rsquo;$n = \prod p_i^{a_i}$&amp;rsquo; $$\varphi(n) = n \prod(1 - \frac{1}{p_i})$$
-性质： (1)欧拉函数为积性函数，而不是完全积性函数。
-证明：设两个互质的正整数$n,m$ 则：
-$\varphi(n) = n \prod(1 - \frac{1}{p_i})$
-$\varphi(m) =m \prod(1 - \frac{1}{p&amp;rsquo;_i})$</description>
+      <guid>dengxinhao.com/2017/08/%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8%E5%8F%8A%E8%AF%81%E6%98%8E/</guid>
+      <description>&lt;h1 id=&#34;积性函数的性质及证明&#34;&gt;积性函数的性质及证明&lt;/h1&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>
