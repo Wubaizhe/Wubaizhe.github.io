@@ -1,0 +1,736 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+
+  
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.32 with theme Tranquilpeak 0.4.3-BETA">
+    <title>模拟电子电路基础 总结</title>
+    <meta name="author" content="Wubaizhe">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="dengxinhao.com/favicon.png">
+    
+
+    
+    <meta name="description" content="">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="模拟电子电路基础 总结">
+    <meta property="og:url" content="/2018/03/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93/">
+    <meta property="og:site_name" content="Wubaizhe&#39;s Blog">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Wubaizhe&#39;s Blog">
+    <meta name="twitter:description" content="">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="https://s1.ax1x.com/2018/03/12/9fsrlt.jpg">
+    
+
+    
+      <meta property="og:image" content="https://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/3bf33a87e950352a47c8cea05343fbf2b3118be9.jpg">
+    
+    
+      <meta property="og:image" content="https://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/3bf33a87e950352a47c8cea05343fbf2b3118be9.jpg">
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="dengxinhao.com/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="dengxinhao.com/">Wubaizhe&#39;s Blog</a>
+  </div>
+  
+</header>
+
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="dengxinhao.com/#about">
+          <img class="sidebar-profile-picture" src="https://s1.ax1x.com/2018/03/12/9fsrlt.jpg" alt="作者的图片" />
+        </a>
+        <h4 class="sidebar-profile-name">Wubaizhe</h4>
+        
+          <h5 class="sidebar-profile-bio">Never quit trying :)</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="dengxinhao.com/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">首页</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="dengxinhao.com/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">分类</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="dengxinhao.com/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">标签</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="dengxinhao.com/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">关于</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/Wubaizhe" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://blog.csdn.net/wubaizhe" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bold"></i>
+      
+      <span class="sidebar-button-desc">CSDN</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.zhihu.com/people/deng-xin-hao-95/activities" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-quora"></i>
+      
+      <span class="sidebar-button-desc">知乎</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://s1.ax1x.com/2018/03/12/9fsHmT.jpg" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-weixin"></i>
+      
+      <span class="sidebar-button-desc">微信</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="dengxinhao.com/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-"></i>
+      
+      <span class="sidebar-button-desc"></span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://lightghli.com/" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-user"></i>
+      
+      <span class="sidebar-button-desc">LightGhli</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://blog.doragd.cn/" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-user"></i>
+      
+      <span class="sidebar-button-desc">Gordon</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('https://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/3bf33a87e950352a47c8cea05343fbf2b3118be9.jpg')"
+       data-behavior="5">
+    
+      <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      模拟电子电路基础 总结
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2018-03-14T00:00:00Z">
+        
+  三月 14, 2018
+
+      </time>
+    
+    
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="dengxinhao.com/categories/%e8%af%be%e7%a8%8b%e5%ad%a6%e4%b9%a0">课程学习</a>
+    
+  
+
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="5"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p></p>
+
+<h1 id="模拟电子电路基础-总结">模拟电子电路基础 总结</h1>
+
+<h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
+<ul>
+<li><a href="#模拟电子电路基础-总结">模拟电子电路基础 总结</a>
+<ul>
+<li><a href="#前言">前言</a></li>
+<li><a href="#第一章-模拟电子电路导论">第一章 模拟电子电路导论</a>
+<ul>
+<li><a href="#重点概括">重点概括</a></li>
+<li><a href="#一-信号">一、信号</a>
+<ul>
+<li><a href="#1-定义">1、定义：</a></li>
+<li><a href="#2-分类">2、分类：</a></li>
+<li><a href="#3-表示">3、表示：</a></li>
+</ul></li>
+<li><a href="#二-电子系统">二、电子系统</a></li>
+<li><a href="#三-放大器">三、放大器</a>
+<ul>
+<li><a href="#1-定义及传输特性">1、定义及传输特性</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#update">Update</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<hr />
+
+<h2 id="前言">前言</h2>
+
+<p>很早以前就听闻模电的恐怖，人称魔法电路（滑稽</p>
+
+<p>经过一段时间的学习，果然名不虚传&hellip;
+加上老师采用全新的翻转课堂的形式，感觉学起来颇为吃力</p>
+
+<p>故打算写下一篇博文，对视频和书上的重要知识点进行简单整理，并对课堂内容进行简单总结。</p>
+
+<p>这个夏天 我只有一个小小的心愿：</p>
+
+<p>希望模电<strong>不！挂！！科！！！</strong> qwq</p>
+
+<p>本博文将持续更新~</p>
+
+<hr />
+
+<h2 id="第一章-模拟电子电路导论">第一章 模拟电子电路导论</h2>
+
+<h3 id="重点概括">重点概括</h3>
+
+<ul>
+<li>模拟放大器的定义和<strong>参数定义</strong></li>
+<li>学会根据工程条件<strong>合理建模</strong>，掌握如何分析计算放大器的<strong>性能参数</strong></li>
+<li>理解放大器分类和<strong>不同类放大器的参数描述和理想条件</strong></li>
+</ul>
+
+<hr />
+
+<h3 id="一-信号">一、信号</h3>
+
+<h4 id="1-定义">1、定义：</h4>
+
+<p>任何<strong>携带信息</strong>的物理量</p>
+
+<p>对于模拟电子电路课程，信号的处理与分析是贯穿课程的主线。</p>
+
+<p>常见的信号如下：
+<img src="https://s1.ax1x.com/2018/03/22/9H5kJH.png" alt="9H5kJH.png" />
+<img src="https://s1.ax1x.com/2018/03/22/9H5VSA.png" alt="9H5VSA.png" /></p>
+
+<hr />
+
+<h4 id="2-分类">2、分类：</h4>
+
+<ul>
+<li>模拟信号：时间和幅度都<strong>连续</strong> (模电主要研究对象！)</li>
+<li>数字信号：时间和幅度都<strong>离散</strong></li>
+</ul>
+
+<p>A/D转换：采样和量化编码，将模拟信号转变为数字信号</p>
+
+<p>D/A转换：上述转换的逆过程</p>
+
+<hr />
+
+<h4 id="3-表示">3、表示：</h4>
+
+<p>两种方式：</p>
+
+<ul>
+<li>时序信号：以<strong>时间变量</strong>为横轴，信号幅度为纵轴</li>
+<li>频域信号：以<strong>频率变量</strong>为横轴，信号幅度为纵轴</li>
+</ul>
+
+<p>举例：</p>
+
+<p><a href="https://imgchr.com/i/9HoKPg"><img src="https://s1.ax1x.com/2018/03/22/9HoKPg.md.png" alt="9HoKPg.md.png" /></a></p>
+
+<ul>
+<li>信号的时域信息：判断是否需要<strong>放大</strong>等后续处理。</li>
+<li>信号的频域信息：判断是否需要设计<strong>滤波</strong>等电路。</li>
+</ul>
+
+<p>综上可见：时域和频域，不过是观察信号信息的两个不同视角。</p>
+
+<p>拓展阅读：<a href="https://www.zhihu.com/question/21040374/answer/37911622">信号频域和时域的关系—知乎</a></p>
+
+<hr />
+
+<h3 id="二-电子系统">二、电子系统</h3>
+
+<p><a href="https://imgchr.com/i/9LfGK1"><img src="https://s1.ax1x.com/2018/03/26/9LfGK1.md.png" alt="9LfGK1.md.png" /></a></p>
+
+<p>电子系统是<strong>处理信号的电路综合</strong></p>
+
+<p>其中如信号放大、滤波、AD转换均需要利用模拟电子电路的功能。</p>
+
+<p>形如数据清洗对于数据挖掘的重要性，信号的预处理在电子系统中有着重要的地位。而在预处理环节，放大器是非常关键的组成部分。</p>
+
+<p>故接下来的重点内容便是放大器。</p>
+
+<hr />
+
+<h3 id="三-放大器">三、放大器</h3>
+
+<h4 id="1-定义及传输特性">1、定义及传输特性</h4>
+
+<hr />
+
+<h2 id="update">Update</h2>
+
+<p>2018/3/22 更新第一章内容</p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="dengxinhao.com/tags/%E6%80%BB%E7%BB%93/">总结</a>
+
+                  </div>
+                
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="dengxinhao.com/2018/03/%E5%A4%A7%E5%AD%A6%E8%AE%B0%E5%BD%95/" data-tooltip="大学记录">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2018 Wubaizhe. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="dengxinhao.com/2018/03/%E5%A4%A7%E5%AD%A6%E8%AE%B0%E5%BD%95/" data-tooltip="大学记录">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://s1.ax1x.com/2018/03/12/9fsrlt.jpg" alt="作者的图片" />
+    
+    <h4 id="about-card-name">Wubaizhe</h4>
+    
+      <div id="about-card-bio">Never quit trying :)</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        HDU本科在读
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        杭州
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="搜索" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center"></div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="dengxinhao.com/2018/03/%E5%A4%A7%E5%AD%A6%E8%AE%B0%E5%BD%95/">
+                <h3 class="media-heading">大学记录</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="dengxinhao.com/2018/03/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93/">
+                <h3 class="media-heading">模拟电子电路基础 总结</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p></p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero=""
+         data-message-one=""
+         data-message-other="">
+         2 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://s1.ax1x.com/2018/03/13/9hEpFI.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="dengxinhao.com/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'dengxinhao.com\/2018\/03\/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93\/';
+          
+            this.page.identifier = '\/2018\/03\/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'Beautiful';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+    
+  </body>
+</html>
+

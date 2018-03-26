@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Wubaizhe&#39;s Blog</title>
-    <link>dengxinhao.com/post/</link>
-    <description>Recent content in Posts on Wubaizhe&#39;s Blog</description>
+    <title>总结 on Wubaizhe&#39;s Blog</title>
+    <link>dengxinhao.com/tags/%E6%80%BB%E7%BB%93/</link>
+    <description>Recent content in 总结 on Wubaizhe&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 14 Mar 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="dengxinhao.com/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="dengxinhao.com/tags/%E6%80%BB%E7%BB%93/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>大学记录</title>
-      <link>dengxinhao.com/2018/03/%E5%A4%A7%E5%AD%A6%E8%AE%B0%E5%BD%95/</link>
-      <pubDate>Wed, 14 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>dengxinhao.com/2018/03/%E5%A4%A7%E5%AD%A6%E8%AE%B0%E5%BD%95/</guid>
-      <description>&lt;p&gt;&lt;/p&gt;</description>
-    </item>
     
     <item>
       <title>模拟电子电路基础 总结</title>
