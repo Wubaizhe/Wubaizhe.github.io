@@ -265,9 +265,9 @@
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-03-14T00:00:00Z">
+      <time itemprop="datePublished" datetime="2018-03-22T00:00:00Z">
         
-  三月 14, 2018
+  三月 22, 2018
 
       </time>
     
@@ -311,13 +311,23 @@
 <li><a href="#一-信号">一、信号</a>
 <ul>
 <li><a href="#1-定义">1、定义：</a></li>
-<li><a href="#2-分类">2、分类：</a></li>
-<li><a href="#3-表示">3、表示：</a></li>
+<li><a href="#2-分类">2、分类</a></li>
+<li><a href="#3-表示">3、表示</a></li>
 </ul></li>
 <li><a href="#二-电子系统">二、电子系统</a></li>
 <li><a href="#三-放大器">三、放大器</a>
 <ul>
 <li><a href="#1-定义及传输特性">1、定义及传输特性</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#第四章-场效应管-fet">第四章 场效应管 FET</a>
+<ul>
+<li><a href="#重点概括-1">重点概括</a></li>
+<li><a href="#一-简介">一、简介</a>
+<ul>
+<li><a href="#1-定义-1">1、定义</a></li>
+<li><a href="#2-特点">2、 特点</a></li>
+<li><a href="#3-分类">3、分类</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#update">Update</a></li>
@@ -329,18 +339,16 @@
 
 <h2 id="前言">前言</h2>
 
-<p>很早以前就听闻模电的恐怖，人称魔法电路（滑稽</p>
+<p>经过前四周的学习，我强烈感受到了模电课程知识点的繁多杂乱<br />
+加上自己学得并不用心，精力全部放在科研竞赛方面，已经慢慢感觉跟不上大家的节奏&hellip;<br />
+每次在课堂上观望着大佬们谈笑间问题灰飞烟灭&hellip;心中暗生羡慕qwq</p>
 
-<p>经过一段时间的学习，果然名不虚传&hellip;
-加上老师采用全新的翻转课堂的形式，感觉学起来颇为吃力</p>
+<p>综合以上情况，想自己尝试归纳<del>总结</del>书上和视频的知识点，<br />
+一是能看视频更加专注（之前总是走神 = =）<br />
+二是方便日后复习回顾<br />
+三是能对目前所学习的章节知识点有一个大的掌握</p>
 
-<p>故打算写下一篇博文，对视频和书上的重要知识点进行简单整理，并对课堂内容进行简单总结。</p>
-
-<p>这个夏天 我只有一个小小的心愿：</p>
-
-<p>希望模电<strong>不！挂！！科！！！</strong> qwq</p>
-
-<p>本博文将持续更新~</p>
+<p>此博客将持续更新~</p>
 
 <hr />
 
@@ -360,50 +368,44 @@
 
 <h4 id="1-定义">1、定义：</h4>
 
-<p>任何<strong>携带信息</strong>的物理量</p>
+<p>任何<strong>携带信息</strong>的物理量<br />
+对于模拟电子电路课程，信号的处理与分析是贯穿课程的主线。</p>
 
-<p>对于模拟电子电路课程，信号的处理与分析是贯穿课程的主线。</p>
+<p>常见的信号如正弦信号：
+<img src="https://s1.ax1x.com/2018/03/22/9H5kJH.png" alt="9H5kJH.png" /></p>
 
-<p>常见的信号如下：
-<img src="https://s1.ax1x.com/2018/03/22/9H5kJH.png" alt="9H5kJH.png" />
+<p>音频信号：
 <img src="https://s1.ax1x.com/2018/03/22/9H5VSA.png" alt="9H5VSA.png" /></p>
 
 <hr />
 
-<h4 id="2-分类">2、分类：</h4>
+<h4 id="2-分类">2、分类</h4>
 
 <ul>
 <li>模拟信号：时间和幅度都<strong>连续</strong> (模电主要研究对象！)</li>
-<li>数字信号：时间和幅度都<strong>离散</strong></li>
+<li>数字信号：时间和幅度都<strong>离散</strong><br />
+A/D转换：采样和量化编码，将模拟信号转变为数字信号<br />
+D/A转换：上述转换的逆过程<br /></li>
 </ul>
-
-<p>A/D转换：采样和量化编码，将模拟信号转变为数字信号</p>
-
-<p>D/A转换：上述转换的逆过程</p>
 
 <hr />
 
-<h4 id="3-表示">3、表示：</h4>
+<h4 id="3-表示">3、表示</h4>
 
-<p>两种方式：</p>
+<p>两种方式：<br />
+- 时序信号：以<strong>时间变量</strong>为横轴，信号幅度为纵轴<br />
+- 频域信号：以<strong>频率变量</strong>为横轴，信号幅度为纵轴</p>
 
-<ul>
-<li>时序信号：以<strong>时间变量</strong>为横轴，信号幅度为纵轴</li>
-<li>频域信号：以<strong>频率变量</strong>为横轴，信号幅度为纵轴</li>
-</ul>
-
-<p>举例：</p>
-
-<p><a href="https://imgchr.com/i/9HoKPg"><img src="https://s1.ax1x.com/2018/03/22/9HoKPg.md.png" alt="9HoKPg.md.png" /></a></p>
+<p>举例：
+<a href="https://imgchr.com/i/9HoKPg"><img src="https://s1.ax1x.com/2018/03/22/9HoKPg.md.png" alt="9HoKPg.md.png" /></a></p>
 
 <ul>
-<li>信号的时域信息：判断是否需要<strong>放大</strong>等后续处理。</li>
-<li>信号的频域信息：判断是否需要设计<strong>滤波</strong>等电路。</li>
+<li>信号的时域信息：判断是否需要<strong>放大</strong>等后续处理。<br /></li>
+<li>信号的频域信息：判断是否需要设计<strong>滤波</strong>等电路。<br /></li>
 </ul>
 
-<p>综上可见：时域和频域，不过是观察信号信息的两个不同视角。</p>
-
-<p>拓展阅读：<a href="https://www.zhihu.com/question/21040374/answer/37911622">信号频域和时域的关系—知乎</a></p>
+<p>综上可见：时域和频域，不过是观察信号信息的两个不同视角。<br />
+拓展阅读：<a href="https://www.zhihu.com/question/21040374/answer/37911622">信号频域和时域的关系—知乎</a></p>
 
 <hr />
 
@@ -411,11 +413,9 @@
 
 <p><a href="https://imgchr.com/i/9LfGK1"><img src="https://s1.ax1x.com/2018/03/26/9LfGK1.md.png" alt="9LfGK1.md.png" /></a></p>
 
-<p>电子系统是<strong>处理信号的电路综合</strong></p>
-
-<p>其中如信号放大、滤波、AD转换均需要利用模拟电子电路的功能。</p>
-
-<p>形如数据清洗对于数据挖掘的重要性，信号的预处理在电子系统中有着重要的地位。而在预处理环节，放大器是非常关键的组成部分。</p>
+<p>电子系统是<strong>处理信号的电路综合</strong><br />
+其中如信号放大、滤波、AD转换均需要利用模拟电子电路的功能。<br />
+形如数据清洗对于数据挖掘的重要性，信号的预处理在电子系统中有着重要的地位。而在预处理环节，放大器是非常关键的组成部分。</p>
 
 <p>故接下来的重点内容便是放大器。</p>
 
@@ -425,11 +425,69 @@
 
 <h4 id="1-定义及传输特性">1、定义及传输特性</h4>
 
+<p>放大器英文全称：AMPLIFIER — 放大电路</p>
+
+<p>定义：满足$A = \frac{x_o}{x_i}$的系统。<br />
+其中A被称为放大器的增益或放大倍数。</p>
+
+<p>传输特性：</p>
+
+<hr />
+
+<h2 id="第四章-场效应管-fet">第四章 场效应管 FET</h2>
+
+<h3 id="重点概括-1">重点概括</h3>
+
+<ul>
+<li>MOSFET器件结构、工作原理、特性及参数</li>
+<li>CS放大器的传输特性</li>
+<li>MOS放大器偏置电路设计方法</li>
+</ul>
+
+<hr />
+
+<h3 id="一-简介">一、简介</h3>
+
+<h4 id="1-定义-1">1、定义</h4>
+
+<p>FET是一种利用<strong>电压控制电流</strong>大小的单极性半导体器件</p>
+
+<h4 id="2-特点">2、 特点</h4>
+
+<ul>
+<li>低功耗</li>
+<li>低噪声</li>
+<li>输入阻抗高</li>
+<li>热稳定性好</li>
+</ul>
+
+<h4 id="3-分类">3、分类</h4>
+
+<ul>
+<li>MOSFET
+
+<ul>
+<li>N沟道
+
+<ul>
+<li>增强型</li>
+<li>耗尽型</li>
+</ul></li>
+<li>P沟道
+
+<ul>
+<li>增强型</li>
+<li>耗尽型</li>
+</ul></li>
+</ul></li>
+</ul>
+
 <hr />
 
 <h2 id="update">Update</h2>
 
-<p>2018/3/22 更新第一章内容</p>
+<p>2018/3/22 更新第一章内容
+2018/3/26 更新第四章内容</p>
               
             </div>
           </div>
@@ -454,7 +512,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://wubaizhe.github.io/2018/03/%E5%A4%A7%E5%AD%A6%E8%AE%B0%E5%BD%95/" data-tooltip="大学记录">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -462,7 +520,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://wubaizhe.github.io/2018/03/%E5%A4%A7%E5%AD%A6%E8%AE%B0%E5%BD%95/" data-tooltip="大学记录">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -522,7 +580,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://wubaizhe.github.io/2018/03/%E5%A4%A7%E5%AD%A6%E8%AE%B0%E5%BD%95/" data-tooltip="大学记录">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -530,7 +588,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://wubaizhe.github.io/2018/03/%E5%A4%A7%E5%AD%A6%E8%AE%B0%E5%BD%95/" data-tooltip="大学记录">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -627,8 +685,8 @@
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="https://wubaizhe.github.io/2018/03/%E5%A4%A7%E5%AD%A6%E8%AE%B0%E5%BD%95/">
-                <h3 class="media-heading">大学记录</h3>
+              <a class="link-unstyled" href="https://wubaizhe.github.io/2018/03/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93/">
+                <h3 class="media-heading">模拟电子电路基础 总结</h3>
               </a>
               <span class="media-meta">
                 <span class="media-date text-small">
@@ -644,8 +702,8 @@
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="https://wubaizhe.github.io/2018/03/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93/">
-                <h3 class="media-heading">模拟电子电路基础 总结</h3>
+              <a class="link-unstyled" href="https://wubaizhe.github.io/2018/03/%E5%A4%A7%E5%AD%A6%E8%AE%B0%E5%BD%95/">
+                <h3 class="media-heading">大学记录</h3>
               </a>
               <span class="media-meta">
                 <span class="media-date text-small">
