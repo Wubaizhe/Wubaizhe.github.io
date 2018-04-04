@@ -240,6 +240,16 @@
     </a>
   </li>
 
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://www.ckj123.xin/" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-user"></i>
+      
+      <span class="sidebar-button-desc">ckj123</span>
+    </a>
+  </li>
+
 
     </ul>
     <ul class="sidebar-buttons">
@@ -308,26 +318,31 @@
 <li><a href="#第一章-模拟电子电路导论">第一章 模拟电子电路导论</a>
 <ul>
 <li><a href="#重点概括">重点概括</a></li>
-<li><a href="#一-信号">一、信号</a>
-<ul>
-<li><a href="#1-定义">1、定义：</a></li>
-<li><a href="#2-分类">2、分类</a></li>
-<li><a href="#3-表示">3、表示</a></li>
-</ul></li>
+<li><a href="#一-信号">一、信号</a></li>
 <li><a href="#二-电子系统">二、电子系统</a></li>
-<li><a href="#三-放大器">三、放大器</a>
-<ul>
-<li><a href="#1-定义及传输特性">1、定义及传输特性</a></li>
+<li><a href="#三-放大器-ampifier">三、放大器（AMPIFIER）</a></li>
 </ul></li>
+<li><a href="#第二章-理想运算放大器及其线性应用">第二章 理想运算放大器及其线性应用</a>
+<ul>
+<li><a href="#重点概括-1">重点概括</a></li>
+<li><a href="#一-运算放大器理想模型及分析方法">一、运算放大器理想模型及分析方法</a></li>
 </ul></li>
 <li><a href="#第四章-场效应管-fet">第四章 场效应管 FET</a>
 <ul>
-<li><a href="#重点概括-1">重点概括</a></li>
-<li><a href="#一-简介">一、简介</a>
+<li><a href="#重点概括-2">重点概括</a></li>
+<li><a href="#一-mosfet结构及工作原理">一、MOSFET结构及工作原理</a>
 <ul>
-<li><a href="#1-定义-1">1、定义</a></li>
-<li><a href="#2-特点">2、 特点</a></li>
-<li><a href="#3-分类">3、分类</a></li>
+<li><a href="#1-简介">1、简介</a></li>
+<li><a href="#2-mosfet结构及工作原理">2、MOSFET结构及工作原理</a></li>
+</ul></li>
+<li><a href="#二-结型场效应管">二、结型场效应管</a></li>
+<li><a href="#三-场效应管电路直流偏置">三、场效应管电路直流偏置</a>
+<ul>
+<li><a href="#1-fet放大器传输特性">1、FET放大器传输特性</a></li>
+</ul></li>
+<li><a href="#四-场效应管放大电路分析-important">四、场效应管放大电路分析 (Important)</a>
+<ul>
+<li><a href="#1-重点概括">1、重点概括：</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#update">Update</a></li>
@@ -366,54 +381,57 @@
 
 <h3 id="一-信号">一、信号</h3>
 
-<h4 id="1-定义">1、定义：</h4>
+<p><strong>定义</strong>： 任何<strong>携带信息</strong>的物理量</p>
 
-<p>任何<strong>携带信息</strong>的物理量<br />
-对于模拟电子电路课程，信号的处理与分析是贯穿课程的主线。</p>
+<p>对于模拟电子电路课程，信号的处理与分析是贯穿课程的主线。</p>
 
-<p>常见的信号如正弦信号：
+<p>常见的信号如正弦信号：<br />
 <img src="https://s1.ax1x.com/2018/03/22/9H5kJH.png" alt="9H5kJH.png" /></p>
 
-<p>音频信号：
+<p>音频信号：<br />
 <img src="https://s1.ax1x.com/2018/03/22/9H5VSA.png" alt="9H5VSA.png" /></p>
 
 <hr />
 
-<h4 id="2-分类">2、分类</h4>
+<p><strong>分类</strong>：</p>
 
 <ul>
 <li>模拟信号：时间和幅度都<strong>连续</strong> (模电主要研究对象！)</li>
-<li>数字信号：时间和幅度都<strong>离散</strong><br />
-A/D转换：采样和量化编码，将模拟信号转变为数字信号<br />
-D/A转换：上述转换的逆过程<br /></li>
+<li>数字信号：时间和幅度都<strong>离散</strong></li>
 </ul>
+
+<p><strong>转换</strong>：<br />
+A/D转换：采样和量化编码，将模拟信号转变为数字信号<br />
+D/A转换：上述转换的逆过程</p>
 
 <hr />
 
-<h4 id="3-表示">3、表示</h4>
+<p><strong>表示</strong>：<br />
+<strong>两种方式</strong>：</p>
 
-<p>两种方式：<br />
-- 时序信号：以<strong>时间变量</strong>为横轴，信号幅度为纵轴<br />
-- 频域信号：以<strong>频率变量</strong>为横轴，信号幅度为纵轴</p>
+<ul>
+<li>时序信号：以<strong>时间变量</strong>为横轴，信号幅度为纵轴</li>
+<li>频域信号：以<strong>频率变量</strong>为横轴，信号幅度为纵轴</li>
+</ul>
 
-<p>举例：
+<p><strong>举例</strong>：<br />
 <a href="https://imgchr.com/i/9HoKPg"><img src="https://s1.ax1x.com/2018/03/22/9HoKPg.md.png" alt="9HoKPg.md.png" /></a></p>
 
 <ul>
-<li>信号的时域信息：判断是否需要<strong>放大</strong>等后续处理。<br /></li>
-<li>信号的频域信息：判断是否需要设计<strong>滤波</strong>等电路。<br /></li>
+<li>信号的时域信息：判断是否需要<strong>放大</strong>等后续处理。</li>
+<li>信号的频域信息：判断是否需要设计<strong>滤波</strong>等电路。</li>
 </ul>
 
-<p>综上可见：时域和频域，不过是观察信号信息的两个不同视角。<br />
-拓展阅读：<a href="https://www.zhihu.com/question/21040374/answer/37911622">信号频域和时域的关系—知乎</a></p>
+<p><strong>综上可见</strong>：时域和频域，不过是观察信号信息的两个不同视角。</p>
+
+<p>拓展阅读：<a href="https://www.zhihu.com/question/21040374/answer/37911622">信号频域和时域的关系—知乎</a></p>
 
 <hr />
 
 <h3 id="二-电子系统">二、电子系统</h3>
 
-<p><a href="https://imgchr.com/i/9LfGK1"><img src="https://s1.ax1x.com/2018/03/26/9LfGK1.md.png" alt="9LfGK1.md.png" /></a></p>
-
-<p>电子系统是<strong>处理信号的电路综合</strong><br />
+<p><a href="https://imgchr.com/i/9LfGK1"><img src="https://s1.ax1x.com/2018/03/26/9LfGK1.md.png" alt="9LfGK1.md.png" /></a><br />
+电子系统是<strong>处理信号的电路综合</strong><br />
 其中如信号放大、滤波、AD转换均需要利用模拟电子电路的功能。<br />
 形如数据清洗对于数据挖掘的重要性，信号的预处理在电子系统中有着重要的地位。而在预处理环节，放大器是非常关键的组成部分。</p>
 
@@ -421,22 +439,163 @@ D/A转换：上述转换的逆过程<br /></li>
 
 <hr />
 
-<h3 id="三-放大器">三、放大器</h3>
+<h3 id="三-放大器-ampifier">三、放大器（AMPIFIER）</h3>
 
-<h4 id="1-定义及传输特性">1、定义及传输特性</h4>
+<p><strong>定义</strong>：满足$A = \frac{x_o}{x_i}$的系统。(A称为增益 Or 放大倍数)<br />
+即存在输入端和输出端，当在输入端输入一个 信号$x_i$，那么在输出端能够得到一个幅值放大的信号$x_o$，实现<strong>不失真的线性放大</strong>。</p>
 
-<p>放大器英文全称：AMPLIFIER — 放大电路</p>
+<p>实际连接电路如下图：<br />
+<img src="https://s1.ax1x.com/2018/04/02/CSElOf.png" alt="CSElOf.png" /></p>
 
-<p>定义：满足$A = \frac{x_o}{x_i}$的系统。<br />
-其中A被称为放大器的增益或放大倍数。</p>
+<p><strong>参数说明</strong>：<br />
+$v_{sig}$：输入信号源<br />
+$R_{sig}$：输入信号源内阻<br />
+$R_L$：负载<br />
+$v_i$：输入电压<br />
+$v_o$：输出电压</p>
 
-<p>传输特性：</p>
+<hr />
+
+<p><strong>传输特性</strong>：<br />
+理想放大器：斜率即为增益大小。<br />
+实际放大器：本质为换能器，为保证线性放大能力，输入信号范围存在限制。</p>
+
+<hr />
+
+<p><strong>重点！</strong><br />
+放大器的主要参数：   <strong>增益、输入电阻、输出电阻、带宽</strong></p>
+
+<p>四种增益及放大器：<br />
+电压增益：$A_{v} = \frac{v_o}{v_i}(V/V)$ — 电压放大器<br />
+电流增益：$A_{i} = \frac{i_o}{i_i}(A/A)$   — 电流放大器<br />
+互阻增益：$A_{r} = \frac{v_o}{i_i}(V/A)$ — 互阻放大器<br />
+互导增益：$A_{g} = \frac{i_o}{v_i}(A/V)$ — 互导放大器</p>
+
+<p><strong>增益的分贝表示</strong><br />
+起源：部分增益的值非常大，为了能够较好的观察和比较，通过取$log$后，将不同的增益<strong>聚集</strong>在一起。<br />
+表达式：<br />
+电压：$A_v(dB) = 20log|A_v|$<br />
+电流：$A_i(dB) = 20log|A_i|$<br />
+功率：$A_p(dB) = 10log|A_p|$</p>
+
+<p><strong>拓展</strong>：为什么$A_v(dB)$和$A_i(dB)$前的系数是$A_p(dB)$的2倍？<br />
+答：<br />
+由功率的定义式：$P = \frac{u^2}{R} = i^2R$，取$log$以后相应会多出一个2倍的关系。</p>
+
+<hr />
+
+<p><strong>输入电阻</strong>：（以电压放大器举例）<br />
+<strong>定义</strong>： $R_i = \frac{v_i}{i_i}$<br />
+引入<strong>源电压增益</strong>：$A_{vs} = \frac{v_o}{v_{sig}}$<br />
+由$v_i = \frac{R_i}{R_i + R_{sig}}v_{sig}$<br />
+推出： $A_{vs} = \frac{R_i}{R_i+R_{sig}}A_{v}$</p>
+
+<p>故当$R_i &gt;&gt; R_{sig}$时，$A_v \approx A_{vs}$</p>
+
+<hr />
+
+<p><strong>输入电阻</strong>：（以电压放大器举例）<br />
+<strong>定义</strong>： $R_o= \frac{v_t}{i_t}$ ($v_{sig} = 0$ 且 外加测试信号源$v_t$代替了原来的负载。)<br />
+引入<strong>开路电压增益</strong>：$A_{vo} = \frac{v_{ot}}{v_{i}}$ ($R_{L} \rightarrow \infty$)<br />
+由$v_o = \frac{R_L}{R_L + R_{o}}v_{ot}$<br />
+推出： $A_{v} = \frac{R_L}{R_L+R_{o}}A_{vo}$</p>
+
+<p>故当$R_o &lt;&lt; R_{L}$时，$A_v \approx A_{vo}$</p>
+
+<hr />
+
+<p>电压放大器建模：二端口网络
+<strong>理想条件</strong>：<br />
+电压放大器： $R_i \rightarrow \infty$;  $R_o \rightarrow 0 $<br />
+电流放大器： $R_i \rightarrow 0$;  $R_o \rightarrow \infty $<br />
+互导放大器： $R_i \rightarrow \infty$;  $R_o \rightarrow \infty $<br />
+互阻放大器： $R_i \rightarrow 0$ ; $R_o \rightarrow 0 $</p>
+
+<p><strong>拓展</strong>：个人理解：<br />
+对于不同类型的放大器，其本质是输入输出的信号类型差异，而理想状态其实是统一的，即：<br />
+1. 输入信号尽可能集中于$R_i$，若输入为电压，则$R_i \rightarrow \infty$，
+否则$R_i \rightarrow 0$<br />
+2. 输出信号尽可能避开于$R_o$，若输出为电压，则$R_o \rightarrow 0 $,
+否则  $R_o \rightarrow \infty $</p>
+
+<hr />
+
+<p>放大器的频率响应<br />
+若信号均用频率表示，则放大器的增益为频率的函数：<br />
+$A(j\omega) = \frac{V_{o}(j\omega)}{V_{i}(j\omega)} = |A(\omega)|e^{j\varphi_{A}(\omega)}$<br />
+参数说明：<br />
+$|A(\omega)|$：放大器的 <strong>幅频函数</strong><br />
+$\varphi_{A}(\omega)$：放大器的 <strong>相频函数</strong></p>
+
+<hr />
+
+<p><strong>带宽</strong>BW</p>
+
+<p><a href="https://imgchr.com/i/CSQrBn"><img src="https://s1.ax1x.com/2018/04/02/CSQrBn.md.png" alt="CSQrBn.md.png" /></a></p>
+
+<p><strong>定义</strong>：$BW = |f_H - f_L|$<br />
+通频带又称工作频带，能保证放大器进行线性不失真放大。<br />
+$f_H$：上限截止频率<br />
+$f_L$：下限截止频率</p>
+
+<hr />
+
+<h2 id="第二章-理想运算放大器及其线性应用">第二章 理想运算放大器及其线性应用</h2>
+
+<h3 id="重点概括-1">重点概括</h3>
+
+<ul>
+<li>差分放大器、差模信号、共模信号、差模增益、共模增益、共模抑制比<br /></li>
+<li>理想放大器特点及建模、“虚短”和“虚断”的定义及应用<br /></li>
+<li>运放构成的基本组态电路<br /></li>
+<li>分析和设计利用理想运放实现各类线性电路<br /></li>
+<li>非理想运放的模型及相关参数<br /></li>
+</ul>
+
+<hr />
+
+<h3 id="一-运算放大器理想模型及分析方法">一、运算放大器理想模型及分析方法</h3>
+
+<p><strong>定义</strong>：运算放大器（Operational Amplifier），简称运放，是目前最广泛使用的线性集成电路。<br />
+下面这段来自百度百科：</p>
+
+<blockquote>
+<p>运算放大器（简称“运放”）是具有很高放大倍数的电路单元。在实际电路中，通常结合反馈网络共同组成某种功能模块。它是一种带有特殊耦合电路及反馈的放大器。</p>
+</blockquote>
+
+<hr />
+
+<p><strong>电路符号：</strong><br />
+<img src="https://s1.ax1x.com/2018/04/02/CS1UyQ.png" alt="CS1UyQ.png" /></p>
+
+<p>与放大器类似，不同在于存在两个输入端口。</p>
+
+<hr />
+
+<p><strong>拓展：</strong><br />
+1. 定义：<strong>差模信号与共模信号</strong>：<br />
+对于任意一对信号$v_1$和$v_2$，<br />
+其差模信号定义为： $v_{id} = v_2 - v_1$<br />
+其共模信号定义为：$v_{icm} = \frac{v_1 + v_2}{2}$</p>
+
+<p>反过来看：<br />
+对于任意一对信号$v_1$和$v_2$，有：<br />
+$v_1 = v_{icm} - \frac{v_{id}}{2}$<br />
+$v_2 = v_{icm} + \frac{v_{id}}{2}$<br />
+即包含大小相等、<strong>极性相反</strong>的<strong>差模信号</strong>和大小相等<strong>极性相同</strong>的<strong>共模信号</strong>。</p>
+
+<hr />
+
+<ol>
+<li><strong>差分放大器</strong><br />
+特点：放大差模信号、抑制共模信号</li>
+</ol>
 
 <hr />
 
 <h2 id="第四章-场效应管-fet">第四章 场效应管 FET</h2>
 
-<h3 id="重点概括-1">重点概括</h3>
+<h3 id="重点概括-2">重点概括</h3>
 
 <ul>
 <li>MOSFET器件结构、工作原理、特性及参数</li>
@@ -446,48 +605,122 @@ D/A转换：上述转换的逆过程<br /></li>
 
 <hr />
 
-<h3 id="一-简介">一、简介</h3>
+<h3 id="一-mosfet结构及工作原理">一、MOSFET结构及工作原理</h3>
 
-<h4 id="1-定义-1">1、定义</h4>
+<h4 id="1-简介">1、简介</h4>
 
-<p>FET是一种利用<strong>电压控制电流</strong>大小的单极性半导体器件</p>
+<p>定义：FET是一种利用<strong>电压控制电流</strong>大小的单极性半导体器件。</p>
 
-<h4 id="2-特点">2、 特点</h4>
+<p>特点： 低功耗、低噪声、输入阻抗高、热稳定性好</p>
+
+<p>分类：</p>
 
 <ul>
-<li>低功耗</li>
-<li>低噪声</li>
-<li>输入阻抗高</li>
-<li>热稳定性好</li>
+<li>MOSFET（金属-氧化物-半导体场效应管）<br />
+
+<ul>
+<li>N、P沟道</li>
+<li>增强型、耗尽型<br /></li>
+</ul></li>
 </ul>
 
-<h4 id="3-分类">3、分类</h4>
+<p>故MOSFET分为四类：<br />
+NEMOSFET: N沟道增强型；NDMOSFET：N沟道耗尽型；<br />
+PEMOSFET：P沟道增强型；PDMOSFET：P沟道耗尽型；</p>
+
+<hr />
 
 <ul>
-<li>MOSFET
+<li>JFET（结型场效应管，本身为耗尽型）<br />
 
 <ul>
-<li>N沟道
-
-<ul>
-<li>增强型</li>
-<li>耗尽型</li>
+<li>N、P沟道</li>
 </ul></li>
-<li>P沟道
+</ul>
+
+<p>故JFET分为两类：<br />
+NJFET:N沟道耗尽型；PJFET：P沟道耗尽型。</p>
+
+<blockquote>
+<p>沟道：FET器件内部载流子导电的通路，当导电的载流子为自由电子时称为N沟道；导电载流子为空穴时，称为P沟道。</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+<p>增强型：生产时内部没有导电沟道<br />
+耗尽型：生产时内部已有导电沟道</p>
+</blockquote>
+
+<hr />
+
+<h4 id="2-mosfet结构及工作原理">2、MOSFET结构及工作原理</h4>
+
+<p><strong>结构</strong>：<br />
+1. 四端子：栅极G(Gate)、源极S(Source)、漏极D(Drain)、衬底极B(Body)<br />
+2. 沟道参数： L、W</p>
+
+<p><strong>特点</strong>：<br />
+1. 对称结构，S极和D极可互换<br />
+2. 源区和漏区分别与衬底之间形成PN结，需保证其反偏。<br />
+—— 处理方式：源极和衬底极相连，并使之连接到电路的最低电位。</p>
+
+<p><strong>工作原理</strong>：<br />
+1. $V_{GS}$ 的作用：创建N沟道，控制沟道深度<br />
+2. $V_{DS}$ 的作用：形成漏极电流 $I_{D}$</p>
+
+<p>为实现MOS管正常工作，两者<strong>缺一不可</strong>！<br />
+如果<strong>没有 $V_{GS}$</strong> 而 只有 $V_{DS}$ ： 将不会有导电的沟道。<br />
+如果<strong>没有 $V_{DS}$</strong>而 只有 $V_{GS}$ ： 将没有电流。</p>
+
+<p><strong>工作过程</strong><br />
+<img src="https://s1.ax1x.com/2018/04/01/9zVyy6.png" alt="9zVyy6.png" /></p>
+
+<ol>
+<li>$V_{GS} &lt; V_t$ ： 截止状态，工作区称为截止区。<br />
+注：$V_t$ 称为<strong>开启电压</strong>，其值为刚刚开始形成导电沟道所形成的 $V_{GS}$ 电压值<br /></li>
+<li>$V_{GS} &gt; V_t$：形成导电沟道，$V_{GS}$越大，沟道深度越深，等效电阻越小。<br /></li>
+<li>$V_{DS}&gt;0$：在导电沟道上出现漏极电流 $I_{D}$，
+且$I_{D}$随$V_{DS}$的增大而增大。<br /></li>
+<li>$V_{GS} &gt; V_t $ &amp;&amp; $ V_{DS}&lt;V_{GS} - V_t$：工作在变阻区<br /></li>
+<li>$V_{GS} &gt; V_t $ &amp;&amp; $ V_{DS}&gt;V_{GS} - V_t$：沟道预夹断，$I_{D}$达到饱和，工作在饱和区，$V_{DS}$继续增大将出现<strong>沟道长度调制效应</strong>；$V_{DS}$过大时会出现击穿。</li>
+</ol>
+
+<blockquote>
+<p>沟道长度调制效应：$V_{DS}$继续增大使得预夹断点会略向源区移动，等效电阻略有减小，$I_D$略有增大。当L的值为纳米级时需格外关注此效应的作用。</p>
+</blockquote>
+
+<hr />
+
+<h3 id="二-结型场效应管">二、结型场效应管</h3>
+
+<hr />
+
+<h3 id="三-场效应管电路直流偏置">三、场效应管电路直流偏置</h3>
+
+<h4 id="1-fet放大器传输特性">1、FET放大器传输特性</h4>
+
+<p>=</p>
+
+<hr />
+
+<h3 id="四-场效应管放大电路分析-important">四、场效应管放大电路分析 (Important)</h3>
+
+<h4 id="1-重点概括">1、重点概括：</h4>
 
 <ul>
-<li>增强型</li>
-<li>耗尽型</li>
-</ul></li>
-</ul></li>
+<li>MOS放大器偏置电路的设计方法</li>
+<li>MOS放大器的分类及基本组态电路的参数分析</li>
+<li>根据工程条件及指标要求，MOS放大器的设计步骤</li>
 </ul>
 
 <hr />
 
 <h2 id="update">Update</h2>
 
-<p>2018/3/22 更新第一章内容
-2018/3/26 更新第四章内容</p>
+<p>2018/03/22 更新第一章内容<br />
+2018/03/26 更新第四章内容<br />
+2018/04/01 补充第一章和第四章内容</p>
               
             </div>
           </div>
