@@ -1,0 +1,1014 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+
+  
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.32 with theme Tranquilpeak 0.4.3-BETA">
+    <title>模拟电子电路基础 总结（一）</title>
+    <meta name="author" content="Wubaizhe">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="https://wubaizhe.github.io/favicon.png">
+    
+
+    
+    <meta name="description" content="前言 经过前四周的学习，我强烈感受到了模电课程知识点的繁多杂乱
+加上自己学得并不用心，精力全部放在科研竞赛方面，已经慢慢感觉跟不上大家的节奏&hellip;
+每次在课堂上观望着大佬们谈笑间问题灰飞烟灭&hellip;心中暗生羡慕qwq
+综合以上情况，想自己尝试归纳总结书上和视频的知识点，
+一是能看视频更加专注（之前总是走神 = =）
+二是方便日后复习回顾
+三是能对目前所学习的章节知识点有一个大的掌握
+此博客将持续更新~
+第一章 模拟电子电路导论 重点概括  模拟放大器的定义和参数定义 学会根据工程条件合理建模，掌握如何分析计算放大器的性能参数 理解放大器分类和不同类放大器的参数描述和理想条件  一、信号 1. 定义： 任何携带信息的物理量
+对于模拟电子电路课程，信号的处理与分析是贯穿课程的主线。
+常见的信号如正弦信号：
+音频信号：
+2.分类：
+ 模拟信号：时间和幅度都连续 (模电主要研究对象！) 数字信号：时间和幅度都离散  3.转换：
+A/D转换：采样和量化编码，将模拟信号转变为数字信号
+D/A转换：上述转换的逆过程
+4.表示：
+两种方式：
+ 时序信号：以时间变量为横轴，信号幅度为纵轴 频域信号：以频率变量为横轴，信号幅度为纵轴  举例：
+
+ 信号的时域信息：判断是否需要放大等后续处理。 信号的频域信息：判断是否需要设计滤波等电路。  综上可见：时域和频域，不过是观察信号信息的两个不同视角。
+拓展阅读：信号频域和时域的关系—知乎
+二、电子系统 
+电子系统是处理信号的电路综合
+其中如信号放大、滤波、AD转换均需要利用模拟电子电路的功能。
+形如数据清洗对于数据挖掘的重要性，信号的预处理在电子系统中有着重要的地位。而在预处理环节，放大器是非常关键的组成部分。
+故接下来的重点内容便是放大器。
+三、放大器（AMPIFIER） 1.定义：满足$A = \frac{x_o}{x_i}$的系统。(A称为增益 Or 放大倍数)
+即存在输入端和输出端，当在输入端输入一个 信号$x_i$，那么在输出端能够得到一个幅值放大的信号$x_o$，实现不失真的线性放大。
+实际连接电路如下图：
+参数说明：
+$v_{sig}$：输入信号源
+$R_{sig}$：输入信号源内阻
+$R_L$：负载
+$v_i$：输入电压">
+    <meta property="og:description" content="前言 经过前四周的学习，我强烈感受到了模电课程知识点的繁多杂乱
+加上自己学得并不用心，精力全部放在科研竞赛方面，已经慢慢感觉跟不上大家的节奏&hellip;
+每次在课堂上观望着大佬们谈笑间问题灰飞烟灭&hellip;心中暗生羡慕qwq
+综合以上情况，想自己尝试归纳总结书上和视频的知识点，
+一是能看视频更加专注（之前总是走神 = =）
+二是方便日后复习回顾
+三是能对目前所学习的章节知识点有一个大的掌握
+此博客将持续更新~
+第一章 模拟电子电路导论 重点概括  模拟放大器的定义和参数定义 学会根据工程条件合理建模，掌握如何分析计算放大器的性能参数 理解放大器分类和不同类放大器的参数描述和理想条件  一、信号 1. 定义： 任何携带信息的物理量
+对于模拟电子电路课程，信号的处理与分析是贯穿课程的主线。
+常见的信号如正弦信号：
+音频信号：
+2.分类：
+ 模拟信号：时间和幅度都连续 (模电主要研究对象！) 数字信号：时间和幅度都离散  3.转换：
+A/D转换：采样和量化编码，将模拟信号转变为数字信号
+D/A转换：上述转换的逆过程
+4.表示：
+两种方式：
+ 时序信号：以时间变量为横轴，信号幅度为纵轴 频域信号：以频率变量为横轴，信号幅度为纵轴  举例：
+
+ 信号的时域信息：判断是否需要放大等后续处理。 信号的频域信息：判断是否需要设计滤波等电路。  综上可见：时域和频域，不过是观察信号信息的两个不同视角。
+拓展阅读：信号频域和时域的关系—知乎
+二、电子系统 
+电子系统是处理信号的电路综合
+其中如信号放大、滤波、AD转换均需要利用模拟电子电路的功能。
+形如数据清洗对于数据挖掘的重要性，信号的预处理在电子系统中有着重要的地位。而在预处理环节，放大器是非常关键的组成部分。
+故接下来的重点内容便是放大器。
+三、放大器（AMPIFIER） 1.定义：满足$A = \frac{x_o}{x_i}$的系统。(A称为增益 Or 放大倍数)
+即存在输入端和输出端，当在输入端输入一个 信号$x_i$，那么在输出端能够得到一个幅值放大的信号$x_o$，实现不失真的线性放大。
+实际连接电路如下图：
+参数说明：
+$v_{sig}$：输入信号源
+$R_{sig}$：输入信号源内阻
+$R_L$：负载
+$v_i$：输入电压">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="模拟电子电路基础 总结（一）">
+    <meta property="og:url" content="/2018/03/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93%E4%B8%80/">
+    <meta property="og:site_name" content="Wubaizhe&#39;s Blog">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Wubaizhe&#39;s Blog">
+    <meta name="twitter:description" content="前言 经过前四周的学习，我强烈感受到了模电课程知识点的繁多杂乱
+加上自己学得并不用心，精力全部放在科研竞赛方面，已经慢慢感觉跟不上大家的节奏&hellip;
+每次在课堂上观望着大佬们谈笑间问题灰飞烟灭&hellip;心中暗生羡慕qwq
+综合以上情况，想自己尝试归纳总结书上和视频的知识点，
+一是能看视频更加专注（之前总是走神 = =）
+二是方便日后复习回顾
+三是能对目前所学习的章节知识点有一个大的掌握
+此博客将持续更新~
+第一章 模拟电子电路导论 重点概括  模拟放大器的定义和参数定义 学会根据工程条件合理建模，掌握如何分析计算放大器的性能参数 理解放大器分类和不同类放大器的参数描述和理想条件  一、信号 1. 定义： 任何携带信息的物理量
+对于模拟电子电路课程，信号的处理与分析是贯穿课程的主线。
+常见的信号如正弦信号：
+音频信号：
+2.分类：
+ 模拟信号：时间和幅度都连续 (模电主要研究对象！) 数字信号：时间和幅度都离散  3.转换：
+A/D转换：采样和量化编码，将模拟信号转变为数字信号
+D/A转换：上述转换的逆过程
+4.表示：
+两种方式：
+ 时序信号：以时间变量为横轴，信号幅度为纵轴 频域信号：以频率变量为横轴，信号幅度为纵轴  举例：
+
+ 信号的时域信息：判断是否需要放大等后续处理。 信号的频域信息：判断是否需要设计滤波等电路。  综上可见：时域和频域，不过是观察信号信息的两个不同视角。
+拓展阅读：信号频域和时域的关系—知乎
+二、电子系统 
+电子系统是处理信号的电路综合
+其中如信号放大、滤波、AD转换均需要利用模拟电子电路的功能。
+形如数据清洗对于数据挖掘的重要性，信号的预处理在电子系统中有着重要的地位。而在预处理环节，放大器是非常关键的组成部分。
+故接下来的重点内容便是放大器。
+三、放大器（AMPIFIER） 1.定义：满足$A = \frac{x_o}{x_i}$的系统。(A称为增益 Or 放大倍数)
+即存在输入端和输出端，当在输入端输入一个 信号$x_i$，那么在输出端能够得到一个幅值放大的信号$x_o$，实现不失真的线性放大。
+实际连接电路如下图：
+参数说明：
+$v_{sig}$：输入信号源
+$R_{sig}$：输入信号源内阻
+$R_L$：负载
+$v_i$：输入电压">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="https://s1.ax1x.com/2018/03/12/9fsrlt.jpg">
+    
+
+    
+      <meta property="og:image" content="https://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/3bf33a87e950352a47c8cea05343fbf2b3118be9.jpg">
+    
+    
+      <meta property="og:image" content="https://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/3bf33a87e950352a47c8cea05343fbf2b3118be9.jpg">
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://wubaizhe.github.io/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://wubaizhe.github.io/">Wubaizhe&#39;s Blog</a>
+  </div>
+  
+</header>
+
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://wubaizhe.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://s1.ax1x.com/2018/03/12/9fsrlt.jpg" alt="作者的图片" />
+        </a>
+        <h4 class="sidebar-profile-name">Wubaizhe</h4>
+        
+          <h5 class="sidebar-profile-bio">Never quit trying :)</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wubaizhe.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">首页</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wubaizhe.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">分类</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wubaizhe.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">标签</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wubaizhe.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">关于</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/Wubaizhe" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://blog.csdn.net/wubaizhe" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bold"></i>
+      
+      <span class="sidebar-button-desc">CSDN</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://www.zhihu.com/people/deng-xin-hao-95/activities" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-quora"></i>
+      
+      <span class="sidebar-button-desc">知乎</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://s1.ax1x.com/2018/03/12/9fsHmT.jpg" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-weixin"></i>
+      
+      <span class="sidebar-button-desc">微信</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wubaizhe.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-"></i>
+      
+      <span class="sidebar-button-desc"></span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://wubaizhe.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-user"></i>
+      
+      <span class="sidebar-button-desc">友情链接</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://lightghli.com/" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-"></i>
+      
+      <span class="sidebar-button-desc">LightGhli</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://blog.doragd.cn/" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-"></i>
+      
+      <span class="sidebar-button-desc">Gordon</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="http://www.ckj123.xin/" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-"></i>
+      
+      <span class="sidebar-button-desc">ckj123</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('https://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/3bf33a87e950352a47c8cea05343fbf2b3118be9.jpg')"
+       data-behavior="5">
+    
+      <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      模拟电子电路基础 总结（一）
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2018-03-22T00:00:00Z">
+        
+  三月 22, 2018
+
+      </time>
+    
+    
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://wubaizhe.github.io/categories/%e8%af%be%e7%a8%8b%e5%ad%a6%e4%b9%a0">课程学习</a>
+    
+  
+
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="5"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              
+
+<h1 id="前言">前言</h1>
+
+<p>经过前四周的学习，我强烈感受到了模电课程知识点的繁多杂乱<br />
+加上自己学得并不用心，精力全部放在科研竞赛方面，已经慢慢感觉跟不上大家的节奏&hellip;<br />
+每次在课堂上观望着大佬们谈笑间问题灰飞烟灭&hellip;心中暗生羡慕qwq</p>
+
+<p>综合以上情况，想自己尝试归纳<del>总结</del>书上和视频的知识点，<br />
+一是能看视频更加专注（之前总是走神 = =）<br />
+二是方便日后复习回顾<br />
+三是能对目前所学习的章节知识点有一个大的掌握</p>
+
+<p>此博客将持续更新~</p>
+
+<hr />
+
+<h1 id="第一章-模拟电子电路导论">第一章 模拟电子电路导论</h1>
+
+<h2 id="重点概括">重点概括</h2>
+
+<ul>
+<li>模拟放大器的定义和<strong>参数定义</strong></li>
+<li>学会根据工程条件<strong>合理建模</strong>，掌握如何分析计算放大器的<strong>性能参数</strong></li>
+<li>理解放大器分类和<strong>不同类放大器的参数描述和理想条件</strong></li>
+</ul>
+
+<hr />
+
+<h2 id="一-信号">一、信号</h2>
+
+<p><strong>1. 定义</strong>： 任何<strong>携带信息</strong>的物理量</p>
+
+<p>对于模拟电子电路课程，信号的处理与分析是贯穿课程的主线。</p>
+
+<p>常见的信号如正弦信号：<br />
+<img src="https://s1.ax1x.com/2018/03/22/9H5kJH.png" alt="9H5kJH.png" /></p>
+
+<p>音频信号：<br />
+<img src="https://s1.ax1x.com/2018/03/22/9H5VSA.png" alt="9H5VSA.png" /></p>
+
+<hr />
+
+<p><strong>2.分类</strong>：</p>
+
+<ul>
+<li>模拟信号：时间和幅度都<strong>连续</strong> (模电主要研究对象！)</li>
+<li>数字信号：时间和幅度都<strong>离散</strong></li>
+</ul>
+
+<p><strong>3.转换</strong>：<br />
+A/D转换：采样和量化编码，将模拟信号转变为数字信号<br />
+D/A转换：上述转换的逆过程</p>
+
+<hr />
+
+<p><strong>4.表示</strong>：<br />
+<strong>两种方式</strong>：</p>
+
+<ul>
+<li>时序信号：以<strong>时间变量</strong>为横轴，信号幅度为纵轴</li>
+<li>频域信号：以<strong>频率变量</strong>为横轴，信号幅度为纵轴</li>
+</ul>
+
+<p><strong>举例</strong>：<br />
+<a href="https://imgchr.com/i/9HoKPg"><img src="https://s1.ax1x.com/2018/03/22/9HoKPg.md.png" alt="9HoKPg.md.png" /></a></p>
+
+<ul>
+<li>信号的时域信息：判断是否需要<strong>放大</strong>等后续处理。</li>
+<li>信号的频域信息：判断是否需要设计<strong>滤波</strong>等电路。</li>
+</ul>
+
+<p><strong>综上可见</strong>：时域和频域，不过是观察信号信息的两个不同视角。</p>
+
+<p>拓展阅读：<a href="https://www.zhihu.com/question/21040374/answer/37911622">信号频域和时域的关系—知乎</a></p>
+
+<hr />
+
+<h2 id="二-电子系统">二、电子系统</h2>
+
+<p><a href="https://imgchr.com/i/9LfGK1"><img src="https://s1.ax1x.com/2018/03/26/9LfGK1.md.png" alt="9LfGK1.md.png" /></a><br />
+电子系统是<strong>处理信号的电路综合</strong><br />
+其中如信号放大、滤波、AD转换均需要利用模拟电子电路的功能。<br />
+形如数据清洗对于数据挖掘的重要性，信号的预处理在电子系统中有着重要的地位。而在预处理环节，放大器是非常关键的组成部分。</p>
+
+<p>故接下来的重点内容便是放大器。</p>
+
+<hr />
+
+<h2 id="三-放大器-ampifier">三、放大器（AMPIFIER）</h2>
+
+<p><strong>1.定义</strong>：满足$A = \frac{x_o}{x_i}$的系统。(A称为增益 Or 放大倍数)<br />
+即存在输入端和输出端，当在输入端输入一个 信号$x_i$，那么在输出端能够得到一个幅值放大的信号$x_o$，实现<strong>不失真的线性放大</strong>。</p>
+
+<p>实际连接电路如下图：<br />
+<img src="https://s1.ax1x.com/2018/04/02/CSElOf.png" alt="CSElOf.png" /></p>
+
+<p><strong>参数说明</strong>：<br />
+$v_{sig}$：输入信号源<br />
+$R_{sig}$：输入信号源内阻<br />
+$R_L$：负载<br />
+$v_i$：输入电压<br />
+$v_o$：输出电压</p>
+
+<hr />
+
+<p><strong>2.传输特性</strong>：<br />
+理想放大器：斜率即为增益大小。<br />
+实际放大器：本质为换能器，为保证线性放大能力，输入信号范围存在限制。</p>
+
+<hr />
+
+<p><strong>3.重点！</strong><br />
+放大器的主要参数：   <strong>增益、输入电阻、输出电阻、带宽</strong></p>
+
+<p>四种增益及放大器：<br />
+电压增益：$A_{v} = \frac{v_o}{v_i}(V/V)$ — 电压放大器<br />
+电流增益：$A_{i} = \frac{i_o}{i_i}(A/A)$   — 电流放大器<br />
+互阻增益：$A_{r} = \frac{v_o}{i_i}(V/A)$ — 互阻放大器<br />
+互导增益：$A_{g} = \frac{i_o}{v_i}(A/V)$ — 互导放大器</p>
+
+<p><strong>4.增益的分贝表示</strong><br />
+起源：部分增益的值非常大，为了能够较好的观察和比较，通过取$log$后，将不同的增益<strong>聚集</strong>在一起。<br />
+表达式：<br />
+电压：$A_v(dB) = 20log|A_v|$<br />
+电流：$A_i(dB) = 20log|A_i|$<br />
+功率：$A_p(dB) = 10log|A_p|$</p>
+
+<p><strong>拓展</strong>：为什么$A_v(dB)$和$A_i(dB)$前的系数是$A_p(dB)$的2倍？<br />
+答：<br />
+由功率的定义式：$P = \frac{u^2}{R} = i^2R$，取$log$以后相应会多出一个2倍的关系。</p>
+
+<hr />
+
+<p><strong>5.输入电阻</strong>：（以电压放大器举例）<br />
+<strong>定义</strong>： $R_i = \frac{v_i}{i_i}$<br />
+引入<strong>源电压增益</strong>：$A_{vs} = \frac{v_o}{v_{sig}}$<br />
+由$v_i = \frac{R_i}{R_i + R_{sig}}v_{sig}$<br />
+推出： $A_{vs} = \frac{R_i}{R_i+R_{sig}}A_{v}$</p>
+
+<p>故当$R_i &gt;&gt; R_{sig}$时，$A_v \approx A_{vs}$</p>
+
+<hr />
+
+<p><strong>6.输出电阻</strong>：（以电压放大器举例）<br />
+<strong>定义</strong>： $R_o= \frac{v_t}{i_t}$ ($v_{sig} = 0$ 且 外加测试信号源$v_t$代替了原来的负载。)<br />
+引入<strong>开路电压增益</strong>：$A_{vo} = \frac{v_{ot}}{v_{i}}$ ($R_{L} \rightarrow \infty$)<br />
+由$v_o = \frac{R_L}{R_L + R_{o}}v_{ot}$<br />
+推出： $A_{v} = \frac{R_L}{R_L+R_{o}}A_{vo}$</p>
+
+<p>故当$R_o &lt;&lt; R_{L}$时，$A_v \approx A_{vo}$</p>
+
+<hr />
+
+<p>电压放大器建模：二端口网络
+<strong>7.理想条件</strong>：<br />
+电压放大器： $R_i \rightarrow \infty$;  $R_o \rightarrow 0 $<br />
+电流放大器： $R_i \rightarrow 0$;  $R_o \rightarrow \infty $<br />
+互导放大器： $R_i \rightarrow \infty$;  $R_o \rightarrow \infty $<br />
+互阻放大器： $R_i \rightarrow 0$ ; $R_o \rightarrow 0 $</p>
+
+<p><strong>8.拓展</strong>：个人理解：<br />
+对于不同类型的放大器，其本质是输入输出的信号类型差异，而理想状态其实是统一的，即：<br />
+1. 输入信号尽可能集中于$R_i$，若输入为电压，则$R_i \rightarrow \infty$，
+否则$R_i \rightarrow 0$<br />
+2. 输出信号尽可能避开于$R_o$，若输出为电压，则$R_o \rightarrow 0 $,
+否则  $R_o \rightarrow \infty $</p>
+
+<hr />
+
+<p><strong>9.放大器的频率响应</strong></p>
+
+<p>若信号均用频率表示，则放大器的增益为频率的函数：<br />
+$A(j\omega) = \frac{V_{o}(j\omega)}{V_{i}(j\omega)} = |A(\omega)|e^{j\varphi_{A}(\omega)}$<br />
+参数说明：<br />
+$|A(\omega)|$：放大器的 <strong>幅频函数</strong><br />
+$\varphi_{A}(\omega)$：放大器的 <strong>相频函数</strong></p>
+
+<hr />
+
+<p><strong>10.带宽</strong>BW</p>
+
+<p><a href="https://imgchr.com/i/CSQrBn"><img src="https://s1.ax1x.com/2018/04/02/CSQrBn.md.png" alt="CSQrBn.md.png" /></a></p>
+
+<p><strong>定义</strong>：$BW = |f_H - f_L|$<br />
+通频带又称工作频带，能保证放大器进行线性不失真放大。<br />
+$f_H$：上限截止频率<br />
+$f_L$：下限截止频率</p>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://wubaizhe.github.io/tags/%E6%80%BB%E7%BB%93/">总结</a>
+
+                  </div>
+                
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://wubaizhe.github.io/2018/03/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93%E4%BA%8C/" data-tooltip="模拟电子电路基础 总结（二）">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2018 Wubaizhe. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://wubaizhe.github.io/2018/03/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93%E4%BA%8C/" data-tooltip="模拟电子电路基础 总结（二）">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://s1.ax1x.com/2018/03/12/9fsrlt.jpg" alt="作者的图片" />
+    
+    <h4 id="about-card-name">Wubaizhe</h4>
+    
+      <div id="about-card-bio">Never quit trying :)</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        HDU本科在读
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        杭州
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="搜索" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center"></div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://wubaizhe.github.io/2018/04/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93%E4%B8%89/">
+                <h3 class="media-heading">模拟电子电路基础 总结（三）</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Apr 4, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">第四章 场效应管 FET 重点概括  MOSFET器件结构、工作原理、特性及参数 CS放大器的传输特性 MOS放大器偏置电路设计方法  一、MOSFET结构及工作原理 1、简介 定义：FET是一种利用电压控制电流大小的单极性半导体器件。
+特点： 低功耗、低噪声、输入阻抗高、热稳定性好
+分类：
+ MOSFET（金属-氧化物-半导体场效应管）
+ N、P沟道 增强型、耗尽型
+   故MOSFET分为四类：
+NEMOSFET: N沟道增强型；NDMOSFET：N沟道耗尽型；
+PEMOSFET：P沟道增强型；PDMOSFET：P沟道耗尽型；
+ JFET（结型场效应管，本身为耗尽型）
+ N、P沟道   故JFET分为两类：
+NJFET:N沟道耗尽型；PJFET：P沟道耗尽型。
+ 沟道：FET器件内部载流子导电的通路，当导电的载流子为自由电子时称为N沟道；导电载流子为空穴时，称为P沟道。
+  增强型：生产时内部没有导电沟道
+耗尽型：生产时内部已有导电沟道
+ 2、MOSFET结构及工作原理 结构：
+1. 四端子：栅极G(Gate)、源极S(Source)、漏极D(Drain)、衬底极B(Body)
+2. 沟道参数： L、W
+特点：
+1. 对称结构，S极和D极可互换
+2. 源区和漏区分别与衬底之间形成PN结，需保证其反偏。
+—— 处理方式：源极和衬底极相连，并使之连接到电路的最低电位。
+工作原理：
+1. $V_{GS}$ 的作用：创建N沟道，控制沟道深度
+2. $V_{DS}$ 的作用：形成漏极电流 $I_{D}$
+为实现MOS管正常工作，两者缺一不可！
+如果没有 $V_{GS}$ 而 只有 $V_{DS}$ ： 将不会有导电的沟道。</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://wubaizhe.github.io/2018/03/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93%E4%BA%8C/">
+                <h3 class="media-heading">模拟电子电路基础 总结（二）</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">第二章 理想运算放大器及其线性应用 重点概括  差分放大器、差模信号、共模信号、差模增益、共模增益、共模抑制比
+ 理想放大器特点及建模、“虚短”和“虚断”的定义及应用
+ 运放构成的基本组态电路
+ 分析和设计利用理想运放实现各类线性电路
+ 非理想运放的模型及相关参数
+  一、运算放大器理想模型及分析方法 1.定义：运算放大器（Operational Amplifier），简称运放，是目前最广泛使用的线性集成电路。
+下面这段来自百度百科：
+ 运算放大器（简称“运放”）是具有很高放大倍数的电路单元。在实际电路中，通常结合反馈网络共同组成某种功能模块。它是一种带有特殊耦合电路及反馈的放大器。
+ 2.电路符号：
+与放大器类似，不同在于存在两个输入端口。
+关系式： $v_o = A(v_{+} - v_{-})$
+可见 运算放大器是一类典型的差分放大器。
+3.补充：
+ 差模信号与共模信号：
+对于任意一对信号$v_1$和$v_2$，
+其差模信号定义为： $v_{id} = v_2 - v_1$
+其共模信号定义为：$v_{icm} = \frac{v_1 + v_2}{2}$
+反过来看：
+对于任意一对信号$v_1$和$v_2$，有：
+$v_1 = v_{icm} - \frac{v_{id}}{2}$
+$v_2 = v_{icm} + \frac{v_{id}}{2}$
+即包含大小相等、极性相反的差模信号和大小相等极性相同的共模信号。
+ 差分放大器
+特点：放大差模信号、抑制共模信号，有两个输入端口。
+对于一对信号$v_1$和$v_2$，定义：
+$A_{vd} = v_o / v_{id} = v_o / (v_2 - v_1) $ — 差模增益 $A_{vcm} = v_o / v_{icm} = \frac{v_o}{(v_1 + v_2)/2}$ — 共模增益</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://wubaizhe.github.io/2018/03/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93%E4%B8%80/">
+                <h3 class="media-heading">模拟电子电路基础 总结（一）</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">前言 经过前四周的学习，我强烈感受到了模电课程知识点的繁多杂乱
+加上自己学得并不用心，精力全部放在科研竞赛方面，已经慢慢感觉跟不上大家的节奏&hellip;
+每次在课堂上观望着大佬们谈笑间问题灰飞烟灭&hellip;心中暗生羡慕qwq
+综合以上情况，想自己尝试归纳总结书上和视频的知识点，
+一是能看视频更加专注（之前总是走神 = =）
+二是方便日后复习回顾
+三是能对目前所学习的章节知识点有一个大的掌握
+此博客将持续更新~
+第一章 模拟电子电路导论 重点概括  模拟放大器的定义和参数定义 学会根据工程条件合理建模，掌握如何分析计算放大器的性能参数 理解放大器分类和不同类放大器的参数描述和理想条件  一、信号 1. 定义： 任何携带信息的物理量
+对于模拟电子电路课程，信号的处理与分析是贯穿课程的主线。
+常见的信号如正弦信号：
+音频信号：
+2.分类：
+ 模拟信号：时间和幅度都连续 (模电主要研究对象！) 数字信号：时间和幅度都离散  3.转换：
+A/D转换：采样和量化编码，将模拟信号转变为数字信号
+D/A转换：上述转换的逆过程
+4.表示：
+两种方式：
+ 时序信号：以时间变量为横轴，信号幅度为纵轴 频域信号：以频率变量为横轴，信号幅度为纵轴  举例：
+
+ 信号的时域信息：判断是否需要放大等后续处理。 信号的频域信息：判断是否需要设计滤波等电路。  综上可见：时域和频域，不过是观察信号信息的两个不同视角。
+拓展阅读：信号频域和时域的关系—知乎
+二、电子系统 
+电子系统是处理信号的电路综合
+其中如信号放大、滤波、AD转换均需要利用模拟电子电路的功能。
+形如数据清洗对于数据挖掘的重要性，信号的预处理在电子系统中有着重要的地位。而在预处理环节，放大器是非常关键的组成部分。
+故接下来的重点内容便是放大器。
+三、放大器（AMPIFIER） 1.定义：满足$A = \frac{x_o}{x_i}$的系统。(A称为增益 Or 放大倍数)
+即存在输入端和输出端，当在输入端输入一个 信号$x_i$，那么在输出端能够得到一个幅值放大的信号$x_o$，实现不失真的线性放大。
+实际连接电路如下图：
+参数说明：
+$v_{sig}$：输入信号源
+$R_{sig}$：输入信号源内阻
+$R_L$：负载
+$v_i$：输入电压</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero=""
+         data-message-one=""
+         data-message-other="">
+         3 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://s1.ax1x.com/2018/04/21/CMZSrn.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://wubaizhe.github.io/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/wubaizhe.github.io\/2018\/03\/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93%E4%B8%80\/';
+          
+            this.page.identifier = '\/2018\/03\/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93%E4%B8%80\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'Beautiful';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+    
+  </body>
+</html>
+

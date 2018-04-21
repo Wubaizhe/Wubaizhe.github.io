@@ -126,15 +126,40 @@
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="https://wubaizhe.github.io/2018/03/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93/">
-                <h3 class="media-heading">模拟电子电路基础 总结</h3>
+              <a class="link-unstyled" href="https://wubaizhe.github.io/2018/04/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93%E4%B8%89/">
+                <h3 class="media-heading">模拟电子电路基础 总结（三）</h3>
               </a>
               <span class="media-meta">
                 <span class="media-date text-small">
-                  Mar 3, 2018
+                  Apr 4, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"><p></p></div>
+              <div class="media-content hide-xs font-merryweather">第四章 场效应管 FET 重点概括  MOSFET器件结构、工作原理、特性及参数 CS放大器的传输特性 MOS放大器偏置电路设计方法  一、MOSFET结构及工作原理 1、简介 定义：FET是一种利用电压控制电流大小的单极性半导体器件。
+特点： 低功耗、低噪声、输入阻抗高、热稳定性好
+分类：
+ MOSFET（金属-氧化物-半导体场效应管）
+ N、P沟道 增强型、耗尽型
+   故MOSFET分为四类：
+NEMOSFET: N沟道增强型；NDMOSFET：N沟道耗尽型；
+PEMOSFET：P沟道增强型；PDMOSFET：P沟道耗尽型；
+ JFET（结型场效应管，本身为耗尽型）
+ N、P沟道   故JFET分为两类：
+NJFET:N沟道耗尽型；PJFET：P沟道耗尽型。
+ 沟道：FET器件内部载流子导电的通路，当导电的载流子为自由电子时称为N沟道；导电载流子为空穴时，称为P沟道。
+  增强型：生产时内部没有导电沟道
+耗尽型：生产时内部已有导电沟道
+ 2、MOSFET结构及工作原理 结构：
+1. 四端子：栅极G(Gate)、源极S(Source)、漏极D(Drain)、衬底极B(Body)
+2. 沟道参数： L、W
+特点：
+1. 对称结构，S极和D极可互换
+2. 源区和漏区分别与衬底之间形成PN结，需保证其反偏。
+—— 处理方式：源极和衬底极相连，并使之连接到电路的最低电位。
+工作原理：
+1. $V_{GS}$ 的作用：创建N沟道，控制沟道深度
+2. $V_{DS}$ 的作用：形成漏极电流 $I_{D}$
+为实现MOS管正常工作，两者缺一不可！
+如果没有 $V_{GS}$ 而 只有 $V_{DS}$ ： 将不会有导电的沟道。</div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -143,15 +168,91 @@
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="https://wubaizhe.github.io/2018/03/%E5%A4%A7%E5%AD%A6%E8%AE%B0%E5%BD%95/">
-                <h3 class="media-heading">大学记录</h3>
+              <a class="link-unstyled" href="https://wubaizhe.github.io/2018/03/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93%E4%BA%8C/">
+                <h3 class="media-heading">模拟电子电路基础 总结（二）</h3>
               </a>
               <span class="media-meta">
                 <span class="media-date text-small">
                   Mar 3, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"><p></p></div>
+              <div class="media-content hide-xs font-merryweather">第二章 理想运算放大器及其线性应用 重点概括  差分放大器、差模信号、共模信号、差模增益、共模增益、共模抑制比
+ 理想放大器特点及建模、“虚短”和“虚断”的定义及应用
+ 运放构成的基本组态电路
+ 分析和设计利用理想运放实现各类线性电路
+ 非理想运放的模型及相关参数
+  一、运算放大器理想模型及分析方法 1.定义：运算放大器（Operational Amplifier），简称运放，是目前最广泛使用的线性集成电路。
+下面这段来自百度百科：
+ 运算放大器（简称“运放”）是具有很高放大倍数的电路单元。在实际电路中，通常结合反馈网络共同组成某种功能模块。它是一种带有特殊耦合电路及反馈的放大器。
+ 2.电路符号：
+与放大器类似，不同在于存在两个输入端口。
+关系式： $v_o = A(v_{+} - v_{-})$
+可见 运算放大器是一类典型的差分放大器。
+3.补充：
+ 差模信号与共模信号：
+对于任意一对信号$v_1$和$v_2$，
+其差模信号定义为： $v_{id} = v_2 - v_1$
+其共模信号定义为：$v_{icm} = \frac{v_1 + v_2}{2}$
+反过来看：
+对于任意一对信号$v_1$和$v_2$，有：
+$v_1 = v_{icm} - \frac{v_{id}}{2}$
+$v_2 = v_{icm} + \frac{v_{id}}{2}$
+即包含大小相等、极性相反的差模信号和大小相等极性相同的共模信号。
+ 差分放大器
+特点：放大差模信号、抑制共模信号，有两个输入端口。
+对于一对信号$v_1$和$v_2$，定义：
+$A_{vd} = v_o / v_{id} = v_o / (v_2 - v_1) $ — 差模增益 $A_{vcm} = v_o / v_{icm} = \frac{v_o}{(v_1 + v_2)/2}$ — 共模增益</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://wubaizhe.github.io/2018/03/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93%E4%B8%80/">
+                <h3 class="media-heading">模拟电子电路基础 总结（一）</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Mar 3, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">前言 经过前四周的学习，我强烈感受到了模电课程知识点的繁多杂乱
+加上自己学得并不用心，精力全部放在科研竞赛方面，已经慢慢感觉跟不上大家的节奏&hellip;
+每次在课堂上观望着大佬们谈笑间问题灰飞烟灭&hellip;心中暗生羡慕qwq
+综合以上情况，想自己尝试归纳总结书上和视频的知识点，
+一是能看视频更加专注（之前总是走神 = =）
+二是方便日后复习回顾
+三是能对目前所学习的章节知识点有一个大的掌握
+此博客将持续更新~
+第一章 模拟电子电路导论 重点概括  模拟放大器的定义和参数定义 学会根据工程条件合理建模，掌握如何分析计算放大器的性能参数 理解放大器分类和不同类放大器的参数描述和理想条件  一、信号 1. 定义： 任何携带信息的物理量
+对于模拟电子电路课程，信号的处理与分析是贯穿课程的主线。
+常见的信号如正弦信号：
+音频信号：
+2.分类：
+ 模拟信号：时间和幅度都连续 (模电主要研究对象！) 数字信号：时间和幅度都离散  3.转换：
+A/D转换：采样和量化编码，将模拟信号转变为数字信号
+D/A转换：上述转换的逆过程
+4.表示：
+两种方式：
+ 时序信号：以时间变量为横轴，信号幅度为纵轴 频域信号：以频率变量为横轴，信号幅度为纵轴  举例：
+
+ 信号的时域信息：判断是否需要放大等后续处理。 信号的频域信息：判断是否需要设计滤波等电路。  综上可见：时域和频域，不过是观察信号信息的两个不同视角。
+拓展阅读：信号频域和时域的关系—知乎
+二、电子系统 
+电子系统是处理信号的电路综合
+其中如信号放大、滤波、AD转换均需要利用模拟电子电路的功能。
+形如数据清洗对于数据挖掘的重要性，信号的预处理在电子系统中有着重要的地位。而在预处理环节，放大器是非常关键的组成部分。
+故接下来的重点内容便是放大器。
+三、放大器（AMPIFIER） 1.定义：满足$A = \frac{x_o}{x_i}$的系统。(A称为增益 Or 放大倍数)
+即存在输入端和输出端，当在输入端输入一个 信号$x_i$，那么在输出端能够得到一个幅值放大的信号$x_o$，实现不失真的线性放大。
+实际连接电路如下图：
+参数说明：
+$v_{sig}$：输入信号源
+$R_{sig}$：输入信号源内阻
+$R_L$：负载
+$v_i$：输入电压</div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -164,7 +265,7 @@
          data-message-zero=""
          data-message-one=""
          data-message-other="">
-         2 posts found
+         3 posts found
       </p>
     </div>
   </div>
@@ -172,7 +273,7 @@
     
   
     
-    <div id="cover" style="background-image:url('https://s1.ax1x.com/2018/03/13/9hEpFI.jpg');"></div>
+    <div id="cover" style="background-image:url('https://s1.ax1x.com/2018/04/21/CMZSrn.jpg');"></div>
   
 
 

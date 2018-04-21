@@ -1,5 +1,9 @@
 
 
+  
+    
+  
+
 
   
 
@@ -16,25 +20,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.32 with theme Tranquilpeak 0.4.3-BETA">
-    <title>Archives</title>
+    <title>模拟电子电路基础 总结（三）</title>
     <meta name="author" content="Wubaizhe">
     <meta name="keywords" content="">
 
     <link rel="icon" href="https://wubaizhe.github.io/favicon.png">
     
-      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://wubaizhe.github.io/archives/index.xml">
-    
 
     
-    <meta name="description" content="Never quit trying :)">
-    <meta property="og:description" content="Never quit trying :)">
+    <meta name="description" content="第四章 场效应管 FET 重点概括  MOSFET器件结构、工作原理、特性及参数 CS放大器的传输特性 MOS放大器偏置电路设计方法  一、MOSFET结构及工作原理 1、简介 定义：FET是一种利用电压控制电流大小的单极性半导体器件。
+特点： 低功耗、低噪声、输入阻抗高、热稳定性好
+分类：
+ MOSFET（金属-氧化物-半导体场效应管）
+ N、P沟道 增强型、耗尽型
+   故MOSFET分为四类：
+NEMOSFET: N沟道增强型；NDMOSFET：N沟道耗尽型；
+PEMOSFET：P沟道增强型；PDMOSFET：P沟道耗尽型；
+ JFET（结型场效应管，本身为耗尽型）
+ N、P沟道   故JFET分为两类：
+NJFET:N沟道耗尽型；PJFET：P沟道耗尽型。
+ 沟道：FET器件内部载流子导电的通路，当导电的载流子为自由电子时称为N沟道；导电载流子为空穴时，称为P沟道。
+  增强型：生产时内部没有导电沟道
+耗尽型：生产时内部已有导电沟道
+ 2、MOSFET结构及工作原理 结构：
+1. 四端子：栅极G(Gate)、源极S(Source)、漏极D(Drain)、衬底极B(Body)
+2. 沟道参数： L、W
+特点：
+1. 对称结构，S极和D极可互换
+2. 源区和漏区分别与衬底之间形成PN结，需保证其反偏。
+—— 处理方式：源极和衬底极相连，并使之连接到电路的最低电位。
+工作原理：
+1. $V_{GS}$ 的作用：创建N沟道，控制沟道深度
+2. $V_{DS}$ 的作用：形成漏极电流 $I_{D}$
+为实现MOS管正常工作，两者缺一不可！
+如果没有 $V_{GS}$ 而 只有 $V_{DS}$ ： 将不会有导电的沟道。">
+    <meta property="og:description" content="第四章 场效应管 FET 重点概括  MOSFET器件结构、工作原理、特性及参数 CS放大器的传输特性 MOS放大器偏置电路设计方法  一、MOSFET结构及工作原理 1、简介 定义：FET是一种利用电压控制电流大小的单极性半导体器件。
+特点： 低功耗、低噪声、输入阻抗高、热稳定性好
+分类：
+ MOSFET（金属-氧化物-半导体场效应管）
+ N、P沟道 增强型、耗尽型
+   故MOSFET分为四类：
+NEMOSFET: N沟道增强型；NDMOSFET：N沟道耗尽型；
+PEMOSFET：P沟道增强型；PDMOSFET：P沟道耗尽型；
+ JFET（结型场效应管，本身为耗尽型）
+ N、P沟道   故JFET分为两类：
+NJFET:N沟道耗尽型；PJFET：P沟道耗尽型。
+ 沟道：FET器件内部载流子导电的通路，当导电的载流子为自由电子时称为N沟道；导电载流子为空穴时，称为P沟道。
+  增强型：生产时内部没有导电沟道
+耗尽型：生产时内部已有导电沟道
+ 2、MOSFET结构及工作原理 结构：
+1. 四端子：栅极G(Gate)、源极S(Source)、漏极D(Drain)、衬底极B(Body)
+2. 沟道参数： L、W
+特点：
+1. 对称结构，S极和D极可互换
+2. 源区和漏区分别与衬底之间形成PN结，需保证其反偏。
+—— 处理方式：源极和衬底极相连，并使之连接到电路的最低电位。
+工作原理：
+1. $V_{GS}$ 的作用：创建N沟道，控制沟道深度
+2. $V_{DS}$ 的作用：形成漏极电流 $I_{D}$
+为实现MOS管正常工作，两者缺一不可！
+如果没有 $V_{GS}$ 而 只有 $V_{DS}$ ： 将不会有导电的沟道。">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Archives">
-    <meta property="og:url" content="/archives/">
+    <meta property="og:title" content="模拟电子电路基础 总结（三）">
+    <meta property="og:url" content="/2018/04/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93%E4%B8%89/">
     <meta property="og:site_name" content="Wubaizhe&#39;s Blog">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Wubaizhe&#39;s Blog">
-    <meta name="twitter:description" content="Never quit trying :)">
+    <meta name="twitter:description" content="第四章 场效应管 FET 重点概括  MOSFET器件结构、工作原理、特性及参数 CS放大器的传输特性 MOS放大器偏置电路设计方法  一、MOSFET结构及工作原理 1、简介 定义：FET是一种利用电压控制电流大小的单极性半导体器件。
+特点： 低功耗、低噪声、输入阻抗高、热稳定性好
+分类：
+ MOSFET（金属-氧化物-半导体场效应管）
+ N、P沟道 增强型、耗尽型
+   故MOSFET分为四类：
+NEMOSFET: N沟道增强型；NDMOSFET：N沟道耗尽型；
+PEMOSFET：P沟道增强型；PDMOSFET：P沟道耗尽型；
+ JFET（结型场效应管，本身为耗尽型）
+ N、P沟道   故JFET分为两类：
+NJFET:N沟道耗尽型；PJFET：P沟道耗尽型。
+ 沟道：FET器件内部载流子导电的通路，当导电的载流子为自由电子时称为N沟道；导电载流子为空穴时，称为P沟道。
+  增强型：生产时内部没有导电沟道
+耗尽型：生产时内部已有导电沟道
+ 2、MOSFET结构及工作原理 结构：
+1. 四端子：栅极G(Gate)、源极S(Source)、漏极D(Drain)、衬底极B(Body)
+2. 沟道参数： L、W
+特点：
+1. 对称结构，S极和D极可互换
+2. 源区和漏区分别与衬底之间形成PN结，需保证其反偏。
+—— 处理方式：源极和衬底极相连，并使之连接到电路的最低电位。
+工作原理：
+1. $V_{GS}$ 的作用：创建N沟道，控制沟道深度
+2. $V_{DS}$ 的作用：形成漏极电流 $I_{D}$
+为实现MOS管正常工作，两者缺一不可！
+如果没有 $V_{GS}$ 而 只有 $V_{DS}$ ： 将不会有导电的沟道。">
     
     
 
@@ -46,6 +123,10 @@
     
 
     
+      <meta property="og:image" content="https://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/3bf33a87e950352a47c8cea05343fbf2b3118be9.jpg">
+    
+    
+      <meta property="og:image" content="https://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/3bf33a87e950352a47c8cea05343fbf2b3118be9.jpg">
     
     
 
@@ -69,7 +150,7 @@
 
   <body>
     <div id="blog">
-      <header id="header" data-behavior="2">
+      <header id="header" data-behavior="5">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
     <a class="header-title-link" href="https://wubaizhe.github.io/">Wubaizhe&#39;s Blog</a>
@@ -105,7 +186,7 @@
   TeX: { equationNumbers: { autoNumber: "AMS" } }
   });
 </script>
-      <nav id="sidebar" data-behavior="2">
+      <nav id="sidebar" data-behavior="5">
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
@@ -263,48 +344,329 @@
   </div>
 </nav>
 
-      <div id="main" data-behavior="2"
-        class="
+      
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('https://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/3bf33a87e950352a47c8cea05343fbf2b3118be9.jpg')"
+       data-behavior="5">
+    
+      <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      模拟电子电路基础 总结（三）
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2018-04-01T00:00:00Z">
+        
+  四月 1, 2018
+
+      </time>
+    
+    
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://wubaizhe.github.io/categories/%e8%af%be%e7%a8%8b%e5%ad%a6%e4%b9%a0">课程学习</a>
+    
+  
+
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="5"
+        class="hasCover
                hasCoverMetaIn
                ">
-        <div id="archives" class="main-content-wrap">
-          <form id="filter-form" action="#">
-            <input name="date" type="text" class="form-control input--xlarge" placeholder="搜索日期 (YYYY/MM/DD)" autofocus="autofocus">
-          </form>
-          <h5 class="archive-result text-color-base text-xlarge" data-message-zero="" data-message-one="" data-message-other=""></h5>
-<section class="boxes">
-  
-    
-    <div class="archive archive-year box" data-date="2018">
-      <h4 class="archive-title" style="text-decoration: none;">2018</h4>
-      
-        <ul class="archive-posts archive-month" data-date="201804">
-          <h5 class="archive-title" style="text-decoration: none;">四月</h5>
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
           
-            <li class="archive-post archive-day" data-date="20180401">
-              <a class="archive-post-title" href="https://wubaizhe.github.io/2018/04/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93%E4%B8%89/">模拟电子电路基础 总结（三）</a>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              
+
+<h2 id="第四章-场效应管-fet">第四章 场效应管 FET</h2>
+
+<h3 id="重点概括">重点概括</h3>
+
+<ul>
+<li>MOSFET器件结构、工作原理、特性及参数</li>
+<li>CS放大器的传输特性</li>
+<li>MOS放大器偏置电路设计方法</li>
+</ul>
+
+<hr />
+
+<h3 id="一-mosfet结构及工作原理">一、MOSFET结构及工作原理</h3>
+
+<h4 id="1-简介">1、简介</h4>
+
+<p>定义：FET是一种利用<strong>电压控制电流</strong>大小的单极性半导体器件。</p>
+
+<p>特点： 低功耗、低噪声、输入阻抗高、热稳定性好</p>
+
+<p>分类：</p>
+
+<ul>
+<li>MOSFET（金属-氧化物-半导体场效应管）<br />
+
+<ul>
+<li>N、P沟道</li>
+<li>增强型、耗尽型<br /></li>
+</ul></li>
+</ul>
+
+<p>故MOSFET分为四类：<br />
+NEMOSFET: N沟道增强型；NDMOSFET：N沟道耗尽型；<br />
+PEMOSFET：P沟道增强型；PDMOSFET：P沟道耗尽型；</p>
+
+<hr />
+
+<ul>
+<li>JFET（结型场效应管，本身为耗尽型）<br />
+
+<ul>
+<li>N、P沟道</li>
+</ul></li>
+</ul>
+
+<p>故JFET分为两类：<br />
+NJFET:N沟道耗尽型；PJFET：P沟道耗尽型。</p>
+
+<blockquote>
+<p>沟道：FET器件内部载流子导电的通路，当导电的载流子为自由电子时称为N沟道；导电载流子为空穴时，称为P沟道。</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+<p>增强型：生产时内部没有导电沟道<br />
+耗尽型：生产时内部已有导电沟道</p>
+</blockquote>
+
+<hr />
+
+<h4 id="2-mosfet结构及工作原理">2、MOSFET结构及工作原理</h4>
+
+<p><strong>结构</strong>：<br />
+1. 四端子：栅极G(Gate)、源极S(Source)、漏极D(Drain)、衬底极B(Body)<br />
+2. 沟道参数： L、W</p>
+
+<p><strong>特点</strong>：<br />
+1. 对称结构，S极和D极可互换<br />
+2. 源区和漏区分别与衬底之间形成PN结，需保证其反偏。<br />
+—— 处理方式：源极和衬底极相连，并使之连接到电路的最低电位。</p>
+
+<p><strong>工作原理</strong>：<br />
+1. $V_{GS}$ 的作用：创建N沟道，控制沟道深度<br />
+2. $V_{DS}$ 的作用：形成漏极电流 $I_{D}$</p>
+
+<p>为实现MOS管正常工作，两者<strong>缺一不可</strong>！<br />
+如果<strong>没有 $V_{GS}$</strong> 而 只有 $V_{DS}$ ： 将不会有导电的沟道。<br />
+如果<strong>没有 $V_{DS}$</strong>而 只有 $V_{GS}$ ： 将没有电流。</p>
+
+<p><strong>工作过程</strong><br />
+<img src="https://s1.ax1x.com/2018/04/01/9zVyy6.png" alt="9zVyy6.png" /></p>
+
+<ol>
+<li>$V_{GS} &lt; V_t$ ： 截止状态，工作区称为截止区。<br />
+注：$V_t$ 称为<strong>开启电压</strong>，其值为刚刚开始形成导电沟道所形成的 $V_{GS}$ 电压值<br /></li>
+<li>$V_{GS} &gt; V_t$：形成导电沟道，$V_{GS}$越大，沟道深度越深，等效电阻越小。<br /></li>
+<li>$V_{DS}&gt;0$：在导电沟道上出现漏极电流 $I_{D}$，
+且$I_{D}$随$V_{DS}$的增大而增大。<br /></li>
+<li>$V_{GS} &gt; V_t $ &amp;&amp; $ V_{DS}&lt;V_{GS} - V_t$：工作在变阻区<br /></li>
+<li>$V_{GS} &gt; V_t $ &amp;&amp; $ V_{DS}&gt;V_{GS} - V_t$：沟道预夹断，$I_{D}$达到饱和，工作在饱和区，$V_{DS}$继续增大将出现<strong>沟道长度调制效应</strong>；$V_{DS}$过大时会出现击穿。</li>
+</ol>
+
+<blockquote>
+<p>沟道长度调制效应：$V_{DS}$继续增大使得预夹断点会略向源区移动，等效电阻略有减小，$I_D$略有增大。当L的值为纳米级时需格外关注此效应的作用。</p>
+</blockquote>
+
+<hr />
+
+<h3 id="二-结型场效应管">二、结型场效应管</h3>
+
+<hr />
+
+<h3 id="三-场效应管电路直流偏置">三、场效应管电路直流偏置</h3>
+
+<h4 id="1-fet放大器传输特性">1、FET放大器传输特性</h4>
+
+<p>=</p>
+
+<hr />
+
+<h3 id="四-场效应管放大电路分析-important">四、场效应管放大电路分析 (Important)</h3>
+
+<h4 id="1-重点概括">1、重点概括：</h4>
+
+<ul>
+<li>MOS放大器偏置电路的设计方法</li>
+<li>MOS放大器的分类及基本组态电路的参数分析</li>
+<li>根据工程条件及指标要求，MOS放大器的设计步骤</li>
+</ul>
+
+<hr />
+
+<h2 id="update">Update</h2>
+
+<p>2018/03/22 更新第一章内容<br />
+2018/03/26 更新第四章内容<br />
+2018/04/01 补充第一章和第四章内容<br />
+2018/04/07 更新第二章内容</p>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://wubaizhe.github.io/tags/%E6%80%BB%E7%BB%93/">总结</a>
+
+                  </div>
+                
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://wubaizhe.github.io/2018/03/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93%E4%BA%8C/" data-tooltip="模拟电子电路基础 总结（二）">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
             </li>
           
         </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
       
-        <ul class="archive-posts archive-month" data-date="201803">
-          <h5 class="archive-title" style="text-decoration: none;">三月</h5>
-          
-            <li class="archive-post archive-day" data-date="20180326">
-              <a class="archive-post-title" href="https://wubaizhe.github.io/2018/03/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93%E4%BA%8C/">模拟电子电路基础 总结（二）</a>
-            </li>
-          
-            <li class="archive-post archive-day" data-date="20180322">
-              <a class="archive-post-title" href="https://wubaizhe.github.io/2018/03/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93%E4%B8%80/">模拟电子电路基础 总结（一）</a>
-            </li>
-          
-        </ul>
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
       
-    </div>
-  
-</section>
-        </div>
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2018 Wubaizhe. All Rights Reserved
+  </span>
+</footer>
+
       </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://wubaizhe.github.io/2018/03/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93%E4%BA%8C/" data-tooltip="模拟电子电路基础 总结（二）">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
     </div>
     
     <div id="about">
@@ -533,6 +895,32 @@ $(document).ready(function() {
 });
 </script>
 
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/wubaizhe.github.io\/2018\/04\/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93%E4%B8%89\/';
+          
+            this.page.identifier = '\/2018\/04\/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93%E4%B8%89\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'Beautiful';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
 
 
 
