@@ -6,10 +6,62 @@
     <description>Recent content in Posts on Wubaizhe&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 01 Apr 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 25 Apr 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://wubaizhe.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>python学习笔记</title>
+      <link>https://wubaizhe.github.io/2018/04/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Wed, 25 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://wubaizhe.github.io/2018/04/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>python 学习笔记 前言 虽然用python的各种库解决了很多有趣的问题。
+但对于一些基础的语法知识一直没有系统性地学习过，也成为了进一步更深发展的桎梏。
+可我对于一些文字或视频教程都感觉无比枯燥，后来偶然发现了实验楼这个有趣的平台，对于喜欢动手实践辅助学习的我来说真的是无比欣喜。
+所以准备在实验楼平台系统性学习一下Python的语法，但并不准备写总结性的记录博客，因为个人认为对于python这种实用性极强的语言，基础语法其实并不是关键性的重点，需要用时可以随时查文档。
+故此博客只简单记录一下学习过程中遇到的一些零散但个人感觉很有趣的知识点~
+有趣问题大汇总 #!/usr/bin/env python与#!/usr/bin/python的区别 参考博客
+在很多python代码里，我们常常会见到：
+#!/usr/bin/env python3  首先这行代码中的#!称为Shebang，目的是告诉shell使用指定路径的Python解释器来执行代码。
+而上述两种Shebang代码的区别在于：
+#!/usr/bin/python是告诉操作系统执行这个脚本的时候，调用/usr/bin下的python解释器；
+#!/usr/bin/env python这种用法是为了防止操作系统用户没有将python装在默认的/usr/bin路径里。当系统看到这一行的时候，首先会到env设置里查找python的安装路径，再调用对应路径下的解释器程序完成操作。
+故综上可见：
+#!/usr/bin/python相当于写死了python路径;
+#!/usr/bin/env python会去环境设置寻找python目录,推荐这种写法
+逻辑运算符 and、or 知乎：python中and、or的计算规则是怎样的
+运算规则：
+1. 在纯and语句中，如果每一个表达式都不是假的话，那么返回最后一个，因为需要一直匹配直到最后一个。如果有一个是假，那么返回假。
+2. 在纯or语句中，只要有一个表达式不是假的话，那么就返回这个表达式的值。只有所有都是假，才返回假。
+3. 在or和and语句比较难表达，总而言之，碰到and就往后匹配，碰到or如果or左边的为真，那么就返回or左边的那个值，如果or左边为假，继续匹配or右边的参数。
+优先级：
+1. 在不加括号时候, and优先级大于or
+2. x or y 的值只可能是x或y. x为真就是x, x为假就是y
+3. x and y 的值只可能是x或y. x为真就是y, x为假就是x
+Python定义的Flase value有哪些：
+1. None
+2. False
+3. 任何形式的0，如：0、0L、0.0&amp;hellip;
+4. 如何空序列，如：[]、()、{}&amp;hellip;
+5. 用户自定义的class实现了nonzero等等
+多种需求的print() 输出结构
+对于print()除了打印提供的字符串之外，还默认打印一个换行符，所以每调用一次print()就会换一次行。
+如果需要循环打印1~10在同一行，以空格隔开，我们可以这样写：</description>
+    </item>
+    
+    <item>
+      <title>计算机网络—自顶向下方法（一）</title>
+      <link>https://wubaizhe.github.io/2018/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E4%B8%80/</link>
+      <pubDate>Sat, 21 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://wubaizhe.github.io/2018/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E4%B8%80/</guid>
+      <description> 前言 最近在二手书店买下了这本《计算机网络—自顶向下技术》。
+久闻其在江湖中的传说级地位，自己尝试着看了一下，确实感觉和学校教材有很大不同，自己在这个过程中也有了很多的收获。
+故打算写博客简单总结一下书中的要点，并附上自己的理解，并用于计网课程期末考试的复习材料。
+计算机网络和因特网 </description>
+    </item>
     
     <item>
       <title>模拟电子电路基础 总结（三）</title>

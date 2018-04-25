@@ -6,10 +6,22 @@
     <description>Recent content in 课程学习 on Wubaizhe&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 01 Apr 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Apr 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://wubaizhe.github.io/categories/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>计算机网络—自顶向下方法（一）</title>
+      <link>https://wubaizhe.github.io/2018/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E4%B8%80/</link>
+      <pubDate>Sat, 21 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://wubaizhe.github.io/2018/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E4%B8%80/</guid>
+      <description> 前言 最近在二手书店买下了这本《计算机网络—自顶向下技术》。
+久闻其在江湖中的传说级地位，自己尝试着看了一下，确实感觉和学校教材有很大不同，自己在这个过程中也有了很多的收获。
+故打算写博客简单总结一下书中的要点，并附上自己的理解，并用于计网课程期末考试的复习材料。
+计算机网络和因特网 </description>
+    </item>
     
     <item>
       <title>模拟电子电路基础 总结（三）</title>

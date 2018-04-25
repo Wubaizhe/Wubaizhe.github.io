@@ -20,7 +20,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.32 with theme Tranquilpeak 0.4.3-BETA">
-    <title>模拟电子电路基础 总结（二）</title>
+    <title>python学习笔记</title>
     <meta name="author" content="Wubaizhe">
     <meta name="keywords" content="">
 
@@ -28,90 +28,108 @@
     
 
     
-    <meta name="description" content="第二章 理想运算放大器及其线性应用 重点概括  差分放大器、差模信号、共模信号、差模增益、共模增益、共模抑制比
- 理想放大器特点及建模、“虚短”和“虚断”的定义及应用
- 运放构成的基本组态电路
- 分析和设计利用理想运放实现各类线性电路
- 非理想运放的模型及相关参数
-  一、运算放大器理想模型及分析方法 1.定义：运算放大器（Operational Amplifier），简称运放，是目前最广泛使用的线性集成电路。
-下面这段来自百度百科：
- 运算放大器（简称“运放”）是具有很高放大倍数的电路单元。在实际电路中，通常结合反馈网络共同组成某种功能模块。它是一种带有特殊耦合电路及反馈的放大器。
- 2.电路符号：
-与放大器类似，不同在于存在两个输入端口。
-关系式： $v_o = A(v_{&#43;} - v_{-})$
-可见 运算放大器是一类典型的差分放大器。
-3.补充：
- 差模信号与共模信号：
-对于任意一对信号$v_1$和$v_2$，
-其差模信号定义为： $v_{id} = v_2 - v_1$
-其共模信号定义为：$v_{icm} = \frac{v_1 &#43; v_2}{2}$
-反过来看：
-对于任意一对信号$v_1$和$v_2$，有：
-$v_1 = v_{icm} - \frac{v_{id}}{2}$
-$v_2 = v_{icm} &#43; \frac{v_{id}}{2}$
-即包含大小相等、极性相反的差模信号和大小相等极性相同的共模信号。
- 差分放大器
-特点：放大差模信号、抑制共模信号，有两个输入端口。
-对于一对信号$v_1$和$v_2$，定义：
-$A_{vd} = v_o / v_{id} = v_o / (v_2 - v_1) $ — 差模增益 $A_{vcm} = v_o / v_{icm} = \frac{v_o}{(v_1 &#43; v_2)/2}$ — 共模增益">
-    <meta property="og:description" content="第二章 理想运算放大器及其线性应用 重点概括  差分放大器、差模信号、共模信号、差模增益、共模增益、共模抑制比
- 理想放大器特点及建模、“虚短”和“虚断”的定义及应用
- 运放构成的基本组态电路
- 分析和设计利用理想运放实现各类线性电路
- 非理想运放的模型及相关参数
-  一、运算放大器理想模型及分析方法 1.定义：运算放大器（Operational Amplifier），简称运放，是目前最广泛使用的线性集成电路。
-下面这段来自百度百科：
- 运算放大器（简称“运放”）是具有很高放大倍数的电路单元。在实际电路中，通常结合反馈网络共同组成某种功能模块。它是一种带有特殊耦合电路及反馈的放大器。
- 2.电路符号：
-与放大器类似，不同在于存在两个输入端口。
-关系式： $v_o = A(v_{&#43;} - v_{-})$
-可见 运算放大器是一类典型的差分放大器。
-3.补充：
- 差模信号与共模信号：
-对于任意一对信号$v_1$和$v_2$，
-其差模信号定义为： $v_{id} = v_2 - v_1$
-其共模信号定义为：$v_{icm} = \frac{v_1 &#43; v_2}{2}$
-反过来看：
-对于任意一对信号$v_1$和$v_2$，有：
-$v_1 = v_{icm} - \frac{v_{id}}{2}$
-$v_2 = v_{icm} &#43; \frac{v_{id}}{2}$
-即包含大小相等、极性相反的差模信号和大小相等极性相同的共模信号。
- 差分放大器
-特点：放大差模信号、抑制共模信号，有两个输入端口。
-对于一对信号$v_1$和$v_2$，定义：
-$A_{vd} = v_o / v_{id} = v_o / (v_2 - v_1) $ — 差模增益 $A_{vcm} = v_o / v_{icm} = \frac{v_o}{(v_1 &#43; v_2)/2}$ — 共模增益">
+    <meta name="description" content="python 学习笔记 前言 虽然用python的各种库解决了很多有趣的问题。
+但对于一些基础的语法知识一直没有系统性地学习过，也成为了进一步更深发展的桎梏。
+可我对于一些文字或视频教程都感觉无比枯燥，后来偶然发现了实验楼这个有趣的平台，对于喜欢动手实践辅助学习的我来说真的是无比欣喜。
+所以准备在实验楼平台系统性学习一下Python的语法，但并不准备写总结性的记录博客，因为个人认为对于python这种实用性极强的语言，基础语法其实并不是关键性的重点，需要用时可以随时查文档。
+故此博客只简单记录一下学习过程中遇到的一些零散但个人感觉很有趣的知识点~
+有趣问题大汇总 #!/usr/bin/env python与#!/usr/bin/python的区别 参考博客
+在很多python代码里，我们常常会见到：
+#!/usr/bin/env python3  首先这行代码中的#!称为Shebang，目的是告诉shell使用指定路径的Python解释器来执行代码。
+而上述两种Shebang代码的区别在于：
+#!/usr/bin/python是告诉操作系统执行这个脚本的时候，调用/usr/bin下的python解释器；
+#!/usr/bin/env python这种用法是为了防止操作系统用户没有将python装在默认的/usr/bin路径里。当系统看到这一行的时候，首先会到env设置里查找python的安装路径，再调用对应路径下的解释器程序完成操作。
+故综上可见：
+#!/usr/bin/python相当于写死了python路径;
+#!/usr/bin/env python会去环境设置寻找python目录,推荐这种写法
+逻辑运算符 and、or 知乎：python中and、or的计算规则是怎样的
+运算规则：
+1. 在纯and语句中，如果每一个表达式都不是假的话，那么返回最后一个，因为需要一直匹配直到最后一个。如果有一个是假，那么返回假。
+2. 在纯or语句中，只要有一个表达式不是假的话，那么就返回这个表达式的值。只有所有都是假，才返回假。
+3. 在or和and语句比较难表达，总而言之，碰到and就往后匹配，碰到or如果or左边的为真，那么就返回or左边的那个值，如果or左边为假，继续匹配or右边的参数。
+优先级：
+1. 在不加括号时候, and优先级大于or
+2. x or y 的值只可能是x或y. x为真就是x, x为假就是y
+3. x and y 的值只可能是x或y. x为真就是y, x为假就是x
+Python定义的Flase value有哪些：
+1. None
+2. False
+3. 任何形式的0，如：0、0L、0.0&hellip;
+4. 如何空序列，如：[]、()、{}&hellip;
+5. 用户自定义的class实现了nonzero等等
+多种需求的print() 输出结构
+对于print()除了打印提供的字符串之外，还默认打印一个换行符，所以每调用一次print()就会换一次行。
+如果需要循环打印1~10在同一行，以空格隔开，我们可以这样写：">
+    <meta property="og:description" content="python 学习笔记 前言 虽然用python的各种库解决了很多有趣的问题。
+但对于一些基础的语法知识一直没有系统性地学习过，也成为了进一步更深发展的桎梏。
+可我对于一些文字或视频教程都感觉无比枯燥，后来偶然发现了实验楼这个有趣的平台，对于喜欢动手实践辅助学习的我来说真的是无比欣喜。
+所以准备在实验楼平台系统性学习一下Python的语法，但并不准备写总结性的记录博客，因为个人认为对于python这种实用性极强的语言，基础语法其实并不是关键性的重点，需要用时可以随时查文档。
+故此博客只简单记录一下学习过程中遇到的一些零散但个人感觉很有趣的知识点~
+有趣问题大汇总 #!/usr/bin/env python与#!/usr/bin/python的区别 参考博客
+在很多python代码里，我们常常会见到：
+#!/usr/bin/env python3  首先这行代码中的#!称为Shebang，目的是告诉shell使用指定路径的Python解释器来执行代码。
+而上述两种Shebang代码的区别在于：
+#!/usr/bin/python是告诉操作系统执行这个脚本的时候，调用/usr/bin下的python解释器；
+#!/usr/bin/env python这种用法是为了防止操作系统用户没有将python装在默认的/usr/bin路径里。当系统看到这一行的时候，首先会到env设置里查找python的安装路径，再调用对应路径下的解释器程序完成操作。
+故综上可见：
+#!/usr/bin/python相当于写死了python路径;
+#!/usr/bin/env python会去环境设置寻找python目录,推荐这种写法
+逻辑运算符 and、or 知乎：python中and、or的计算规则是怎样的
+运算规则：
+1. 在纯and语句中，如果每一个表达式都不是假的话，那么返回最后一个，因为需要一直匹配直到最后一个。如果有一个是假，那么返回假。
+2. 在纯or语句中，只要有一个表达式不是假的话，那么就返回这个表达式的值。只有所有都是假，才返回假。
+3. 在or和and语句比较难表达，总而言之，碰到and就往后匹配，碰到or如果or左边的为真，那么就返回or左边的那个值，如果or左边为假，继续匹配or右边的参数。
+优先级：
+1. 在不加括号时候, and优先级大于or
+2. x or y 的值只可能是x或y. x为真就是x, x为假就是y
+3. x and y 的值只可能是x或y. x为真就是y, x为假就是x
+Python定义的Flase value有哪些：
+1. None
+2. False
+3. 任何形式的0，如：0、0L、0.0&hellip;
+4. 如何空序列，如：[]、()、{}&hellip;
+5. 用户自定义的class实现了nonzero等等
+多种需求的print() 输出结构
+对于print()除了打印提供的字符串之外，还默认打印一个换行符，所以每调用一次print()就会换一次行。
+如果需要循环打印1~10在同一行，以空格隔开，我们可以这样写：">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="模拟电子电路基础 总结（二）">
-    <meta property="og:url" content="/2018/03/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93%E4%BA%8C/">
+    <meta property="og:title" content="python学习笔记">
+    <meta property="og:url" content="/2018/04/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
     <meta property="og:site_name" content="Wubaizhe&#39;s Blog">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Wubaizhe&#39;s Blog">
-    <meta name="twitter:description" content="第二章 理想运算放大器及其线性应用 重点概括  差分放大器、差模信号、共模信号、差模增益、共模增益、共模抑制比
- 理想放大器特点及建模、“虚短”和“虚断”的定义及应用
- 运放构成的基本组态电路
- 分析和设计利用理想运放实现各类线性电路
- 非理想运放的模型及相关参数
-  一、运算放大器理想模型及分析方法 1.定义：运算放大器（Operational Amplifier），简称运放，是目前最广泛使用的线性集成电路。
-下面这段来自百度百科：
- 运算放大器（简称“运放”）是具有很高放大倍数的电路单元。在实际电路中，通常结合反馈网络共同组成某种功能模块。它是一种带有特殊耦合电路及反馈的放大器。
- 2.电路符号：
-与放大器类似，不同在于存在两个输入端口。
-关系式： $v_o = A(v_{&#43;} - v_{-})$
-可见 运算放大器是一类典型的差分放大器。
-3.补充：
- 差模信号与共模信号：
-对于任意一对信号$v_1$和$v_2$，
-其差模信号定义为： $v_{id} = v_2 - v_1$
-其共模信号定义为：$v_{icm} = \frac{v_1 &#43; v_2}{2}$
-反过来看：
-对于任意一对信号$v_1$和$v_2$，有：
-$v_1 = v_{icm} - \frac{v_{id}}{2}$
-$v_2 = v_{icm} &#43; \frac{v_{id}}{2}$
-即包含大小相等、极性相反的差模信号和大小相等极性相同的共模信号。
- 差分放大器
-特点：放大差模信号、抑制共模信号，有两个输入端口。
-对于一对信号$v_1$和$v_2$，定义：
-$A_{vd} = v_o / v_{id} = v_o / (v_2 - v_1) $ — 差模增益 $A_{vcm} = v_o / v_{icm} = \frac{v_o}{(v_1 &#43; v_2)/2}$ — 共模增益">
+    <meta name="twitter:description" content="python 学习笔记 前言 虽然用python的各种库解决了很多有趣的问题。
+但对于一些基础的语法知识一直没有系统性地学习过，也成为了进一步更深发展的桎梏。
+可我对于一些文字或视频教程都感觉无比枯燥，后来偶然发现了实验楼这个有趣的平台，对于喜欢动手实践辅助学习的我来说真的是无比欣喜。
+所以准备在实验楼平台系统性学习一下Python的语法，但并不准备写总结性的记录博客，因为个人认为对于python这种实用性极强的语言，基础语法其实并不是关键性的重点，需要用时可以随时查文档。
+故此博客只简单记录一下学习过程中遇到的一些零散但个人感觉很有趣的知识点~
+有趣问题大汇总 #!/usr/bin/env python与#!/usr/bin/python的区别 参考博客
+在很多python代码里，我们常常会见到：
+#!/usr/bin/env python3  首先这行代码中的#!称为Shebang，目的是告诉shell使用指定路径的Python解释器来执行代码。
+而上述两种Shebang代码的区别在于：
+#!/usr/bin/python是告诉操作系统执行这个脚本的时候，调用/usr/bin下的python解释器；
+#!/usr/bin/env python这种用法是为了防止操作系统用户没有将python装在默认的/usr/bin路径里。当系统看到这一行的时候，首先会到env设置里查找python的安装路径，再调用对应路径下的解释器程序完成操作。
+故综上可见：
+#!/usr/bin/python相当于写死了python路径;
+#!/usr/bin/env python会去环境设置寻找python目录,推荐这种写法
+逻辑运算符 and、or 知乎：python中and、or的计算规则是怎样的
+运算规则：
+1. 在纯and语句中，如果每一个表达式都不是假的话，那么返回最后一个，因为需要一直匹配直到最后一个。如果有一个是假，那么返回假。
+2. 在纯or语句中，只要有一个表达式不是假的话，那么就返回这个表达式的值。只有所有都是假，才返回假。
+3. 在or和and语句比较难表达，总而言之，碰到and就往后匹配，碰到or如果or左边的为真，那么就返回or左边的那个值，如果or左边为假，继续匹配or右边的参数。
+优先级：
+1. 在不加括号时候, and优先级大于or
+2. x or y 的值只可能是x或y. x为真就是x, x为假就是y
+3. x and y 的值只可能是x或y. x为真就是y, x为假就是x
+Python定义的Flase value有哪些：
+1. None
+2. False
+3. 任何形式的0，如：0、0L、0.0&hellip;
+4. 如何空序列，如：[]、()、{}&hellip;
+5. 用户自定义的class实现了nonzero等等
+多种需求的print() 输出结构
+对于print()除了打印提供的字符串之外，还默认打印一个换行符，所以每调用一次print()就会换一次行。
+如果需要循环打印1~10在同一行，以空格隔开，我们可以这样写：">
     
     
 
@@ -123,10 +141,10 @@ $A_{vd} = v_o / v_{id} = v_o / (v_2 - v_1) $ — 差模增益 $A_{vcm} = v_o / v
     
 
     
-      <meta property="og:image" content="https://s1.ax1x.com/2018/04/21/CMukwR.jpg">
+      <meta property="og:image" content="https://s1.ax1x.com/2018/04/25/Clfltg.jpg">
     
     
-      <meta property="og:image" content="https://s1.ax1x.com/2018/04/21/CMukwR.jpg">
+      <meta property="og:image" content="https://s1.ax1x.com/2018/04/25/Clfltg.jpg">
     
     
 
@@ -348,21 +366,21 @@ $A_{vd} = v_o / v_{id} = v_o / (v_2 - v_1) $ — 差模增益 $A_{vcm} = v_o / v
   <div class="post-header-cover
               text-center
               "
-       style="background-image:url('https://s1.ax1x.com/2018/04/21/CMukwR.jpg')"
+       style="background-image:url('https://s1.ax1x.com/2018/04/25/Clfltg.jpg')"
        data-behavior="5">
     
       <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      模拟电子电路基础 总结（二）
+      python学习笔记
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-03-26T00:00:00Z">
+      <time itemprop="datePublished" datetime="2018-04-25T00:00:00Z">
         
-  三月 26, 2018
+  四月 25, 2018
 
       </time>
     
@@ -371,7 +389,7 @@ $A_{vd} = v_o / v_{id} = v_o / (v_2 - v_1) $ — 差模增益 $A_{vcm} = v_o / v
   
     <span>发布在</span>
     
-      <a class="category-link" href="https://wubaizhe.github.io/categories/%e8%af%be%e7%a8%8b%e5%ad%a6%e4%b9%a0">课程学习</a>
+      <a class="category-link" href="https://wubaizhe.github.io/categories/%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0">学习笔记</a>
     
   
 
@@ -393,444 +411,145 @@ $A_{vd} = v_o / v_{id} = v_o / (v_2 - v_1) $ — 差模增益 $A_{vcm} = v_o / v
             <div class="main-content-wrap">
               
 
-<h1 id="第二章-理想运算放大器及其线性应用">第二章 理想运算放大器及其线性应用</h1>
+<h1 id="python-学习笔记">python 学习笔记</h1>
 
-<h2 id="重点概括">重点概括</h2>
+<h2 id="前言">前言</h2>
 
-<ul>
-<li>差分放大器、差模信号、共模信号、差模增益、共模增益、共模抑制比<br /></li>
-<li>理想放大器特点及建模、“虚短”和“虚断”的定义及应用<br /></li>
-<li>运放构成的基本组态电路<br /></li>
-<li>分析和设计利用理想运放实现各类线性电路<br /></li>
-<li>非理想运放的模型及相关参数<br /></li>
-</ul>
+<p>虽然用python的各种库解决了很多有趣的问题。<br />
+但对于一些基础的语法知识一直没有系统性地学习过，也成为了进一步更深发展的桎梏。<br />
+可我对于一些文字或视频教程都感觉无比枯燥，后来偶然发现了<a href="https://www.shiyanlou.com/courses/596">实验楼</a>这个有趣的平台，对于喜欢动手实践辅助学习的我来说真的是无比欣喜。</p>
 
-<hr />
+<p>所以准备在实验楼平台系统性学习一下Python的语法，但并不准备写总结性的记录博客，因为个人认为对于python这种实用性极强的语言，基础语法其实并不是关键性的重点，需要用时可以随时查文档。</p>
 
-<h2 id="一-运算放大器理想模型及分析方法">一、运算放大器理想模型及分析方法</h2>
-
-<p><strong>1.定义</strong>：运算放大器（Operational Amplifier），简称运放，是目前最广泛使用的线性集成电路。<br />
-下面这段来自百度百科：</p>
-
-<blockquote>
-<p>运算放大器（简称“运放”）是具有很高放大倍数的电路单元。在实际电路中，通常结合反馈网络共同组成某种功能模块。它是一种带有特殊耦合电路及反馈的放大器。</p>
-</blockquote>
+<p>故此博客只简单记录一下学习过程中遇到的一些零散但<strong>个人感觉很有趣</strong>的知识点~</p>
 
 <hr />
 
-<p><strong>2.电路符号：</strong><br />
-<img src="https://s1.ax1x.com/2018/04/02/CS1UyQ.png" alt="CS1UyQ.png" /></p>
+<h2 id="有趣问题大汇总">有趣问题大汇总</h2>
 
-<p>与放大器类似，不同在于存在两个输入端口。<br />
-关系式： $v_o = A(v_{+} - v_{-})$<br />
-可见 运算放大器是一类典型的<strong>差分放大器</strong>。</p>
+<h3 id="usr-bin-env-python与-usr-bin-python的区别">#!/usr/bin/env python与#!/usr/bin/python的区别</h3>
 
-<hr />
+<p><a href="https://blog.csdn.net/wh_19910525/article/details/8040494">参考博客</a></p>
 
-<p><strong>3.补充：</strong></p>
+<p>在很多python代码里，我们常常会见到：</p>
 
-<ul>
-<li><p><strong>差模信号与共模信号</strong>：<br />
-对于任意一对信号$v_1$和$v_2$，<br />
-其差模信号定义为： $v_{id} = v_2 - v_1$<br />
-其共模信号定义为：$v_{icm} = \frac{v_1 + v_2}{2}$<br />
-反过来看：<br />
-对于任意一对信号$v_1$和$v_2$，有：<br />
-$v_1 = v_{icm} - \frac{v_{id}}{2}$<br />
-$v_2 = v_{icm} + \frac{v_{id}}{2}$<br />
-即包含大小相等、<strong>极性相反</strong>的<strong>差模信号</strong>和大小相等<strong>极性相同</strong>的<strong>共模信号</strong>。</p></li>
+<pre><code class="language-python">#!/usr/bin/env python3
+</code></pre>
 
-<li><p><strong>差分放大器</strong><br />
-特点：放大差模信号、抑制共模信号，有两个输入端口。<br />
-对于一对信号$v_1$和$v_2$，定义：<br />
-$A_{vd} = v_o / v_{id} = v_o / (v_2 - v_1) $  — 差模增益
-$A_{vcm} = v_o / v_{icm} = \frac{v_o}{(v_1 + v_2)/2}$  — 共模增益<br />
-$CMRR = |A_{vd}/A_{vcm}|$ — 共模抑制比</p></li>
-</ul>
+<p>首先这行代码中的<strong>#!</strong>称为Shebang，目的是告诉shell使用指定路径的Python解释器来执行代码。</p>
+
+<p>而上述两种Shebang代码的区别在于：<br />
+#!/usr/bin/python是告诉操作系统执行这个脚本的时候，调用/usr/bin下的python解释器；</p>
+
+<p>#!/usr/bin/env python这种用法是为了防止操作系统用户没有将python装在默认的/usr/bin路径里。当系统看到这一行的时候，首先会到env设置里查找python的安装路径，再调用对应路径下的解释器程序完成操作。</p>
+
+<p>故综上可见：<br />
+#!/usr/bin/python相当于写死了python路径;<br />
+#!/usr/bin/env python会去环境设置寻找python目录,推荐这种写法</p>
 
 <hr />
 
-<p><strong>4.理想运算放大器特点</strong>：</p>
+<h3 id="逻辑运算符-and-or">逻辑运算符 and、or</h3>
 
-<ul>
-<li>无限大差模开环增益<br /></li>
-<li>无限大共模抑制比或零共模增益<br /></li>
-<li>无限大输入阻抗<br /></li>
-<li>零输出阻抗<br /></li>
-<li>无限大带宽<br /></li>
-<li>零失调和零漂移<br /></li>
-</ul>
+<p><a href="https://www.zhihu.com/question/20152384">知乎：python中and、or的计算规则是怎样的</a></p>
 
-<hr />
+<p><strong>运算规则：</strong><br />
+1. 在纯and语句中，如果每一个表达式都不是假的话，那么返回最后一个，因为需要一直匹配直到最后一个。如果有一个是假，那么返回假。<br />
+2. 在纯or语句中，只要有一个表达式不是假的话，那么就返回这个表达式的值。只有所有都是假，才返回假。<br />
+3. 在or和and语句比较难表达，总而言之，碰到and就往后匹配，碰到or如果or左边的为真，那么就返回or左边的那个值，如果or左边为假，继续匹配or右边的参数。</p>
 
-<p><strong>5.虚短+虚断的推导</strong><br />
-应用理想运放模型，得：<br />
-$v_{+} - v_{-} = \frac{v_{o}}{A}$<br />
-因$A \rightarrow \infty$<br />
-得： $v_{+} \rightarrow v_{-}$</p>
+<p><strong>优先级：</strong><br />
+1. 在不加括号时候, and优先级大于or<br />
+2. x or y 的值只可能是x或y. x为真就是x, x为假就是y<br />
+3. x and y 的值只可能是x或y. x为真就是y, x为假就是x</p>
 
-<p>又输入电阻 $\rightarrow \infty$<br />
-则 $i_{+} = i_{-} \rightarrow 0$</p>
+<p><strong>Python定义的Flase value有哪些</strong>：<br />
+1. None<br />
+2. False<br />
+3. 任何形式的0，如：0、0L、0.0&hellip;<br />
+4. 如何空序列，如：[]、()、{}&hellip;<br />
+5. 用户自定义的class实现了<strong>nonzero</strong>等等</p>
 
-<hr />
+<h3 id="多种需求的print">多种需求的print()</h3>
 
-<h2 id="二-集成运放基本组态电路">二、 集成运放基本组态电路</h2>
+<p><strong>输出结构</strong><br />
+对于print()除了打印提供的字符串之外，还默认打印一个换行符，所以每调用一次print()就会换一次行。<br />
+如果需要循环打印1~10在同一行，以空格隔开，我们可以这样写：</p>
 
-<h3 id="反相组态">反相组态</h3>
+<pre><code class="language-python">cnt = 1
+while cnt &lt;= 10:
+    print(cnt,end = ' ')
+</code></pre>
 
-<blockquote>
-<p>背景： 由理想运放模型，差模增益为无限大，即很微弱的输入也能有无穷大的输出，可这在实际电路中是不可能实现的，为了方便地保证线性放大效果，引入负反馈技术，进而出现了反相组态。</p>
-</blockquote>
+<p>故使用规定的end参数来替换换行符即可。</p>
 
-<hr />
+<p><strong>数据的格式化输出</strong><br />
+使用format()即可。<br />
+其规则类似于C语言的格式化输出，而在python中使用 : 代替 %</p>
 
-<p><a href="https://imgchr.com/i/CPdpcj"><img src="https://s1.ax1x.com/2018/04/07/CPdpcj.md.png" alt="CPdpcj.md.png" /></a></p>
+<p>如：</p>
 
-<p><strong>1.增益分析：</strong><br />
-1. 由图可知，同相输入端接地，故$v_{+}  = 0$<br />
-2. 由理想运放的虚短性质，得： $v_{-} = v_{+} = 0$<br />
-3. 由理想运放的虚断性质，得：$i_{+}  = i_{-} = 0$<br />
-4. 由KCL性质，得$i_2 = i_i = v_i / R_1 = -v_o/R_2$<br />
-5. 综上得出： $A_v = v_o/v_i = -R2/R1$</p>
+<pre><code class="language-python">import math
+print(&quot;e = {:.5f}&quot;.format(math.e))
+</code></pre>
 
-<p>具体过程可参照下图：<br />
-<a href="https://imgchr.com/i/CPdeCF"><img src="https://s1.ax1x.com/2018/04/07/CPdeCF.md.png" alt="CPdeCF.md.png" /></a></p>
+<h3 id="列表的切片">列表的切片</h3>
 
-<hr />
+<p>现在有一个列表a：</p>
 
-<p><strong>2.反相组态的输入和输出电阻</strong></p>
+<pre><code class="language-python">&gt;&gt;&gt; a = [ 1, 342, 223, 'India', 'Fedora']
+&gt;&gt;&gt; a
+[1, 342, 223, 'India', 'Fedora']
+</code></pre>
 
-<p>由定义：<br />
-$R_{i} = \frac{v_i}{i_i} = R_1$<br />
-$R_{o} \rightarrow 0$</p>
+<p><strong>求切片可以看成取子集的拓展功能</strong><br />
+注意所求区间为左闭右开！<br />
+使用举例如下：</p>
 
-<hr />
+<pre><code class="language-python">&gt;&gt;&gt; a[0:-1]
+[1, 342, 223, 'India']
+&gt;&gt;&gt; a[2:-2]
+[223]
+</code></pre>
 
-<p><strong>3.拓展：一个有趣的问题</strong><br />
-Q：该电路符合理想电压放大器要求吗？<br />
-A：不符合，理想电压放大器的输入电阻$R_{i}$应该满足$R_i \rightarrow \infty$</p>
+<p><strong>对于缺省值：</strong><br />
+缺省的第一个索引默认为0，而第二个索引默认为列表的长度。</p>
 
-<hr />
+<pre><code class="language-python">&gt;&gt;&gt; a[:-2]
+[1, 342, 223]
+&gt;&gt;&gt; a[-2:]
+['India', 'Fedora']
+</code></pre>
 
-<h3 id="同相组态">同相组态</h3>
+<p><strong>无意义的切片索引处理</strong><br />
+python能优雅地处理没有意义的切片索引：<br />
+过大的索引值将被列表实际长度所代替，而当上边界大于下边界时，将返回空列表。</p>
 
-<p><img src="https://s1.ax1x.com/2018/04/07/CPdYCD.png" alt="CPdYCD.png" /></p>
+<p><strong>设置步长</strong><br />
+举例：</p>
 
-<p><strong>1.增益分析</strong>：<br />
-1. 由理想运放的虚短性质，得： $v_{-} = v_{+} = v_{i}$<br />
-2. 故通过$R_1$电流$i_1 = v_i / R_1$<br />
-3. 由理想运放的虚断性质，得：$i_{+}  = i_{-} = 0$<br />
-4. 故通过$R_2$的电流$i_2 = i_1$<br />
-5. 由上式推出$\frac{v_i}{R_1} = \frac{v_o-v_i}{R_2}$<br />
-6. 综上得出： $A_v = \frac{v_o}{v_i} =  1 + \frac{R_2}{R_1}$</p>
+<pre><code class="language-python">&gt;&gt;&gt; a[1::2]
+[342, 'India']
+</code></pre>
 
-<p>具体过程可参考下图：<br />
-<a href="https://imgchr.com/i/CPBfrd"><img src="https://s1.ax1x.com/2018/04/07/CPBfrd.md.png" alt="CPBfrd.md.png" /></a></p>
+<p>可见，其所取元素的索引为：1、3、5&hellip;<br />
+即步长为2。</p>
 
-<hr />
+<h3 id="关于set的pop-和add-顺序">关于set的pop()和add()顺序</h3>
 
-<p><strong>2.同相组态的输入和输出电阻</strong><br />
-由虚端，$i_i \approx 0$，故：<br />
-$R_i = v_i / i_i \rightarrow 0$</p>
+<p><a href="https://stackoverflow.com/questions/3949310/how-is-set-implemented">参考：stackoverflow</a></p>
 
-<p>而输出电阻的求解跟反相组态相同：<br />
-$R_o \rightarrow \infty$</p>
+<p>python中的set与C++中的set在实现上是存在差别的。<br />
+对于C++中的set，是基于平衡二叉树实现，其存取操作均为O(logn)的时间复杂度，但我们可以以确定的顺序对树进行遍历，对于任意节点，我们均可以很方便地找到其前驱和后继节点。</p>
 
-<hr />
+<p>而对于python中的set，是严格的无序，以至于当你同样的代码使用不同的机器运行时，其顺序均有可能不同。<br />
+其实现是基于哈希表实现，存取时间可以看成O(1)，但也失去了查找前驱后继节点的能力。</p>
 
-<p><strong>3.特例：电压跟随器</strong>
-<img src="https://s1.ax1x.com/2018/04/07/CPBoIP.png" alt="CPBoIP.png" /></p>
+<h3 id="列表推导式">列表推导式</h3>
 
-<p>特点：</p>
+<h3 id="input-split">input().split()</h3>
 
-<ul>
-<li>$A_v  \rightarrow 1$<br /></li>
-<li>近乎理想的缓冲放大器，能连接高阻抗信号源和低阻抗负载，进行阻抗匹配。<br /></li>
-<li>不可用导线代替！！！<br /></li>
-</ul>
-
-<p><strong>4.拓展：阻抗匹配</strong></p>
-
-<blockquote>
-<p>信号传输过程中负载阻抗和信源内阻抗之间的特定配合关系。一件器材的输出阻抗和所连接的负载阻抗之间所应满足的某种关系，以免接上负载后对器材本身的工作状态产生明显的影响。</p>
-</blockquote>
-
-<p><a href="https://zhidao.baidu.com/question/468402543.html">通俗理解</a> (来自百度知道)：<br />
-如果把电压比作速度、把电流比作力量：<br />
-比如两个人，一个干瘦，力量不大但跑路速度快，另一个是胖子，虽然动作较慢，但有力量。<br />
-如果你让瘦子跑腿去送信、让胖子搬运货物，这活就安排对了，这叫阻抗匹配；<br />
-如果你让胖子跑腿去送信、让瘦子干体力活，虽然也能做，但谁都干不好，这叫不匹配。<br />
-瘦子速度快力量小，相当于电压高电流小，适合高阻抗的工作；<br />
-胖子速度慢力量大，相当于电压低电流大，适合低阻抗的工作。<br />
-虽然他们的工钱（功率）都一样，但只有工作（阻抗）匹配了，才能让他们发挥得最好。</p>
-
-<hr />
-
-<h2 id="三-运放应用电路">三、 运放应用电路</h2>
-
-<p><strong>1.重点关注</strong></p>
-
-<ol>
-<li>电路功能<br /></li>
-<li>分析方法<br /></li>
-</ol>
-
-<hr />
-
-<p><strong>2.反相求和电路</strong><br />
-<img src="https://s1.ax1x.com/2018/04/08/CPgkQK.png" alt="CPgkQK.png" /></p>
-
-<p>利用叠加原理：<br />
-$$\frac{v_{i1}}{R_1} + \frac{v_{i2}}{R_2} + \frac{v_{i3}}{R_3} = - \frac{v_o}{R_4}$$<br />
-推出：<br />
-$$v_o = -\frac{R_{4}}{R_1} v_{i1} -  \frac{R_{4}}{R_2}v_{i2} - \frac{R_{4}}{R_3}v_{i3} $$</p>
-
-<hr />
-
-<p><strong>3.同相求和电路</strong><br />
-<img src="https://s1.ax1x.com/2018/04/08/CPgJeg.png" alt="CPgJeg.png" /></p>
-
-<p>分析同上的叠加原理，得：<br />
-$$v_{o1} = (1+\frac{R_4}{R_5}) \frac{R_2 || R_3}{R_1 + R_2 || R_3} v_{i1}$$
-$$v_{o2} = (1+\frac{R_4}{R_5}) \frac{R_1 || R_3}{R_2 + R_1 || R_3} v_{i2}$$
-$$v_{o3} = (1+\frac{R_4}{R_5}) \frac{R_1 || R_2}{R_3 + R_1|| R_2} v_{i3}$$</p>
-
-<p>综上得：<br />
-$$v_o =  (1+\frac{R_4}{R_5}) \frac{R_2 || R_3}{R_1 + R_2 || R_3} v_{i1} +  (1+\frac{R_4}{R_5}) \frac{R_1 || R_3}{R_2 + R_1 || R_3} v_{i2} + (1+\frac{R_4}{R_5}) \frac{R_1 || R_2}{R_3 + R_1|| R_2} v_{i3}$$</p>
-
-<hr />
-
-<p><strong>4.求差电路（减法电路）</strong>
-<img src="https://s1.ax1x.com/2018/04/08/CPfB4J.png" alt="CPfB4J.png" /></p>
-
-<p>同上，利用叠加原理得：<br />
-$$v_o = (1+\frac{R_2}{R_1}) \frac{R_4}{R_3+R_4}v_{i2} - \frac{R_2}{R_1}v_{i1}$$</p>
-
-<p>为实现差分放大器的设计，即$v_o = A(v_{i2} - v_{i1})$<br />
-我们令<br />
-$$(1+\frac{R_2}{R_1}) \frac{R_4}{R_3+R_4} = \frac{R_2}{R_1}$$<br />
-得到：<br />
-$$\frac{R_4}{R_3} = \frac{R_2}{R_1}$$<br />
-取$R_1 = R_3，R_2 = R_4$</p>
-
-<p>最终表达式：$v_o = \frac{R_2}{R_1} (v_{i2} - v_{i1})$</p>
-
-<hr />
-
-<p><strong>5.差分放大器的参数</strong><br />
-由图和理想运放的性质易得：<br />
-$$R_i = \frac{v_{i2} - v_{i1}}{i_i} = R_1 + R_3 = 2R_1$$
-$$R_o \rightarrow 0$$</p>
-
-<hr />
-
-<p><strong>6.仪用运算放大器（三运放电路）</strong></p>
-
-<p><strong>实际意义</strong>：对于微弱信号，放大的同时需要滤除干扰，仪用放大器在该领域得到了广泛的应用。</p>
-
-<p><img src="https://s1.ax1x.com/2018/04/08/CPhsIg.png" alt="CPhsIg.png" /></p>
-
-<p>分析：本质上为<strong>差分放大器</strong>，由两级放大器级联<br />
-A1: $v_+ = v_- = v_{i1}$<br />
-A2: $v_+ = v_- = v_{i2}$<br />
-且  $i_1 = i_2 = i_3$<br />
-得：<br />
-$$\frac{v_{i2} - v_{i1}}{2R_1} = \frac{v_{o2} - v_{i2}}{R_2} = \frac{v_{i1} - v_{o1}}{R_2}$$<br />
-即：<br />
-$$v_{o2} - v_{o1} = (1+\frac{R_2}{R_1})(v_{i2} - v_{i1})$$</p>
-
-<p>对于A3:<br />
-$$v_o = \frac{R_4}{R_3}(1+\frac{R_2}{R_1})(v_{i2} - v_{i1})$$</p>
-
-<p><strong>小结</strong><br />
-差模增益非常大。且：<br />
-$$R_i \rightarrow \infty$$
-$$R_o \rightarrow 0$$</p>
-
-<hr />
-
-<h3 id="积分电路和微分电路">积分电路和微分电路**</h3>
-
-<p><strong>1背景：</strong></p>
-
-<ul>
-<li>积分本质上是求和过程<br /></li>
-<li>微分是确定函数瞬时变化率的过程<br /></li>
-<li>均为信号处理模块中重要的单元电路<br /></li>
-</ul>
-
-<hr />
-
-<p><strong>2 理想积分电路</strong><br />
-<img src="https://s1.ax1x.com/2018/04/21/CMF0mV.png" alt="CMF0mV.png" /></p>
-
-<p><strong>3.输出信号分析：</strong><br />
-由图知：<br />
-$i_1(t) = i_2(t) = v_{i}(t) / R$</p>
-
-<p>假设电容的初始电压为：    $v_c(0) = V_{c}$<br />
-则：<br />
-$$v_c(t) = V_c + \frac{1}{C} \int_{0}^{t} i_1(t) dt$$<br />
-由 $v_c(t) = -v_o(t)$，因此：<br />
-$$v_o(t) = -\frac{1}{RC} \int_{0}^{t} v_i(t)dt - V_c$$</p>
-
-<hr />
-
-<p><strong>4.一个有趣的思考题：</strong><br />
-如果该电路输入信号中存在直流分量，则会发生什么情况？</p>
-
-<p>回答：因电容对直流分量开路，故该电路对于直流分量具有无限大的放大增益，而运放的输出信号是受限制的，故即使直流分量非常微弱，随着电路运行时间的延长，运放的输出信号也会达到饱和，<strong>电路将失去积分功能！</strong></p>
-
-<p>故我们需要一个解决方案，故得出了下面这个改进的积分电路 — 米勒积分器</p>
-
-<hr />
-
-<p><strong>5.米勒积分器</strong><br />
-<img src="https://s1.ax1x.com/2018/04/21/CMFBwT.png" alt="CMFBwT.png" /></p>
-
-<p>增加一个大电阻$R_F$。<br />
-高频时：容抗小而电阻阻值大，故电阻影响可忽略。<br />
-低频时：电阻提供电容器放电通路，减小积分器的直流增益，保证积分功能的运行。</p>
-
-<hr />
-
-<p><strong>6.微分电路</strong><br />
-<img src="https://s1.ax1x.com/2018/04/21/CMFDTU.png" alt="CMFDTU.png" /></p>
-
-<p>同上分析，通过电路作为桥梁，得：<br />
-$$v_o = -RC \frac{dv_i}{dt}$$</p>
-
-<p>微分电路：除了可作微分运算外，还可以实现波形转换，如：将三角波转换为矩形波。<br />
-实际应用中为减少<strong>高频噪声</strong>，我们常在电容器前串联一个小电阻。</p>
-
-<p><strong>7.又一个有趣的问题：</strong>
-对于优化电路结构方面，为什么在微分电路中电容串联小电阻，
-而在积分电路中电容并联大电阻？</p>
-
-<p>回答：这个问题要从频率响应上给予解释，微分电路在频域上体现出一个高通结构，串联电阻可以改变其高通的3dB频率大小，积分电路是低通结构，并联电阻也可以达到低通的3dB频率大小。但是不能使得新的频率点离原来的频率点太远，影响积分和微分本身的功能，因此工程设计上给出这样的设计建议</p>
-
-<hr />
-
-<h2 id="非理想运放的工作性能">非理想运放的工作性能</h2>
-
-<h3 id="增益与带宽">增益与带宽：</h3>
-
-<p><img src="https://s1.ax1x.com/2018/04/21/CMAOdf.png" alt="CMAOdf.png" /></p>
-
-<p>各参数如下：<br />
-$A_0$：开环差模增益（直流增益）<br />
-$f_b$：3dB频率，上限截止频率<br />
-$f_t$：单位增益频率<br />
-$GBW$：增益带宽积<br />
-对于选定的器件，GBW为常数，另外有：$f_t = A_0f_b$</p>
-
-<hr />
-
-<h3 id="运放的大信号参数">运放的大信号参数</h3>
-
-<p>**1.输出饱和电压： **<br />
-<img src="https://s1.ax1x.com/2018/04/21/CMAXo8.png" alt="CMAXo8.png" /><br />
-$V_{omax}$、$V_{omin}$分别在低于电源绝对值的$1V$左右范围内。</p>
-
-<hr />
-
-<p>**2.输出电流限制： **<br />
-<img src="https://s1.ax1x.com/2018/04/21/CMAvFS.png" alt="CMAvFS.png" /></p>
-
-<p>这个电流包括反馈电流和提供给负载的电流。</p>
-
-<hr />
-
-<p><strong>3.摆率（Slew Rate）</strong><br />
-即阶跃信号驱动下放大器输出电压变化的最大速率。<br />
-有：<br />
-$$SR = \frac{dv_o}{dt} |_{max} (V/ \mu s)$$</p>
-
-<hr />
-
-<p><strong>4.全功率带宽</strong><br />
-放大器能够处理的<strong>最大信号频率</strong><br />
-由带宽和摆率共同决定：<br />
-$$f_M = \frac{SR}{2\pi V_{op}}$$<br />
-其中$V_{op}$代表输出信号的最高峰值。</p>
-
-<hr />
-
-<h3 id="运放的直流参数">运放的直流参数</h3>
-
-<p>讨论背景：当运放的两个输入端均接地，输出信号<strong>不为零</strong>！<br />
-原因：运放内部电路不对称，而引起输入端口直流偏置不对称，最终导致输出电压不为0。</p>
-
-<hr />
-
-<p>称上述现象为：<strong>失调现象</strong>！<br />
-（故当使用集成运算放大器时，应首先对于电路调零。）</p>
-
-<p><strong>1.失调电压</strong><br />
-$V_{os}$一般很小，为mv级。</p>
-
-<p>那应该如何调零呢？<br />
-调零电路如下图所示：<br />
-<img src="https://s1.ax1x.com/2018/04/21/CME0mt.png" alt="CME0mt.png" /></p>
-
-<p>通过调节滑动变阻器，调节失调电压近似于0即可。</p>
-
-<p><strong>2.失调电流</strong>
-<img src="https://s1.ax1x.com/2018/04/21/CMEgpQ.png" alt="CMEgpQ.png" /><br />
-$I_{OS} = |I_{B1} - I_{B2}|$</p>
-
-<p>那应该如何解决呢？<br />
-<strong>平衡电阻</strong>。<br />
-<img src="https://s1.ax1x.com/2018/04/21/CMER6s.png" alt="CMER6s.png" /></p>
-
-<p>引入平衡电阻:$R_3 = R_1 || R_2 $</p>
-
-<hr />
-
-<h3 id="运放增益的频率依赖性">运放增益的频率依赖性</h3>
-
-<p><strong>1.运动开环增益的幅频响应</strong><br />
-<img src="https://s1.ax1x.com/2018/04/21/CMAOdf.png" alt="CMAOdf.png" /></p>
-
-<p>分析知：<br />
-$$A(s) = \frac{A_0}{1+s/ \omega_{b}}$$<br />
-令 $s = j \omega$<br />
-则：<br />
-$$A(j\omega) = \frac{A_0}{1 + j\omega / \omega_{b}}$$</p>
-
-<p>当$\omega &gt;&gt; \omega_{b}$时，可得：<br />
-$A(j\omega) \approx \frac{A_0}{j\omega / \omega_{b}}$<br />
-则：<br />
-$$|A(j\omega)| = \frac{A_0 \omega_{b}}{\omega}$$</p>
-
-<p>故针对电压型运放，增益带宽积为常数。<br />
-有：$\omega_{t} = A_0 \omega_{b}$</p>
-
-<hr />
-
-<p><strong>2.开环增益A有限时的闭环增益</strong><br />
-反向组态：
-$$A_{v} = \frac{-R_2 / R_1}{1 + (1 + R_2/R_1)/A }$$</p>
-
-<p>同相组态：<br />
-$$A_{v} = \frac{1 + R_2 / R_1}{1 + (1 + R_2/R_1)/A }$$</p>
-
-<p>小结：运放的开环增益对于闭环增益是存在影响的，$A$越大，这个影响越小。</p>
-
-<p><strong>3.反相组态的频率响应</strong>
-将开环增益$A_{v}$的表达式代入到闭环中，得到：<br />
-$$A_{v}(s) \approx \frac{-R_2 / R_1}{1 + \frac{s}{\omega_{t}/(1+R_2/R_1) }}$$</p>
-
-<p>可见：反相组态电路仍为一阶低通STC滤波器，有：
-$$\omega_{3dB} = \omega_{t} / (1 + R_2/R_1)$$</p>
-
-<hr />
-
-<p><strong>4.同相组态的频率响应</strong><br />
-同上，我们可以得到：
-$$A_{v}(s) \approx \frac{1+R_2 / R_1}{1 + \frac{s}{\omega_{t}/(1+R_2/R_1) }}$$</p>
-
-<p>$$\omega_{3dB} = \omega_{t} / (1 + R_2/R_1)$$</p>
+<h3 id="str-rjust">str.rjust()</h3>
 
               
             </div>
@@ -856,7 +575,7 @@ $$A_{v}(s) \approx \frac{1+R_2 / R_1}{1 + \frac{s}{\omega_{t}/(1+R_2/R_1) }}$$</
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://wubaizhe.github.io/2018/04/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93%E4%B8%89/" data-tooltip="模拟电子电路基础 总结（三）">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -864,7 +583,7 @@ $$A_{v}(s) \approx \frac{1+R_2 / R_1}{1 + \frac{s}{\omega_{t}/(1+R_2/R_1) }}$$</
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://wubaizhe.github.io/2018/03/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93%E4%B8%80/" data-tooltip="模拟电子电路基础 总结（一）">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://wubaizhe.github.io/2018/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E4%B8%80/" data-tooltip="计算机网络—自顶向下方法（一）">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -924,7 +643,7 @@ $$A_{v}(s) \approx \frac{1+R_2 / R_1}{1 + \frac{s}{\omega_{t}/(1+R_2/R_1) }}$$</
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://wubaizhe.github.io/2018/04/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93%E4%B8%89/" data-tooltip="模拟电子电路基础 总结（三）">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">下一篇</span>
@@ -932,7 +651,7 @@ $$A_{v}(s) \approx \frac{1+R_2 / R_1}{1 + \frac{s}{\omega_{t}/(1+R_2/R_1) }}$$</
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://wubaizhe.github.io/2018/03/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93%E4%B8%80/" data-tooltip="模拟电子电路基础 总结（一）">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://wubaizhe.github.io/2018/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E4%B8%80/" data-tooltip="计算机网络—自顶向下方法（一）">
               
                   <span class="hide-xs hide-sm text-small icon-mr">上一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -1277,9 +996,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/wubaizhe.github.io\/2018\/03\/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93%E4%BA%8C\/';
+          this.page.url = 'https:\/\/wubaizhe.github.io\/2018\/04\/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0\/';
           
-            this.page.identifier = '\/2018\/03\/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80-%E6%80%BB%E7%BB%93%E4%BA%8C\/'
+            this.page.identifier = '\/2018\/04\/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0\/'
           
         };
         (function() {
